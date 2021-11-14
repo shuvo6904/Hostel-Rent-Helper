@@ -305,9 +305,8 @@ public class Profile extends AppCompatActivity {
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                if (value.getString("profileImg").isEmpty() || value.getString("backImageIdentity").isEmpty() ||
-                    value.getString("frontImageIdentity").isEmpty() || value.getString("emailVerification").isEmpty()){
-                    Toast.makeText(Profile.this, "Profile Not Completed", Toast.LENGTH_SHORT).show();
+                if (value.getString("profileImg").isEmpty() || value.getString("frontImageIdentity").isEmpty() ||
+                        value.getString("emailVerification").isEmpty()){
                 }
 
                 else {

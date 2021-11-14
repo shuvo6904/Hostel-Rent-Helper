@@ -120,7 +120,6 @@ public class RegisterActivity extends AppCompatActivity {
                 user.put("PhnNumber",strPhnNum);
                 user.put("profileImg", "");
                 user.put("frontImageIdentity", "");
-                user.put("backImageIdentity", "");
                 user.put("emailVerification", "");
                 user.put("isProfileCompleted", "");
                 user.put("isAdmin", "");

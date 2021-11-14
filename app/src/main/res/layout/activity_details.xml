@@ -72,7 +72,7 @@
                 android:id="@+id/homeLocationId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_baseline_location_black"
+                android:drawableStart="@drawable/ic_baseline_location"
                 android:text="Address : "
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -105,7 +105,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.4"
-                            android:drawableStart="@drawable/ic_baseline_home_black"
+                            android:drawableStart="@drawable/ic_home"
                             android:text="Building Name : "
                             android:textColor="#675E5E"
                             android:textSize="18sp" />
@@ -115,7 +115,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.1"
-                            android:drawableStart="@drawable/stairswithhandrail"
+                            android:drawableStart="@drawable/ic_floor"
                             android:text=" Floor Number : "
                             android:textColor="#675E5E"
                             android:textSize="18sp" />
@@ -138,7 +138,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.4"
-                            android:drawableStart="@drawable/takacurrencysymbol"
+                            android:drawableStart="@drawable/ic_taka"
                             android:text="Rented Amount : "
                             android:textColor="#675E5E"
                             android:textSize="18sp" />
@@ -148,7 +148,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.1"
-                            android:drawableStart="@drawable/gendericon"
+                            android:drawableStart="@drawable/ic_gendericon"
                             android:text="Gender Type : "
                             android:textColor="#675E5E"
                             android:textSize="18sp" />
@@ -180,7 +180,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.1"
-                            android:drawableStart="@drawable/renttype"
+                            android:drawableStart="@drawable/ic_rent_type"
                             android:text=" Rent Type: "
                             android:textColor="#675E5E"
                             android:textSize="18sp" />
@@ -218,7 +218,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.4"
-                            android:drawableStart="@drawable/ic_baseline_electrical_services_24"
+                            android:drawableStart="@drawable/ic_elcetricity"
                             android:text=" Electricity Bill: "
                             android:textColor="#675E5E"
                             android:textSize="18sp" />
@@ -228,7 +228,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.1"
-                            android:drawableStart="@drawable/gaspaymenticon"
+                            android:drawableStart="@drawable/ic_gas"
                             android:text=" Gas Bill: "
                             android:textColor="#675E5E"
                             android:textSize="18sp" />
@@ -251,7 +251,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.4"
-                            android:drawableStart="@drawable/othersbillicon"
+                            android:drawableStart="@drawable/ic_other"
                             android:text=" Others Bill: "
                             android:textColor="#675E5E"
                             android:textSize="18sp" />
@@ -261,7 +261,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.1"
-                            android:drawableStart="@drawable/wifiicon"
+                            android:drawableStart="@drawable/ic_wifi"
                             android:text=" Wifi Bill: "
                             android:textColor="#675E5E"
                             android:textSize="18sp" />

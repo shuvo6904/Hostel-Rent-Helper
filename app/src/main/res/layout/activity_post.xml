@@ -126,7 +126,7 @@
                             android:hint="Hostel Name"
                             app:boxBackgroundMode="outline"
                             app:endIconMode="clear_text"
-                            app:startIconDrawable="@drawable/ic_baseline_home">
+                            app:startIconDrawable="@drawable/ic_home">
 
                             <EditText
                                 android:id="@+id/buildingNameId"
@@ -144,7 +144,7 @@
                             android:hint="Floor Number"
                             app:boxBackgroundMode="outline"
                             app:endIconMode="clear_text"
-                            app:startIconDrawable="@drawable/stairswithhandrail">
+                            app:startIconDrawable="@drawable/ic_floor">
 
                             <EditText
                                 android:id="@+id/floorNumberId"
@@ -166,7 +166,7 @@
                         android:hint="Address"
                         app:boxBackgroundMode="outline"
                         app:endIconMode="dropdown_menu"
-                        app:startIconDrawable="@drawable/ic_baseline_location_on_24">
+                        app:startIconDrawable="@drawable/ic_baseline_location">
 
                         <AutoCompleteTextView
                             android:id="@+id/dropDownTextId"
@@ -211,7 +211,7 @@
                             android:hint="Rented Amount Per Month"
                             app:boxBackgroundMode="outline"
                             app:endIconMode="clear_text"
-                            app:startIconDrawable="@drawable/takacurrencysymbol">
+                            app:startIconDrawable="@drawable/ic_taka">
 
                             <EditText
                                 android:id="@+id/rentedAmountId"
@@ -392,7 +392,7 @@
                             app:counterEnabled="true"
                             app:counterMaxLength="10"
                             app:endIconMode="clear_text"
-                            app:startIconDrawable="@drawable/ic_baseline_electrical_services_24">
+                            app:startIconDrawable="@drawable/ic_elcetricity">
 
                             <EditText
                                 android:id="@+id/electricityBillId"
@@ -413,7 +413,7 @@
                             app:counterEnabled="true"
                             app:counterMaxLength="10"
                             app:endIconMode="clear_text"
-                            app:startIconDrawable="@drawable/gaspaymenticon">
+                            app:startIconDrawable="@drawable/ic_gas">
 
                             <EditText
                                 android:id="@+id/gasBillId"
@@ -443,7 +443,7 @@
                             app:counterEnabled="true"
                             app:counterMaxLength="10"
                             app:endIconMode="clear_text"
-                            app:startIconDrawable="@drawable/wifiicon">
+                            app:startIconDrawable="@drawable/ic_wifi">
 
                             <EditText
                                 android:id="@+id/wifiBillId"
@@ -464,7 +464,7 @@
                             app:counterEnabled="true"
                             app:counterMaxLength="10"
                             app:endIconMode="clear_text"
-                            app:startIconDrawable="@drawable/othersbillicon">
+                            app:startIconDrawable="@drawable/ic_other">
 
                             <EditText
                                 android:id="@+id/othersBillId"
