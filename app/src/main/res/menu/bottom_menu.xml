@@ -9,7 +9,7 @@
         android:title="Search"
         android:icon="@drawable/ic_baseline_search_white"/>
 
-    <item android:id="@+id/bottomMenuPersonId"
+    <item android:id="@+id/bottomMenuAccountId"
         android:title="Account"
         android:icon="@drawable/ic_baseline_person_white"/>
 
