@@ -15,7 +15,7 @@ import android.view.WindowManager;
 
 import com.example.houserentproject.fragment.AccountFragment;
 import com.example.houserentproject.fragment.HomeFragment;
-import com.example.houserentproject.fragment.SearchFragment;
+import com.example.houserentproject.fragment.AllAdvertisementFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DashboardActivity extends AppCompatActivity {
@@ -60,7 +60,7 @@ public class DashboardActivity extends AppCompatActivity {
                         break;
 
                     case R.id.bottomMenuSearchId:
-                        tempFrag = new SearchFragment();
+                        tempFrag = new AllAdvertisementFragment();
                         break;
 
                     case R.id.bottomMenuAccountId:
