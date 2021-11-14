@@ -40,18 +40,18 @@
                 app:fabSize="mini" />
 
 
-            <TextView
-                android:id="@+id/profileNameId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/editableProfileImageViewId"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="15dp"
-                android:fontFamily="@font/bentham"
-                android:text="Your Name"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+           <TextView
+               android:id="@+id/profileNameId"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_below="@+id/editableProfileImageViewId"
+               android:layout_centerInParent="true"
+               android:layout_marginTop="15dp"
+               android:fontFamily="@font/bentham"
+               android:text="Your Name"
+               android:textColor="@color/black"
+               android:textSize="20dp"
+               android:textStyle="bold" />
 
 
             <TextView

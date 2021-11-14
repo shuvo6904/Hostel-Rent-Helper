@@ -75,6 +75,7 @@
                     app:cardElevation="8dp">
 
                     <LinearLayout
+                        android:id="@+id/allHostelLayoutId"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:layout_gravity="center_vertical|center_horizontal"

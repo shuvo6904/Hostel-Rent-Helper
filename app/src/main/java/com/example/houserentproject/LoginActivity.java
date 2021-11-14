@@ -118,7 +118,7 @@ public class LoginActivity extends AppCompatActivity {
                                 saveAdminSharedPreferences(false);
                                 Toast.makeText(LoginActivity.this, "Logged In Successfully", Toast.LENGTH_SHORT).show();
                                 loginProgressBar.setVisibility(View.GONE);
-                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
                                 finish();
 
                             } else {
@@ -164,7 +164,7 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("adminSharedPreferences", MODE_PRIVATE);
         if (firebaseAuth.getCurrentUser() != null && sharedPreferences.getBoolean("isAdmin", false) == false){
 
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
             finish();
 
         }
