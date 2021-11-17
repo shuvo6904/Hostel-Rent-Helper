@@ -306,7 +306,7 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 if (value.getString("profileImg").isEmpty() || value.getString("frontImageIdentity").isEmpty() ||
-                        value.getString("emailVerification").isEmpty()){
+                        value.getString("emailVerification").contentEquals("Unverified")){
                 }
 
                 else {

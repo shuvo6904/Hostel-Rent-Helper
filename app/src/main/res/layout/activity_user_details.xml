@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fillViewport="true"
+    tools:context=".UserDetails">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userDetailsProfileImageId"
+            android:layout_width="160dp"
+            android:layout_height="127dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/profile"
+            app:civ_border_color="#FFFFFF"
+            app:civ_border_width="2dp" />
+
+        <TextView
+            android:id="@+id/userDetailsProfileNameId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userDetailsProfileImageId"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/bentham"
+            android:text="User Name"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/userDetailsEmailId"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/userDetailsProfileNameId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Account Email: "
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/userDetailsContactId"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/userDetailsEmailId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Contact Number: "
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/userDetailsEmailVeriId"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/userDetailsContactId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Email Unverified"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/userDetailsEmailVeriId"
+            android:scaleType="fitXY"
+            android:id="@+id/userDetailsPhotoIdentityId"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@drawable/ic_baseline_image_24" />
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+</ScrollView>

@@ -51,7 +51,10 @@ public class AdminAdapter extends RecyclerView.Adapter<MyAdminHomePageViewHolder
 
         holder.adminRentAmount.setText(adminModel.getRentAmount());
         holder.adminLocation.setText(adminModel.getLocation());
-        holder.adminPostStatus.setText(adminModel.getPostStatus());
+
+        if (adminModel.getPostStatus().contains("Approve")){
+            holder.adminApprove.setVisibility(View.GONE);
+        }
 
         holder.adminCardView.setOnClickListener(new View.OnClickListener() {
             @Override

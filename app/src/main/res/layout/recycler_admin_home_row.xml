@@ -22,6 +22,7 @@
             android:orientation="vertical"
             android:weightSum="6">
 
+<!--
             <TextView
                 android:id="@+id/tvAdminStatusId"
                 android:layout_width="match_parent"
@@ -34,6 +35,7 @@
                 android:textColor="@color/black"
                 android:textSize="17sp"
                 android:textStyle="bold" />
+-->
 
             <ImageView
                 android:id="@+id/adminIvImageId"

@@ -3,8 +3,10 @@ package com.example.houserentproject;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -91,6 +93,15 @@ public class AdminHomePageDetails extends AppCompatActivity {
                 adminPageUserPhnNumber = value.getString("PhnNumber");
                 adminAdvertiserUsrName.setText(adminPageUserName);
                 adminAdvertiserPhnNum.setText(adminPageUserPhnNumber);
+            }
+        });
+
+        adminPageUserImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent userDetailsIntent = new Intent(getApplicationContext(), UserDetails.class);
+                userDetailsIntent.putExtra("advertiserId",adminPageAdvertiserUserId);
+                startActivity(userDetailsIntent);
             }
         });
 

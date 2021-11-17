@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MyAdminHomePageViewHolder extends RecyclerView.ViewHolder {
 
     ImageView adminHomePageImageView;
-    TextView adminRentAmount, adminLocation, adminPostStatus;
+    TextView adminRentAmount, adminLocation;
     CardView adminCardView;
     Button adminApprove, adminDelete;
 
@@ -22,7 +22,6 @@ public class MyAdminHomePageViewHolder extends RecyclerView.ViewHolder {
         adminHomePageImageView = itemView.findViewById(R.id.adminIvImageId);
         adminRentAmount = itemView.findViewById(R.id.adminTvRentAmountId);
         adminLocation = itemView.findViewById(R.id.adminTvLocationId);
-        adminPostStatus = itemView.findViewById(R.id.tvAdminStatusId);
         adminCardView = itemView.findViewById(R.id.adminCardViewId);
         adminApprove = itemView.findViewById(R.id.adminApproveId);
         adminDelete = itemView.findViewById(R.id.adminDeleteId);

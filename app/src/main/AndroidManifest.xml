@@ -54,7 +54,7 @@
             android:name=".FavListActivity"
             android:parentActivityName=".DashboardActivity"></activity>
         <activity
-            android:name=".AccountVerification"
+            android:name=".UserDetails"
             android:parentActivityName=".MainActivity"></activity>
         <activity
             android:name=".ResetPassActivity"
