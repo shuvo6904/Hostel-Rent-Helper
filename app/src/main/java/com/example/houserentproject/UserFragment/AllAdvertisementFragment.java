@@ -1,4 +1,4 @@
-package com.example.houserentproject.fragment;
+package com.example.houserentproject.UserFragment;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.houserentproject.HomePageData;
-import com.example.houserentproject.MainActivity;
 import com.example.houserentproject.MyAdapter;
 import com.example.houserentproject.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,8 +21,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +32,6 @@ import java.util.List;
  */
 public class AllAdvertisementFragment extends Fragment {
 
-    FirebaseAuth fAuth;
-    String userId;
     MyAdapter myAdapter;
     RecyclerView myRecyclerView;
     List<HomePageData> myHomePageDataList;

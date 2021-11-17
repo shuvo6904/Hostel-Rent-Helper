@@ -49,25 +49,25 @@
         <activity
             android:name=".Profile"
             android:exported="true"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".DashboardActivity"></activity>
         <activity
             android:name=".FavListActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".DashboardActivity"></activity>
         <activity
             android:name=".AccountVerification"
             android:parentActivityName=".MainActivity"></activity>
         <activity
             android:name=".ResetPassActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".DashboardActivity"></activity>
         <activity
             android:name=".MyPosts"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".DashboardActivity"></activity>
         <activity
             android:name=".PostActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".DashboardActivity"></activity>
         <activity
             android:name=".DetailsActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".DashboardActivity"></activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />

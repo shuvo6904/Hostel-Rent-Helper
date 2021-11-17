@@ -15,7 +15,8 @@
             android:id="@+id/toolbarLayoutId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:contentScrim="#F8F8F8"
+            app:contentScrim="#5DAFF1"
+            android:background="#5DAFF1"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <fragment
@@ -27,6 +28,7 @@
                 app:layout_collapseMode="parallax" />
 
             <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarId"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
@@ -46,14 +48,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="#FBFBFB"
-                app:cardCornerRadius="10dp">
+                app:cardElevation="8dp"
+                app:cardCornerRadius="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -88,11 +91,19 @@
             </androidx.cardview.widget.CardView>
 
 
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#B9CDDD" />
+
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                app:cardCornerRadius="10dp">
+                android:layout_marginTop="50dp"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="8dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -228,11 +239,17 @@
 
             </androidx.cardview.widget.CardView>
 
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#B9CDDD" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/arbutus_slab"
                 android:text="Select Gender Type"
@@ -317,14 +334,22 @@
                     android:orientation="horizontal"
                     android:weightSum="3">
 
-                    <ImageButton
+                    <!-- <ImageButton
                         android:id="@+id/incrementId"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="24dp"
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
                         android:background="@color/white"
-                        android:src="@drawable/plussign" />
+                        android:src="@drawable/plus_icon" /> -->
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_weight="1"
+                        android:id="@+id/incrementId"
+                        android:layout_width="0dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/plus_icon" />
 
 
                     <TextView
@@ -334,18 +359,18 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="0"
-                        android:textColor="@color/black"
+                        android:textColor="@color/asmani_color"
                         android:textSize="25sp"
                         android:textStyle="bold" />
 
-                    <ImageButton
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:clickable="true"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
                         android:id="@+id/decrementId"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1"
-                        android:background="@color/white"
-                        android:src="@drawable/minusicon" />
+                        android:layout_height="24dp"
+                        android:src="@drawable/minus_icon" />
 
                 </LinearLayout>
 
@@ -353,11 +378,20 @@
             </LinearLayout>
 
 
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#B9CDDD" />
+
+
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                app:cardCornerRadius="10dp">
+                android:layout_marginTop="50dp"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="8dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -483,12 +517,19 @@
 
             </androidx.cardview.widget.CardView>
 
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#B9CDDD" />
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                app:cardCornerRadius="10dp">
+                android:layout_marginTop="50dp"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="8dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -597,11 +638,17 @@
 
             </androidx.cardview.widget.CardView>
 
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#B9CDDD" />
+
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="50dp"
                 android:fontFamily="@font/arbutus_slab"
                 android:text="Additional Information About Hostel &amp; Advertisement Post"
                 android:textColor="@color/black"

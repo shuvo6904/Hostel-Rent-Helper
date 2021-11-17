@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_margin="10dp"
     tools:context=".AdminHomeActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/adminRecyclerViewId"
+    <FrameLayout
+        android:layout_above="@+id/adminBottomNavId"
+        android:id="@+id/adminFrameContainerId"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical">
+        android:layout_height="match_parent"/>
 
-    </androidx.recyclerview.widget.RecyclerView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/adminBottomNavId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFE500"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/admin_bottom_menu" />
 
-</LinearLayout>
+</RelativeLayout>

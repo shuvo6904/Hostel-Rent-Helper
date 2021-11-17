@@ -1,4 +1,4 @@
-package com.example.houserentproject.fragment;
+package com.example.houserentproject.UserFragment;
 
 import static android.content.Context.MODE_PRIVATE;
 

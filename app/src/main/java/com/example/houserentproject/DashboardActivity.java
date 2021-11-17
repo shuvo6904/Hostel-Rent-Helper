@@ -5,17 +5,15 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.example.houserentproject.fragment.AccountFragment;
-import com.example.houserentproject.fragment.HomeFragment;
-import com.example.houserentproject.fragment.AllAdvertisementFragment;
+import com.example.houserentproject.UserFragment.AccountFragment;
+import com.example.houserentproject.UserFragment.HomeFragment;
+import com.example.houserentproject.UserFragment.AllAdvertisementFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DashboardActivity extends AppCompatActivity {
@@ -34,8 +32,8 @@ public class DashboardActivity extends AppCompatActivity {
         this.setTitle("");
 
         ActionBar bar = getSupportActionBar();
-        //bar.hide();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#5DAFF1")));
+        bar.hide();
+        //bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#5DAFF1")));
         //bar.setDisplayHomeAsUpEnabled(true);
         //bar.setDisplayShowHomeEnabled(true);
 
@@ -59,7 +57,7 @@ public class DashboardActivity extends AppCompatActivity {
                         tempFrag = new HomeFragment();
                         break;
 
-                    case R.id.bottomMenuSearchId:
+                    case R.id.bottomMenuAllAdsId:
                         tempFrag = new AllAdvertisementFragment();
                         break;
 

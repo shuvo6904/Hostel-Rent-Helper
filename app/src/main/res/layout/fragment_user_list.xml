@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserFragment.AllAdvertisementFragment">
-
+    android:background="#E8E7E3"
+    tools:context=".adminFragment.UserListFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:scrollbars="vertical"
-            android:id="@+id/allPostRecyclerViewId"
+            android:id="@+id/userListRecyclerViewId"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

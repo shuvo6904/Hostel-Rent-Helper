@@ -1,90 +1,89 @@
 package com.example.houserentproject;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 
+import com.example.houserentproject.adminFragment.ApprovedPostFragment;
+import com.example.houserentproject.adminFragment.PendingPost;
+import com.example.houserentproject.adminFragment.UserListFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class AdminHomeActivity extends AppCompatActivity {
 
-    FirebaseAuth firebaseAuth;
+    BottomNavigationView bottomNavigationView;
 
-    AdminAdapter adminAdapter;
-    RecyclerView adminRecyclerView;
-    List<HomePageData> adminPageDataList;
-    private DatabaseReference adminDatabaseReference;
-    private ValueEventListener adminEventListener;
-    ProgressDialog adminProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home);
 
-        firebaseAuth = FirebaseAuth.getInstance();
+        if (savedInstanceState == null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.adminFrameContainerId, new PendingPost()).commit();
+        }
 
-        adminRecyclerView = (RecyclerView)findViewById(R.id.adminRecyclerViewId);
+        this.setTitle("");
 
-        GridLayoutManager adminGridLayoutManager = new GridLayoutManager(AdminHomeActivity.this,1);
-        adminRecyclerView.setLayoutManager(adminGridLayoutManager);
+        ActionBar bar = getSupportActionBar();
+        //bar.hide();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFE500")));
+        //bar.setDisplayHomeAsUpEnabled(true);
+        //bar.setDisplayShowHomeEnabled(true);
 
-        adminProgressDialog = new ProgressDialog(this);
-        adminProgressDialog.setMessage("Loading Data...");
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(this.getResources().getColor(R.color.adminStatusBarColor));
+        }
 
-        adminPageDataList = new ArrayList<>();
+        bottomNavigationView = (BottomNavigationView) findViewById(R.id.adminBottomNavId);
 
-        adminAdapter = new AdminAdapter(AdminHomeActivity.this, adminPageDataList);
-        adminRecyclerView.setAdapter(adminAdapter);
-
-        adminDatabaseReference = FirebaseDatabase.getInstance().getReference("Data");
-
-        adminProgressDialog.show();
-        adminEventListener = adminDatabaseReference.addValueEventListener(new ValueEventListener() {
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                adminPageDataList.clear();
+                Fragment tempFragment = null;
 
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                switch (item.getItemId()){
 
-                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
+                    case R.id.bottomMenuPendingPostId:
+                        tempFragment = new PendingPost();
+                        break;
 
-                        HomePageData adminPageData = dataSnapshot1.getValue(HomePageData.class);
-                        adminPageDataList.add(adminPageData);
+                    case R.id.bottomMenuApprovedPostId:
+                        tempFragment = new ApprovedPostFragment();
+                        break;
 
-                    }
+                    case R.id.bottomMenuUserListId:
+                        tempFragment = new UserListFragment();
+                        break;
 
                 }
 
-                adminAdapter.notifyDataSetChanged();
-                adminProgressDialog.dismiss();
+                getSupportFragmentManager().beginTransaction().replace(R.id.adminFrameContainerId, tempFragment).commit();
 
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                adminProgressDialog.dismiss();
-
+                return true;
             }
         });
+
+
     }
 
     @Override
@@ -101,7 +100,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         switch (item.getItemId()){
 
             case R.id.menuLogoutId:
-                firebaseAuth.signOut();
+                FirebaseAuth.getInstance().signOut();
                 removeSharedPreference();
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 finish();

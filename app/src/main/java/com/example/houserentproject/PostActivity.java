@@ -2,7 +2,9 @@ package com.example.houserentproject;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.app.ActivityCompat;
 
@@ -12,6 +14,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -86,9 +89,7 @@ public class PostActivity extends AppCompatActivity {
     TextInputLayout locationTextInputLayout, monthTextInputLayout, desireRentTextInputLayout;
     AutoCompleteTextView dropDownText, selectedMonthText, desireRentText;
 
-    ImageButton incrementBtn, decrementBtn;
-
-    ImageView homeImage;
+    ImageView homeImage, incrementBtn, decrementBtn;
     Uri uri;
     EditText txtRentedAmount, txtBuildingName, txtFloorNumber, txtDetailsAddress, txtElectricityBill, txtGasBill, txtWifiBill, txtOthersBill;
 
@@ -111,12 +112,18 @@ public class PostActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        requestWindowFeature(Window.FEATURE_NO_TITLE); // Hide the title
-        getSupportActionBar().hide(); // Hide title bar
-        // getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         setContentView(R.layout.activity_post);
+
+        ActionBar bar = getSupportActionBar();
+        bar.hide();
+
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(this.getResources().getColor(R.color.statusBarColor));
+        }
 
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.googleMapId);
         client = LocationServices.getFusedLocationProviderClient(PostActivity.this);
@@ -152,8 +159,8 @@ public class PostActivity extends AppCompatActivity {
         desireRentTextInputLayout = (TextInputLayout) findViewById(R.id.desireRentTextInputLayoutId);
         desireRentText = (AutoCompleteTextView) findViewById(R.id.desireRentTextId);
 
-        incrementBtn = (ImageButton) findViewById(R.id.incrementId);
-        decrementBtn = (ImageButton) findViewById(R.id.decrementId);
+        incrementBtn = (ImageView) findViewById(R.id.incrementId);
+        decrementBtn = (ImageView) findViewById(R.id.decrementId);
         inDeTV = (TextView) findViewById(R.id.inDeTVId);
 
 
@@ -197,7 +204,8 @@ public class PostActivity extends AppCompatActivity {
 
         collapsingToolbarLayout.setTitle("Click on Map to Change Hostel Location");
         collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.transparent)); // transparent color = #00000000
-        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.rgb(0, 0, 0)); //Color of your title
+        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.rgb(255, 255, 255)); //Color of your title
+
 
         incrementBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,16 +1,18 @@
-package com.example.houserentproject.fragment;
+package com.example.houserentproject.UserFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
-import com.example.houserentproject.MainActivity;
+import com.example.houserentproject.FavListActivity;
+import com.example.houserentproject.MyPosts;
+import com.example.houserentproject.PostActivity;
 import com.example.houserentproject.R;
 
 /**
@@ -18,9 +20,10 @@ import com.example.houserentproject.R;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener {
 
-    private LinearLayout allHostelLayout;
+    CardView favouriteCard, createPostCard, myPostCard;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -69,18 +72,34 @@ public class HomeFragment extends Fragment {
 
         View view =inflater.inflate(R.layout.fragment_home, container, false);
 
-        allHostelLayout = view.findViewById(R.id.allHostelLayoutId);
+        favouriteCard = (CardView) view.findViewById(R.id.favouriteCardId);
+        createPostCard = (CardView) view.findViewById(R.id.createPostCardId);
+        myPostCard = (CardView) view.findViewById(R.id.myPostCardId);
 
-        allHostelLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), MainActivity.class));
-            }
-        });
-
-
-
+        favouriteCard.setOnClickListener(this);
+        createPostCard.setOnClickListener(this);
+        myPostCard.setOnClickListener(this);
 
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+
+            case R.id.favouriteCardId:
+                startActivity(new Intent(getActivity(), FavListActivity.class));
+                break;
+
+            case R.id.createPostCardId:
+                startActivity(new Intent(getActivity(), PostActivity.class));
+                break;
+
+            case R.id.myPostCardId:
+                startActivity(new Intent(getActivity(), MyPosts.class));
+                break;
+        }
+
     }
 }
