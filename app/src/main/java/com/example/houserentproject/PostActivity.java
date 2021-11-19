@@ -96,9 +96,9 @@ public class PostActivity extends AppCompatActivity {
     ChipGroup genderChipGroup;
     Chip genderChip;
 
-    RadioGroup generatorRadioGroup, elevatorRadioGroup;
+    RadioGroup securityRadioGroup, parkingRadioGroup, generatorRadioGroup, elevatorRadioGroup;
 
-    RadioButton generator, elevator;
+    RadioButton security, parking, generator, elevator;
 
     String imageUrl;
 
@@ -180,6 +180,8 @@ public class PostActivity extends AppCompatActivity {
         txtFloorNumber = (EditText) findViewById(R.id.floorNumberId);
         txtDetailsAddress = (EditText) findViewById(R.id.detailsAddressId);
         genderChipGroup = (ChipGroup) findViewById(R.id.genderChipGroupId);
+        securityRadioGroup = (RadioGroup) findViewById(R.id.securityRadioGroupId);
+        parkingRadioGroup = (RadioGroup) findViewById(R.id.parkingRadioGroupId);
         generatorRadioGroup = (RadioGroup) findViewById(R.id.generatorRadioGroupId);
         elevatorRadioGroup = (RadioGroup) findViewById(R.id.elevatorRadioGroupId);
         txtElectricityBill = (EditText) findViewById(R.id.electricityBillId);
@@ -434,6 +436,12 @@ public class PostActivity extends AppCompatActivity {
         int genderSelectedId = genderChipGroup.getCheckedChipId();
         genderChip = (Chip) findViewById(genderSelectedId);
 
+        int securitySelectedId = securityRadioGroup.getCheckedRadioButtonId();
+        security = (RadioButton) findViewById(securitySelectedId);
+
+        int parkingSelectedId = parkingRadioGroup.getCheckedRadioButtonId();
+        parking = (RadioButton) findViewById(parkingSelectedId);
+
         int generatorSelectedId = generatorRadioGroup.getCheckedRadioButtonId();
         generator = (RadioButton) findViewById(generatorSelectedId);
 
@@ -473,6 +481,8 @@ public class PostActivity extends AppCompatActivity {
                 txtGasBill.getText().toString(),
                 txtWifiBill.getText().toString(),
                 txtOthersBill.getText().toString(),
+                security.getText().toString(),
+                parking.getText().toString(),
                 generator.getText().toString(),
                 elevator.getText().toString()
 

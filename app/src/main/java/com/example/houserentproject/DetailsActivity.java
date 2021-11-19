@@ -56,7 +56,7 @@ import java.util.Objects;
 
 public class DetailsActivity extends AppCompatActivity {
 
-    TextView rentedAmount, homeLocation, buildingName, floorNumber, detailsAboutHostel, genderValue, rentTypeValue, rentDate, advertiserUsrName, advertiserPhnNum, postDescription, electricityBill, gasBill, wifiBill, othersBill;
+    TextView rentedAmount, homeLocation, buildingName, floorNumber, detailsAboutHostel, genderValue, rentTypeValue, rentDate, advertiserUsrName, advertiserPhnNum, postDescription, electricityBill, gasBill, wifiBill, othersBill, security, parking, generator, elevator;
     ImageView homeImage, userImage;
     ImageButton callButton;
     private StorageReference adStorageReference, adProfileStorageRef;
@@ -110,6 +110,10 @@ public class DetailsActivity extends AppCompatActivity {
         gasBill = (TextView) findViewById(R.id.gasId);
         wifiBill = (TextView) findViewById(R.id.wifiId);
         othersBill = (TextView) findViewById(R.id.othersId);
+        security = (TextView) findViewById(R.id.securityTvId);
+        parking = (TextView) findViewById(R.id.parkingTvId);
+        generator = (TextView) findViewById(R.id.generatorTvId);
+        elevator = (TextView) findViewById(R.id.elevatorTvId);
 
         model = (HomePageData) getIntent().getSerializableExtra("model");
 
@@ -130,6 +134,10 @@ public class DetailsActivity extends AppCompatActivity {
             gasBill.setText(" " + model.getGasBill() + " Taka (Gas)");
             wifiBill.setText(" " + model.getWifiBill() + " Taka (Wifi)");
             othersBill.setText(" " + model.getOthersBill() + " Taka (Others)");
+            security.setText(model.getSecurity());
+            parking.setText(model.getParking());
+            generator.setText(model.getGenerator());
+            elevator.setText(model.getElevator());
             Glide.with(this)
                     .load(model.getImage())
                     .into(homeImage);

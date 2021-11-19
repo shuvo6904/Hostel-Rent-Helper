@@ -21,14 +21,15 @@ public class HomePageData implements Serializable {
     private String gasBill;
     private String wifiBill;
     private String othersBill;
+    private String security;
+    private String parking;
     private String generator;
     private String elevator;
-
 
     public HomePageData() {
     }
 
-    public HomePageData(String image, String rentAmount, String location, String buildingName, String floorNumber, String detailsAboutHostel, String valueOfGender, String valueOfRentType, String datePick, String adUserId, String id, String postStatus, double hostelLat, double hostelLon, String electricityBill, String gasBill, String wifiBill, String othersBill, String generator, String elevator) {
+    public HomePageData(String image, String rentAmount, String location, String buildingName, String floorNumber, String detailsAboutHostel, String valueOfGender, String valueOfRentType, String datePick, String adUserId, String id, String postStatus, double hostelLat, double hostelLon, String electricityBill, String gasBill, String wifiBill, String othersBill, String security, String parking, String generator, String elevator) {
         this.image = image;
         this.rentAmount = rentAmount;
         this.location = location;
@@ -47,9 +48,10 @@ public class HomePageData implements Serializable {
         this.gasBill = gasBill;
         this.wifiBill = wifiBill;
         this.othersBill = othersBill;
+        this.security = security;
+        this.parking = parking;
         this.generator = generator;
         this.elevator = elevator;
-
     }
 
     public String getImage() {
@@ -122,6 +124,14 @@ public class HomePageData implements Serializable {
 
     public String getOthersBill() {
         return othersBill;
+    }
+
+    public String getSecurity() {
+        return security;
+    }
+
+    public String getParking() {
+        return parking;
     }
 
     public String getGenerator() {

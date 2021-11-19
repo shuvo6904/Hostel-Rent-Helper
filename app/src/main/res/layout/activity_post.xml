@@ -556,25 +556,27 @@
                         android:weightSum="2">
 
                         <TextView
+                            android:drawableStart="@drawable/ic_security"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="15dp"
                             android:layout_weight="1"
                             android:fontFamily="@font/arbutus_slab"
-                            android:text="Elevator"
+                            android:text=" Security Type"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
 
                         <TextView
+                            android:drawableStart="@drawable/ic_parking"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="15dp"
                             android:layout_weight="1"
                             android:fontFamily="@font/arbutus_slab"
-                            android:text="Generator"
+                            android:text=" Parking"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -587,54 +589,171 @@
                         android:orientation="horizontal"
                         android:weightSum="2">
 
+
                         <RadioGroup
-                            android:id="@+id/elevatorRadioGroupId"
-                            android:layout_width="match_parent"
+                            android:id="@+id/securityRadioGroupId"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
                             android:layout_weight="1"
-                            android:checkedButton="@id/elevatorNotAvailableId">
+                            android:checkedButton="@id/noneSecurityId">
+
+
+                                    <RadioButton
+                                        android:id="@+id/securityGuardId"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:text="Security Guard" />
+
+                                    <RadioButton
+                                        android:id="@+id/CCTVId"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:text="CCTV Camera" />
+
+
+                                    <RadioButton
+                                        android:id="@+id/bothId"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:text="Both" />
+
+                                    <RadioButton
+                                        android:id="@+id/noneSecurityId"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:text="None" />
+
+
+
+                        </RadioGroup>
+
+                        <RadioGroup
+                            android:id="@+id/parkingRadioGroupId"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:checkedButton="@id/parkingNotAvailableId">
 
                             <RadioButton
-                                android:id="@+id/elevatorAvailableId"
+                                android:id="@+id/parkingAvailableId"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:text="Available" />
 
                             <RadioButton
-                                android:id="@+id/elevatorNotAvailableId"
+                                android:id="@+id/parkingNotAvailableId"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:text="Not Available" />
 
                         </RadioGroup>
 
-                        <RadioGroup
-                            android:id="@+id/generatorRadioGroupId"
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:checkedButton="@+id/generatorNotAvailableId">
+                            android:orientation="horizontal"
+                            android:weightSum="2">
 
-                            <RadioButton
-                                android:id="@+id/generatorAvailableId"
+                            <TextView
+                                android:drawableStart="@drawable/ic_elevator"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="Available" />
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/arbutus_slab"
+                                android:text=" Elevator"
+                                android:textColor="@color/black"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
 
-                            <RadioButton
-                                android:id="@+id/generatorNotAvailableId"
+                            <TextView
+                                android:drawableStart="@drawable/ic_generator"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="Not Available" />
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/arbutus_slab"
+                                android:text=" Generator"
+                                android:textColor="@color/black"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
 
-                        </RadioGroup>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <RadioGroup
+                                android:id="@+id/elevatorRadioGroupId"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:layout_weight="1"
+                                android:checkedButton="@id/elevatorNotAvailableId">
+
+                                <RadioButton
+                                    android:id="@+id/elevatorAvailableId"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="Available" />
+
+                                <RadioButton
+                                    android:id="@+id/elevatorNotAvailableId"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="Not Available" />
+
+                            </RadioGroup>
+
+                            <RadioGroup
+                                android:id="@+id/generatorRadioGroupId"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:layout_weight="1"
+                                android:checkedButton="@+id/generatorNotAvailableId">
+
+                                <RadioButton
+                                    android:id="@+id/generatorAvailableId"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="Available" />
+
+                                <RadioButton
+                                    android:id="@+id/generatorNotAvailableId"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="Not Available" />
+
+                            </RadioGroup>
+
+                        </LinearLayout>
+
 
                     </LinearLayout>
 
 
                 </LinearLayout>
+
+
 
             </androidx.cardview.widget.CardView>
 
@@ -659,7 +778,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
                 android:hint="Example: The hostel is located next to the main road."
                 app:boxBackgroundMode="outline"
                 app:counterEnabled="true"
@@ -667,18 +786,25 @@
                 app:endIconMode="clear_text">
 
                 <EditText
+
                     android:id="@+id/detailsAddressId"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="195dp"
                     android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#B9CDDD" />
 
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
                 app:cardCornerRadius="5dp">
 
