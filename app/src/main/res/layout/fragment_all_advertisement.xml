@@ -10,7 +10,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+            <EditText
+                android:id="@+id/searchId"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:padding="5dp"
+                android:hint="Search by Address"
+                android:inputType="text"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textSize="22sp"
+                android:background="@drawable/edit_text_border"/>
+
+
+
+
+
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@+id/searchId"
             android:scrollbars="vertical"
             android:id="@+id/allPostRecyclerViewId"
             android:layout_width="match_parent"

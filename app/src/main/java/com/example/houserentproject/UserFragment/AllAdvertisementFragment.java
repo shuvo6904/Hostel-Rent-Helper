@@ -8,9 +8,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.example.houserentproject.HomePageData;
 import com.example.houserentproject.MyAdapter;
@@ -38,6 +41,7 @@ public class AllAdvertisementFragment extends Fragment {
     DatabaseReference databaseReference;
     ValueEventListener eventListener;
     ProgressDialog progressDialog;
+    EditText search;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -101,6 +105,28 @@ public class AllAdvertisementFragment extends Fragment {
 
         setHomePagePost();
 
+        search = view.findViewById(R.id.searchId);
+
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                filter(s.toString());
+
+            }
+        });
+
+
         return view;
     }
 
@@ -144,5 +170,18 @@ public class AllAdvertisementFragment extends Fragment {
 
 
 
+    }
+
+    private void filter(String text) {
+
+        ArrayList<HomePageData> filterList = new ArrayList<>();
+
+        for (HomePageData item : myHomePageDataList){
+            if (item.getLocation().toLowerCase().contains(text.toLowerCase())){
+                filterList.add(item);
+            }
+        }
+
+        myAdapter.filteredList(filterList);
     }
 }
