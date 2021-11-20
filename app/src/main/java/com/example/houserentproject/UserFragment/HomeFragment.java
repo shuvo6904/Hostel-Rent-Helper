@@ -3,17 +3,26 @@ package com.example.houserentproject.UserFragment;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.houserentproject.DetailsActivity;
 import com.example.houserentproject.FavListActivity;
 import com.example.houserentproject.MyPosts;
 import com.example.houserentproject.PostActivity;
 import com.example.houserentproject.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +32,8 @@ import com.example.houserentproject.R;
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
     CardView favouriteCard, createPostCard, myPostCard;
+
+    TextView hiTv;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -72,9 +83,20 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         View view =inflater.inflate(R.layout.fragment_home, container, false);
 
+        hiTv = (TextView) view.findViewById(R.id.hiTextViewId);
         favouriteCard = (CardView) view.findViewById(R.id.favouriteCardId);
         createPostCard = (CardView) view.findViewById(R.id.createPostCardId);
         myPostCard = (CardView) view.findViewById(R.id.myPostCardId);
+
+        DocumentReference documentReference = FirebaseFirestore.getInstance().collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                hiTv.setText("Hi, " + value.getString("fName"));
+
+            }
+        });
 
         favouriteCard.setOnClickListener(this);
         createPostCard.setOnClickListener(this);
@@ -99,6 +121,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             case R.id.myPostCardId:
                 startActivity(new Intent(getActivity(), MyPosts.class));
                 break;
+
         }
 
     }

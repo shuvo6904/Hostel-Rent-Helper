@@ -17,10 +17,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.houserentproject.DetailsActivity;
 import com.example.houserentproject.LoginActivity;
 import com.example.houserentproject.Profile;
 import com.example.houserentproject.R;
 import com.example.houserentproject.ResetPassActivity;
+import com.example.houserentproject.additionalActivity.HelpActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -152,6 +154,7 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.helpCardId:
+                startActivity(new Intent(getActivity(), HelpActivity.class));
                 break;
 
         }

@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:gravity="center"
-                android:text="Hi, Shuvo Talukdar"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="15sp" />
 
@@ -229,7 +229,7 @@
                     <androidx.cardview.widget.CardView
                         app:cardCornerRadius="8dp"
                         app:cardElevation="8dp"
-                        android:id="@+id/helpCardId"
+                        android:id="@+id/profileCardId"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_margin="20dp"
@@ -261,7 +261,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
-                                android:text="Help"
+                                android:text="Profile"
                                 android:textAppearance="?android:textAppearanceLarge"
                                 android:textStyle="bold" />
 
