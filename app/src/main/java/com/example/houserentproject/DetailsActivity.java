@@ -91,7 +91,7 @@ public class DetailsActivity extends AppCompatActivity {
 
         getUserId();
         session = new Session(this);
-        rentedAmount = findViewById(R.id.rentedAmountId);
+        rentedAmount = (TextView) findViewById(R.id.rentedAmountId);
         homeLocation = (TextView) findViewById(R.id.homeLocationId);
         homeImage = (ImageView) findViewById(R.id.ivImage2Id);
         buildingName = (TextView) findViewById(R.id.buildingNameId);

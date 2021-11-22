@@ -34,6 +34,7 @@
             android:exported="false" />
         <activity
             android:name=".AdminHomePageDetails"
+            android:parentActivityName=".AdminHomeActivity"
             android:exported="false" />
 
         <meta-data
