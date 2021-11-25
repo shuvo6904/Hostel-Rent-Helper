@@ -43,6 +43,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:id="@+id/resetBtn"
         android:onClick="btnResetPassSaveId"
         android:layout_marginTop="30dp"
         android:padding="8dp"

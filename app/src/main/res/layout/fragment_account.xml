@@ -42,7 +42,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/bentham"
-                    android:text="Your Name"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -76,7 +76,7 @@
                     <androidx.cardview.widget.CardView
                         app:cardCornerRadius="8dp"
                         app:cardElevation="8dp"
-                        android:id="@+id/editProfileCardId"
+                        android:id="@+id/deleteAccountCardId"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_margin="20dp"
@@ -93,22 +93,22 @@
                             <ImageView
                                 android:layout_width="64dp"
                                 android:layout_height="64dp"
-                                android:background="@drawable/circle_background_purple"
+                                android:background="@drawable/circle_background_red"
                                 android:padding="10dp"
-                                android:src="@drawable/edit_pro_image_icon" />
+                                android:src="@drawable/delete_account_image_icon" />
 
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
                                 android:layout_margin="10dp"
-                                android:background="@color/material_deep_purple" />
+                                android:background="@color/material_red" />
 
                             <TextView
                                 android:gravity="center"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
-                                android:text="Edit Profile"
+                                android:text="Delete Account"
                                 android:textAppearance="?android:textAppearanceLarge"
                                 android:textStyle="bold" />
 
@@ -239,7 +239,7 @@
                             <ImageView
                                 android:layout_width="64dp"
                                 android:layout_height="64dp"
-                                android:background="@drawable/circle_background_pink"
+                                android:background="@drawable/circle_background_purple"
                                 android:padding="10dp"
                                 android:src="@drawable/help_image_icon" />
 
@@ -247,7 +247,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
                                 android:layout_margin="10dp"
-                                android:background="@color/material_pink" />
+                                android:background="@color/material_deep_purple" />
 
                             <TextView
                                 android:gravity="center"

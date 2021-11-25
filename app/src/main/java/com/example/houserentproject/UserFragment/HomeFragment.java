@@ -15,8 +15,11 @@ import android.widget.TextView;
 import com.example.houserentproject.DetailsActivity;
 import com.example.houserentproject.FavListActivity;
 import com.example.houserentproject.MyPosts;
+import com.example.houserentproject.NstuContactActivity;
 import com.example.houserentproject.PostActivity;
+import com.example.houserentproject.Profile;
 import com.example.houserentproject.R;
+import com.example.houserentproject.UserDetails;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -31,7 +34,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
  */
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
-    CardView favouriteCard, createPostCard, myPostCard;
+    CardView favouriteCard, createPostCard, myPostCard, profileCard, nstuContactCard, emergencyContactCard;
 
     TextView hiTv;
 
@@ -87,6 +90,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         favouriteCard = (CardView) view.findViewById(R.id.favouriteCardId);
         createPostCard = (CardView) view.findViewById(R.id.createPostCardId);
         myPostCard = (CardView) view.findViewById(R.id.myPostCardId);
+        profileCard = (CardView) view.findViewById(R.id.profileCardId);
+        nstuContactCard = (CardView) view.findViewById(R.id.nstuContactCardId);
+
 
         DocumentReference documentReference = FirebaseFirestore.getInstance().collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
@@ -101,6 +107,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         favouriteCard.setOnClickListener(this);
         createPostCard.setOnClickListener(this);
         myPostCard.setOnClickListener(this);
+        profileCard.setOnClickListener(this);
+        nstuContactCard.setOnClickListener(this);
+
 
         return view;
     }
@@ -120,6 +129,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             case R.id.myPostCardId:
                 startActivity(new Intent(getActivity(), MyPosts.class));
+                break;
+
+            case R.id.profileCardId:
+                startActivity(new Intent(getActivity(), Profile.class));
+                break;
+
+            case R.id.nstuContactCardId:
+                startActivity(new Intent(getActivity(), NstuContactActivity.class));
                 break;
 
         }

@@ -248,7 +248,7 @@
                                 android:layout_height="64dp"
                                 android:background="@drawable/circle_background_pink"
                                 android:padding="10dp"
-                                android:src="@drawable/help_image_icon" />
+                                android:src="@drawable/user_profile_image_icon" />
 
                             <View
                                 android:layout_width="match_parent"
@@ -329,7 +329,7 @@
                     <androidx.cardview.widget.CardView
                         app:cardCornerRadius="8dp"
                         app:cardElevation="8dp"
-                        android:id="@+id/CardId"
+                        android:id="@+id/nstuContactCardId"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_margin="20dp"

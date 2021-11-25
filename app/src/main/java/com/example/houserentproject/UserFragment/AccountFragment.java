@@ -2,12 +2,15 @@ package com.example.houserentproject.UserFragment;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
@@ -16,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.houserentproject.DetailsActivity;
 import com.example.houserentproject.LoginActivity;
@@ -23,7 +27,9 @@ import com.example.houserentproject.Profile;
 import com.example.houserentproject.R;
 import com.example.houserentproject.ResetPassActivity;
 import com.example.houserentproject.additionalActivity.HelpActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -95,7 +101,7 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
 
         View view = inflater.inflate(R.layout.fragment_account, container, false);
 
-        editProfileCard = view.findViewById(R.id.editProfileCardId);
+        editProfileCard = view.findViewById(R.id.deleteAccountCardId);
         resetPassCard = view.findViewById(R.id.resetPassCardId);
         logoutCard = view.findViewById(R.id.logoutCardId);
         helpCard = view.findViewById(R.id.helpCardId);
@@ -138,8 +144,8 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
 
         switch (v.getId()){
 
-            case R.id.editProfileCardId:
-                startActivity(new Intent(getActivity(), Profile.class));
+            case R.id.deleteAccountCardId:
+                setDialog();
                 break;
 
             case R.id.resetPassCardId:
@@ -158,6 +164,54 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
                 break;
 
         }
+
+    }
+
+    private void setDialog() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Are you sure?");
+        builder.setMessage("Deleting this account wiil result in completely removing your account from the system and you won't be able to access the app.");
+
+        builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                FirebaseAuth.getInstance().getCurrentUser().delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                        if (task.isSuccessful()){
+                            Toast.makeText(getActivity(), "Account Deleted", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getActivity(), LoginActivity.class));
+                            getActivity().finish();
+                        }
+
+                        else {
+
+                            Toast.makeText(getActivity(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    }
+                });
+
+
+
+            }
+        });
+
+        builder.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
 
     }
 

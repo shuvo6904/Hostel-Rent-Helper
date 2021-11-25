@@ -17,7 +17,7 @@
         android:id="@+id/bottomNavId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#5DAFF1"
+        android:background="#97B4CC"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_menu" />
 
