@@ -76,7 +76,7 @@
             android:parentActivityName=".DashboardActivity" />
         <activity
             android:name=".DetailsActivity"
-            android:parentActivityName=".DashboardActivity" />
+            android:parentActivityName=".additionalActivity.HelpActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />

@@ -37,7 +37,12 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListViewHolder> {
     public void onBindViewHolder(@NonNull UserListViewHolder holder, int position) {
 
         UserListModel userListModel = myUserDataList.get(position);
-        Picasso.get().load(userListModel.getProfileImg()).into(holder.imageView);
+        if (userListModel.getProfileImg().isEmpty()) {
+            holder.imageView.setImageResource(R.drawable.profile);
+        } else{
+            Picasso.get().load(userListModel.getProfileImg()).into(holder.imageView);
+        }
+
         holder.userName.setText(userListModel.getfName());
         holder.userEmail.setText(userListModel.getEmail());
         holder.userPhone.setText(userListModel.getPhnNumber());
