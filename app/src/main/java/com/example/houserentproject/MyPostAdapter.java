@@ -76,11 +76,23 @@ public class MyPostAdapter extends RecyclerView.Adapter<MyPostsHomePageViewHolde
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
 
                     }
                 });
 
                 builder.show();
+
+            }
+        });
+
+        holder.editPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(myPostContext, PostActivity.class);
+                intent.putExtra("editPostModel",myPostModel);
+                myPostContext.startActivity(intent);
 
             }
         });

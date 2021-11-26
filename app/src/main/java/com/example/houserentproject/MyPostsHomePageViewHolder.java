@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MyPostsHomePageViewHolder extends RecyclerView.ViewHolder {
 
     ImageView myPostImageView;
-    TextView myPostRentAmount, myPostLocation, myPostStatus;
+    TextView myPostRentAmount, myPostLocation, myPostStatus, editPost;
     CardView myPostCardView;
     ImageButton deleteImageBtn;
 
@@ -25,6 +25,7 @@ public class MyPostsHomePageViewHolder extends RecyclerView.ViewHolder {
         myPostStatus = itemView.findViewById(R.id.tvPostStatusId);
         myPostCardView = itemView.findViewById(R.id.myPostCardViewId);
         deleteImageBtn = itemView.findViewById(R.id.deleteImageBtnId);
+        editPost = itemView.findViewById(R.id.tvPostEditId);
 
     }
 }

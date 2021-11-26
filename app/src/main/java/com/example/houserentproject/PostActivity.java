@@ -85,6 +85,8 @@ public class PostActivity extends AppCompatActivity {
     TextView mapAddress, inDeTV;
     AppBarLayout mapAppBar;
 
+    HomePageData editDataModel;
+
     String[] locationDropDownArray, selectedMonthDropDownArray, desireRentDropdownArray;
     TextInputLayout locationTextInputLayout, monthTextInputLayout, desireRentTextInputLayout;
     AutoCompleteTextView dropDownText, selectedMonthText, desireRentText;
@@ -113,10 +115,13 @@ public class PostActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
+        this.setTitle("Create Post Page");
 
         ActionBar bar = getSupportActionBar();
-        bar.hide();
-
+        //bar.hide();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#5DAFF1")));
+        bar.setDisplayHomeAsUpEnabled(true);
+        bar.setDisplayShowHomeEnabled(true);
 
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
@@ -124,6 +129,7 @@ public class PostActivity extends AppCompatActivity {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(this.getResources().getColor(R.color.statusBarColor));
         }
+
 
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.googleMapId);
         client = LocationServices.getFusedLocationProviderClient(PostActivity.this);
@@ -228,14 +234,18 @@ public class PostActivity extends AppCompatActivity {
             }
         });
 
-        if (Build.VERSION.SDK_INT >= 21) {
-            Window window = this.getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.setStatusBarColor(this.getResources().getColor(R.color.statusBarColor));
+        checkEditPost();
+
+
+    }
+
+    private void checkEditPost() {
+
+        editDataModel = (HomePageData) getIntent().getSerializableExtra("editPostModel");
+
+        if (editDataModel != null){
+            txtRentedAmount.setText(editDataModel.getRentAmount());
         }
-
-
     }
 
 

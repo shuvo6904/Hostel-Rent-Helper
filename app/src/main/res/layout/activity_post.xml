@@ -24,13 +24,13 @@
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 app:layout_collapseMode="parallax" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbarId"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="22dp"
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
                 app:layout_collapseMode="pin" />
 

@@ -27,7 +27,7 @@
             android:weightSum="6">
 
             <LinearLayout
-                android:weightSum="2"
+                android:weightSum="3"
                 android:background="#E3EFDE"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -43,6 +43,19 @@
                     android:padding="5dp"
                     android:text="Post Status "
                     android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/tvPostEditId"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Edit"
+                    android:textColor="#0828DA"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
