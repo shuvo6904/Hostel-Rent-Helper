@@ -40,6 +40,7 @@ public class UserDetails extends AppCompatActivity {
     ImageView userImg, userIdentityImg;
     TextView userName, userEmail, userContact, userEmailVeriStatus;
     DocumentReference documentReference;
+    StorageReference profileRef;
 
 
 
@@ -69,8 +70,33 @@ public class UserDetails extends AppCompatActivity {
                 userContact.setText("User Contact: " + value.getString("PhnNumber"));
                 userEmailVeriStatus.setText("Email Verification Status: " + value.getString("emailVerification"));
 
-                Picasso.get().load(value.getString("profileImg")).into(userImg);
-                Picasso.get().load(value.getString("frontImageIdentity")).into(userIdentityImg);
+                //Picasso.get().load(value.getString("profileImg")).into(userImg);
+                //Picasso.get().load(value.getString("frontImageIdentity")).into(userIdentityImg);
+
+                StorageReference profileRef = FirebaseStorage.getInstance().getReference().child("Users/"+advertiserId+"/profile.jpg");
+                StorageReference identityRef = FirebaseStorage.getInstance().getReference().child("Users/"+advertiserId+"/frontImage.jpg");
+
+                if (value.getString("profileImg").isEmpty()) {
+                    userImg.setImageResource(R.drawable.profile);
+                } else{
+                    profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Picasso.get().load(uri).into(userImg);
+                        }
+                    });
+                }
+
+                if (value.getString("frontImageIdentity").isEmpty()) {
+                    userIdentityImg.setImageResource(R.drawable.ic_baseline_image_24);
+                } else{
+                    identityRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Picasso.get().load(uri).into(userIdentityImg);
+                        }
+                    });
+                }
 
             }
         });

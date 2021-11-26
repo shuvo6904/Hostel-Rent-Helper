@@ -7,15 +7,18 @@ public class UserListModel implements Serializable {
     String fName;
     String email;
     String PhnNumber;
+    String userID;
+
 
     public UserListModel() {
     }
 
-    public UserListModel(String profileImg, String fName, String email, String PhnNumber) {
+    public UserListModel(String profileImg, String fName, String email, String phnNumber, String userID) {
         this.profileImg = profileImg;
         this.fName = fName;
         this.email = email;
-        this.PhnNumber = PhnNumber;
+        PhnNumber = phnNumber;
+        this.userID = userID;
     }
 
     public String getProfileImg() {
@@ -32,5 +35,9 @@ public class UserListModel implements Serializable {
 
     public String getPhnNumber() {
         return PhnNumber;
+    }
+
+    public String getUserID() {
+        return userID;
     }
 }

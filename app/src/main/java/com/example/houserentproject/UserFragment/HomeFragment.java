@@ -11,9 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.houserentproject.DetailsActivity;
 import com.example.houserentproject.FavListActivity;
+import com.example.houserentproject.MainActivity;
 import com.example.houserentproject.MyPosts;
 import com.example.houserentproject.NstuContactActivity;
 import com.example.houserentproject.PostActivity;
@@ -124,7 +126,23 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.createPostCardId:
-                startActivity(new Intent(getActivity(), PostActivity.class));
+
+                DocumentReference documentReference = FirebaseFirestore.getInstance().collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                        if (value.getString("isProfileCompleted").isEmpty()){
+
+                            Toast.makeText(getActivity(), "Please Complete Your Profile. Then Try to Post Advertisement", Toast.LENGTH_SHORT).show();
+
+                        }
+                        else {
+                            startActivity(new Intent(getActivity(), PostActivity.class));
+                        }
+                    }
+                });
+
                 break;
 
             case R.id.myPostCardId:

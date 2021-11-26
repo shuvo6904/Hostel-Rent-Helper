@@ -29,6 +29,7 @@ import com.bumptech.glide.Glide;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -101,11 +102,12 @@ public class Profile extends AppCompatActivity {
             user.reload();
 
         if (!user.isEmailVerified()){
-            Log.d("profile_", "onCreate: email is not verified");
+
             profileEmailVerifyButton.setVisibility(View.VISIBLE);
             checkIsEmailVerified.setText("Email Unverified");
 
         }else{
+
             checkIsEmailVerified.setText("Email Verified");
             Log.d("profile_", "onCreate: email is verified");
 
@@ -126,6 +128,10 @@ public class Profile extends AppCompatActivity {
             });
         }
 
+        storageReference = FirebaseStorage.getInstance().getReference();
+        profileStorageRef = storageReference.child("Users/"+user.getUid()+"/profile.jpg");
+        frontVeriStorageReference = storageReference.child("Users/"+user.getUid()+"/frontImage.jpg");
+
 
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
@@ -137,30 +143,30 @@ public class Profile extends AppCompatActivity {
                 proEditablePhnNum.setText(value.getString("PhnNumber"));
                 proEditableEmail.setText(value.getString("email"));
 
+                if (value.getString("profileImg").isEmpty()) {
+                    profileImage.setImageResource(R.drawable.profile);
+                } else{
+                    profileStorageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+
+                            Picasso.get().load(uri).into(profileImage);
+                        }
+                    });
+                }
+
             }
         });
 
-        storageReference = FirebaseStorage.getInstance().getReference();
-        profileStorageRef = storageReference.child("Users/"+user.getUid()+"/profile.jpg");
-        frontVeriStorageReference = storageReference.child("Users/"+user.getUid()+"/frontImage.jpg");
-        //frontVeriStorageReference = storageReference.child("Users/"+user.getUid()+"/frontImage.jpg");
-        //backVeriStorageReference = storageReference.child("Users/"+user.getUid()+"/backImage.jpg");
 
-        profileStorageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        /**profileStorageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
+
                 Picasso.get().load(uri).into(profileImage);
             }
-        });
+        }); **/
 
-
-
-        /**backVeriStorageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).into(backImageView);
-            }
-        });**/
 
         profileEmailVerifyButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -287,12 +293,32 @@ public class Profile extends AppCompatActivity {
             }
         });
 
-        frontVeriStorageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+
+
+                if (value.getString("frontImageIdentity").isEmpty()) {
+                    photoIdentityIV.setImageResource(R.drawable.ic_baseline_image_24);
+                } else{
+                    frontVeriStorageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Picasso.get().load(uri).into(photoIdentityIV);
+                        }
+                    });
+                }
+
+
+            }
+        });
+
+        /**frontVeriStorageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 Picasso.get().load(uri).into(photoIdentityIV);
             }
-        });
+        }); **/
 
         photoIdentitySheetDialog.setContentView(photoIdentityView);
         photoIdentitySheetDialog.show();
@@ -346,26 +372,6 @@ public class Profile extends AppCompatActivity {
 
     }
 
-    /**public void uploadFrontImageBtn(View view) {
-
-        ImagePicker.with(Profile.this)
-                .cameraOnly()	//User can only capture image using Camera
-                .crop()	    			//Crop image(Optional), Check Customization for more option
-                .compress(1024)			//Final image size will be less than 1 MB(Optional)
-                .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
-                .start(2000);
-    }**/
-
-    /**public void uploadBackImageBtn(View view) {
-
-        ImagePicker.with(Profile.this)
-                .cameraOnly()	//User can only capture image using Camera
-                .crop()	    			//Crop image(Optional), Check Customization for more option
-                .compress(1024)			//Final image size will be less than 1 MB(Optional)
-                .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
-                .start(3000);
-    }**/
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -388,15 +394,6 @@ public class Profile extends AppCompatActivity {
             }
         }
 
-        /**if (requestCode == 3000){
-            if (resultCode == Activity.RESULT_OK){
-                Uri imageUri = data.getData();
-                //backImageView.setImageURI(imageUri);
-
-                uploadBackImageToFirebase(imageUri);
-            }
-        }**/
-
     }
 
 
@@ -407,6 +404,8 @@ public class Profile extends AppCompatActivity {
         fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+
 
                 fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
@@ -492,54 +491,6 @@ public class Profile extends AppCompatActivity {
         });
     }
 
-
-
-    /**private void uploadBackImageToFirebase(Uri imageUri) {
-
-        // upload front image to firebase storage
-        final StorageReference fileRef = storageReference.child("Users/"+fAuth.getCurrentUser().getUid()+"/backImage.jpg");
-        fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-
-                        Picasso.get().load(uri).into(backImageView);
-
-                    }
-                });
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-
-                Toast.makeText(Profile.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-        String backImageUri = imageUri.toString();
-
-        Map<String, Object> edited = new HashMap<>();
-        edited.put("backImageIdentity", backImageUri);
-        documentReference.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-
-                Toast.makeText(Profile.this, e.getMessage(), Toast.LENGTH_LONG).show();
-
-            }
-        });
-
-    }**/
 
 
 

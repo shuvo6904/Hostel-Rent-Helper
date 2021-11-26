@@ -141,6 +141,7 @@ public class RegisterActivity extends AppCompatActivity {
                 user.put("emailVerification", "Unverified");
                 user.put("isProfileCompleted", "");
                 user.put("isAdmin", "");
+                user.put("userID", userID);
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {

@@ -131,10 +131,23 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
 
         fragProfileImageRef = FirebaseStorage.getInstance().getReference().child("Users/"+userID+"/profile.jpg");
 
-        fragProfileImageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
-            public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).into(proImageFrag);
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+
+
+                if (value.getString("profileImg").isEmpty()) {
+                    proImageFrag.setImageResource(R.drawable.profile);
+                } else{
+                    fragProfileImageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Picasso.get().load(uri).into(proImageFrag);
+                        }
+                    });
+                }
+
+
             }
         });
     }
