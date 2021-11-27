@@ -11,6 +11,7 @@ public class HomePageData implements Serializable {
     private String detailsAboutHostel;
     private String valueOfGender;
     private String valueOfRentType;
+    private String valueOfRentCount;
     private String datePick;
     private String adUserId;
     private String id;
@@ -29,7 +30,7 @@ public class HomePageData implements Serializable {
     public HomePageData() {
     }
 
-    public HomePageData(String image, String rentAmount, String location, String buildingName, String floorNumber, String detailsAboutHostel, String valueOfGender, String valueOfRentType, String datePick, String adUserId, String id, String postStatus, double hostelLat, double hostelLon, String electricityBill, String gasBill, String wifiBill, String othersBill, String security, String parking, String generator, String elevator) {
+    public HomePageData(String image, String rentAmount, String location, String buildingName, String floorNumber, String detailsAboutHostel, String valueOfGender, String valueOfRentType, String valueOfRentCount, String datePick, String adUserId, String id, String postStatus, double hostelLat, double hostelLon, String electricityBill, String gasBill, String wifiBill, String othersBill, String security, String parking, String generator, String elevator) {
         this.image = image;
         this.rentAmount = rentAmount;
         this.location = location;
@@ -38,6 +39,7 @@ public class HomePageData implements Serializable {
         this.detailsAboutHostel = detailsAboutHostel;
         this.valueOfGender = valueOfGender;
         this.valueOfRentType = valueOfRentType;
+        this.valueOfRentCount = valueOfRentCount;
         this.datePick = datePick;
         this.adUserId = adUserId;
         this.id = id;
@@ -84,6 +86,10 @@ public class HomePageData implements Serializable {
 
     public String getValueOfRentType() {
         return valueOfRentType;
+    }
+
+    public String getValueOfRentCount() {
+        return valueOfRentCount;
     }
 
     public String getDatePick() {

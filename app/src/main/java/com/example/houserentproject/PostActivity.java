@@ -28,6 +28,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -73,7 +74,7 @@ public class PostActivity extends AppCompatActivity {
 
     SupportMapFragment supportMapFragment;
     FusedLocationProviderClient client;
-    int REQUEST_CODE = 111, count = 0;
+    int REQUEST_CODE = 111, count = 1;
     ConnectivityManager manager;
     NetworkInfo networkInfo;
     Marker mM;
@@ -84,8 +85,6 @@ public class PostActivity extends AppCompatActivity {
     String selectedAddress;
     TextView mapAddress, inDeTV;
     AppBarLayout mapAppBar;
-
-    HomePageData editDataModel;
 
     String[] locationDropDownArray, selectedMonthDropDownArray, desireRentDropdownArray;
     TextInputLayout locationTextInputLayout, monthTextInputLayout, desireRentTextInputLayout;
@@ -101,6 +100,7 @@ public class PostActivity extends AppCompatActivity {
     RadioGroup securityRadioGroup, parkingRadioGroup, generatorRadioGroup, elevatorRadioGroup;
 
     RadioButton security, parking, generator, elevator;
+    Button chooseImageBtn;
 
     String imageUrl;
 
@@ -148,6 +148,8 @@ public class PostActivity extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
+        chooseImageBtn = (Button) findViewById(R.id.imageChooseButton);
+        chooseImageBtn.setBackgroundColor(Color.GRAY);
 
         userId = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
         rootRef = FirebaseDatabase.getInstance().getReference();
@@ -214,7 +216,7 @@ public class PostActivity extends AppCompatActivity {
         collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.transparent)); // transparent color = #00000000
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.rgb(255, 255, 255)); //Color of your title
 
-
+        inDeTV.setText("" + count);
         incrementBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -226,7 +228,7 @@ public class PostActivity extends AppCompatActivity {
         decrementBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (count <= 0) count = 0;
+                if (count <= 1) count = 1;
                 else
                     count--;
 
@@ -453,9 +455,11 @@ public class PostActivity extends AppCompatActivity {
 
     public void submitData() {
 
-        String selectedRent = inDeTV.getText().toString() + " " + desireRentText.getText().toString();
+        String selectedRent = desireRentText.getText().toString();
 
-        String myCurrentDateTime = DateFormat.getDateTimeInstance()
+        String selectRentCount = inDeTV.getText().toString();
+
+                String myCurrentDateTime = DateFormat.getDateTimeInstance()
                 .format(Calendar.getInstance().getTime());
 
         String postStatus = "Pending";
@@ -470,6 +474,7 @@ public class PostActivity extends AppCompatActivity {
                 txtDetailsAddress.getText().toString(),
                 genderChip.getText().toString(),
                 selectedRent,
+                selectRentCount,
                 selectedMonthText.getText().toString(),
                 userId,
                 myCurrentDateTime,

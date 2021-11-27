@@ -26,6 +26,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -73,7 +74,7 @@ public class EditPostActivity extends AppCompatActivity {
 
     SupportMapFragment supportMapFragment;
     //FusedLocationProviderClient client;
-    int REQUEST_CODE = 111, count = 0;
+    int REQUEST_CODE = 111, count;
     ConnectivityManager manager;
     NetworkInfo networkInfo;
     Marker mM;
@@ -86,6 +87,7 @@ public class EditPostActivity extends AppCompatActivity {
     AppBarLayout mapAppBar;
 
     HomePageData editDataModel;
+    Button chooseImgBtn;
 
     String[] locationDropDownArray, selectedMonthDropDownArray, desireRentDropdownArray;
     TextInputLayout locationTextInputLayout, monthTextInputLayout, desireRentTextInputLayout;
@@ -131,6 +133,10 @@ public class EditPostActivity extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.statusBarColor));
         }
 
+        editDataModel = (HomePageData) getIntent().getSerializableExtra("editPostModel");
+
+        count = Integer.parseInt(editDataModel.getValueOfRentCount());
+
 
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.googleMapId);
         //client = LocationServices.getFusedLocationProviderClient(this);
@@ -152,6 +158,8 @@ public class EditPostActivity extends AppCompatActivity {
 
         userId = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
         rootRef = FirebaseDatabase.getInstance().getReference();
+        chooseImgBtn = (Button) findViewById(R.id.imageChooseButton);
+        chooseImgBtn.setBackgroundColor(Color.GRAY);
 
 
         locationDropDownArray = getResources().getStringArray(R.array.location_spinner);
@@ -227,7 +235,7 @@ public class EditPostActivity extends AppCompatActivity {
         decrementBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (count <= 0) count = 0;
+                if (count <= 1) count = 1;
                 else
                     count--;
 
@@ -243,8 +251,6 @@ public class EditPostActivity extends AppCompatActivity {
 
     private void setTextForEditPost() {
 
-        editDataModel = (HomePageData) getIntent().getSerializableExtra("editPostModel");
-
         if (editDataModel != null){
             txtRentedAmount.setText(editDataModel.getRentAmount());
             dropDownText.setText(editDataModel.getLocation());
@@ -252,6 +258,8 @@ public class EditPostActivity extends AppCompatActivity {
             txtFloorNumber.setText(editDataModel.getFloorNumber());
             txtDetailsAddress.setText(editDataModel.getDetailsAboutHostel());
             selectedMonthText.setText(editDataModel.getDatePick());
+            desireRentText.setText(editDataModel.getValueOfRentType());
+            inDeTV.setText(editDataModel.getValueOfRentCount());
             txtElectricityBill.setText(editDataModel.getElectricityBill());
             txtGasBill.setText(editDataModel.getGasBill());
             txtWifiBill.setText(editDataModel.getWifiBill());
@@ -264,13 +272,6 @@ public class EditPostActivity extends AppCompatActivity {
     public void getPostLocation() {
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return;
         }
 
@@ -312,56 +313,6 @@ public class EditPostActivity extends AppCompatActivity {
             }
         });
 
-
-        /* Task<Location> task = client.getLastLocation();
-        task.addOnSuccessListener(new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(Location location) {
-
-                if (location != null) {
-
-                    supportMapFragment.getMapAsync(new OnMapReadyCallback() {
-                        @Override
-                        public void onMapReady(GoogleMap googleMap) {
-
-                            mMap = googleMap;
-
-                            double currentLat = location.getLatitude();
-                            double currentLon = location.getLongitude();
-
-                            LatLng currentLatLon = new LatLng(currentLat, currentLon);
-
-                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLon, 14));
-
-                            getAddress(currentLat, currentLon);
-
-                            mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-                                @Override
-                                public void onMapClick(LatLng latLng) {
-
-                                    checkConnection();
-
-                                    if (networkInfo.isConnected() && networkInfo.isAvailable()) {
-
-                                        selectedLat = latLng.latitude;
-                                        selectedLon = latLng.longitude;
-
-                                        getAddress(selectedLat, selectedLon);
-
-                                    } else {
-                                        Toast.makeText(EditPostActivity.this, "Please Check Your Internet Connection", Toast.LENGTH_SHORT).show();
-                                    }
-
-                                }
-                            });
-
-                        }
-                    });
-                }
-
-
-            }
-        });*/
 
 
     }
@@ -514,10 +465,11 @@ public class EditPostActivity extends AppCompatActivity {
 
     public void submitData() {
 
-        String selectedRent = inDeTV.getText().toString() + " " + desireRentText.getText().toString();
+        String selectedRent = desireRentText.getText().toString();
+        String selectRentCount = inDeTV.getText().toString();
 
-        String myCurrentDateTime = DateFormat.getDateTimeInstance()
-                .format(Calendar.getInstance().getTime());
+                String myCurrentDateTime = editDataModel.getId();
+
 
         String postStatus = "Pending";
 
@@ -531,6 +483,7 @@ public class EditPostActivity extends AppCompatActivity {
                 txtDetailsAddress.getText().toString(),
                 genderChip.getText().toString(),
                 selectedRent,
+                selectRentCount,
                 selectedMonthText.getText().toString(),
                 userId,
                 myCurrentDateTime,
