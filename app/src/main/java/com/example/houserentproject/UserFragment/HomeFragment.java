@@ -13,15 +13,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.houserentproject.DetailsActivity;
+import com.example.houserentproject.EmergencyContactActivity;
 import com.example.houserentproject.FavListActivity;
-import com.example.houserentproject.MainActivity;
 import com.example.houserentproject.MyPosts;
 import com.example.houserentproject.NstuContactActivity;
 import com.example.houserentproject.PostActivity;
 import com.example.houserentproject.Profile;
 import com.example.houserentproject.R;
-import com.example.houserentproject.UserDetails;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -94,6 +92,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         myPostCard = (CardView) view.findViewById(R.id.myPostCardId);
         profileCard = (CardView) view.findViewById(R.id.profileCardId);
         nstuContactCard = (CardView) view.findViewById(R.id.nstuContactCardId);
+        emergencyContactCard = (CardView) view.findViewById(R.id.emergencyContactCardId);
 
 
         DocumentReference documentReference = FirebaseFirestore.getInstance().collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -111,6 +110,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         myPostCard.setOnClickListener(this);
         profileCard.setOnClickListener(this);
         nstuContactCard.setOnClickListener(this);
+        emergencyContactCard.setOnClickListener(this);
 
 
         return view;
@@ -155,6 +155,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             case R.id.nstuContactCardId:
                 startActivity(new Intent(getActivity(), NstuContactActivity.class));
+                break;
+
+            case R.id.emergencyContactCardId:
+                startActivity(new Intent(getActivity(), EmergencyContactActivity.class));
                 break;
 
         }

@@ -16,9 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HouseRentProject">
         <activity
-            android:name=".NstuContactActivity"
-            android:parentActivityName=".DashboardActivity"
+            android:name=".additionalActivity.EditPostActivity"
             android:exported="false" />
+        <activity
+            android:name=".NstuContactActivity"
+            android:exported="false"
+            android:parentActivityName=".DashboardActivity" />
         <activity
             android:name=".additionalActivity.HelpActivity"
             android:exported="false"
@@ -64,7 +67,7 @@
             android:parentActivityName=".DashboardActivity" />
         <activity
             android:name=".UserDetails"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".EmergencyContactActivity" />
         <activity
             android:name=".ResetPassActivity"
             android:parentActivityName=".additionalActivity.HelpActivity" />
@@ -77,7 +80,8 @@
         <activity
             android:name=".DetailsActivity"
             android:parentActivityName=".additionalActivity.HelpActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".EmergencyContactActivity"
+            android:parentActivityName=".DashboardActivity"/>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
     </application>

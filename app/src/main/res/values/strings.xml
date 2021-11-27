@@ -6,7 +6,7 @@
 
     <string name="menu_filter">Filter</string>
     <string name="menu_logout">Logout</string>
-    
+
     <string-array name="designation">
 
         <item>Vice Chancellor</item>
@@ -68,7 +68,52 @@
     </string-array>
 
 
+    <string-array name="emergency_contact_name">
 
+        <item>DC (Noakhali)</item>
+        <item>ADC (Noakhali)</item>
+        <item>NDC (Noakhali)</item>
+        <item>UNO (Noakhali Sadar)</item>
+        <item>Mayor (Noakhali Sadar)</item>
+        <item>Police Super (Noakhali)</item>
+        <item>Additional Police Super (Noakhali)</item>
+        <item>OC (Noakhali Sadar)</item>
+        <item>Maijdee Fire Station</item>
+        <item>Prime Hospital</item>
+        <item>Good Hill Hospital</item>
+        <item>Modern Hospital</item>
+        <item>Noakhali Press Club (Noakhali)</item>
+        <item>Coloman Noakhali</item>
+        <item>The Daily Jugantor (Noakhali)</item>
+        <item>The Daily Prothom Alo (Noakhali)</item>
+        <item>The Daily Kalerkantho (Noakhali)</item>
+
+
+
+    </string-array>
+
+    <string-array name="emergency_contact_phone">
+
+        <item>032161021</item>
+        <item>032161005</item>
+        <item>032161245</item>
+        <item>032161095</item>
+        <item>032161010</item>
+        <item>032161030</item>
+        <item>032162132</item>
+        <item>032162067</item>
+        <item>032162011</item>
+        <item>032163016</item>
+        <item>032161335</item>
+        <item>032161081</item>
+        <item>032162082</item>
+        <item>01711008033</item>
+        <item>01670909926</item>
+        <item>01817400170</item>
+        <item>01711181383</item>
+
+
+    </string-array>
 
 
     <string-array name="location_spinner">

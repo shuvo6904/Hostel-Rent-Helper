@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.houserentproject.additionalActivity.EditPostActivity;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
@@ -90,7 +91,7 @@ public class MyPostAdapter extends RecyclerView.Adapter<MyPostsHomePageViewHolde
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(myPostContext, PostActivity.class);
+                Intent intent = new Intent(myPostContext, EditPostActivity.class);
                 intent.putExtra("editPostModel",myPostModel);
                 myPostContext.startActivity(intent);
 

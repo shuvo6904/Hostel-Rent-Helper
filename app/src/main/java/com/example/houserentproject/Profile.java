@@ -25,11 +25,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -242,7 +240,7 @@ public class Profile extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(Void unused) {
                                         Toast.makeText(Profile.this, "Profile Updated Successfully", Toast.LENGTH_LONG).show();
-                                        startActivity(new Intent(Profile.this, MainActivity.class));
+                                        startActivity(new Intent(Profile.this, EmergencyContactActivity.class));
                                         finish();
                                     }
                                 });

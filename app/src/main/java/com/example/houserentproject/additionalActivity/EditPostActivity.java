@@ -1,15 +1,13 @@
-package com.example.houserentproject;
+package com.example.houserentproject.additionalActivity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
-import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -29,13 +27,15 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.houserentproject.HomePageData;
+import com.example.houserentproject.PostActivity;
+import com.example.houserentproject.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -69,10 +69,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
-public class PostActivity extends AppCompatActivity {
+public class EditPostActivity extends AppCompatActivity {
 
     SupportMapFragment supportMapFragment;
-    FusedLocationProviderClient client;
+    //FusedLocationProviderClient client;
     int REQUEST_CODE = 111, count = 0;
     ConnectivityManager manager;
     NetworkInfo networkInfo;
@@ -114,8 +114,9 @@ public class PostActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post);
-        this.setTitle("Create Post Page");
+        setContentView(R.layout.activity_edit_post);
+
+        this.setTitle("Edit Post Page");
 
         ActionBar bar = getSupportActionBar();
         //bar.hide();
@@ -132,16 +133,16 @@ public class PostActivity extends AppCompatActivity {
 
 
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.googleMapId);
-        client = LocationServices.getFusedLocationProviderClient(PostActivity.this);
+        //client = LocationServices.getFusedLocationProviderClient(this);
 
-        if (ActivityCompat.checkSelfPermission(PostActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) ==
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) ==
                 PackageManager.PERMISSION_GRANTED) {
 
-            getCurrentLocation();
+            getPostLocation();
 
         } else {
 
-            ActivityCompat.requestPermissions(PostActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE);
 
         }
 
@@ -170,13 +171,13 @@ public class PostActivity extends AppCompatActivity {
         inDeTV = (TextView) findViewById(R.id.inDeTVId);
 
 
-        ArrayAdapter<String> locationArrayAdapter = new ArrayAdapter<>(PostActivity.this, R.layout.sample_spinner_view, locationDropDownArray);
+        ArrayAdapter<String> locationArrayAdapter = new ArrayAdapter<>(this, R.layout.sample_spinner_view, locationDropDownArray);
         dropDownText.setAdapter(locationArrayAdapter);
 
-        ArrayAdapter<String> monthArrayAdapter = new ArrayAdapter<>(PostActivity.this, R.layout.sample_spinner_view, selectedMonthDropDownArray);
+        ArrayAdapter<String> monthArrayAdapter = new ArrayAdapter<>(this, R.layout.sample_spinner_view, selectedMonthDropDownArray);
         selectedMonthText.setAdapter(monthArrayAdapter);
 
-        ArrayAdapter<String> desireRentArrayAdapter = new ArrayAdapter<>(PostActivity.this, R.layout.sample_spinner_view, desireRentDropdownArray);
+        ArrayAdapter<String> desireRentArrayAdapter = new ArrayAdapter<>(this, R.layout.sample_spinner_view, desireRentDropdownArray);
         desireRentText.setAdapter(desireRentArrayAdapter);
 
         homeImage = (ImageView) findViewById(R.id.postHomeImageId);
@@ -234,11 +235,33 @@ public class PostActivity extends AppCompatActivity {
             }
         });
 
+        setTextForEditPost();
+
+
 
     }
 
+    private void setTextForEditPost() {
 
-    public void getCurrentLocation() {
+        editDataModel = (HomePageData) getIntent().getSerializableExtra("editPostModel");
+
+        if (editDataModel != null){
+            txtRentedAmount.setText(editDataModel.getRentAmount());
+            dropDownText.setText(editDataModel.getLocation());
+            txtBuildingName.setText(editDataModel.getBuildingName());
+            txtFloorNumber.setText(editDataModel.getFloorNumber());
+            txtDetailsAddress.setText(editDataModel.getDetailsAboutHostel());
+            selectedMonthText.setText(editDataModel.getDatePick());
+            txtElectricityBill.setText(editDataModel.getElectricityBill());
+            txtGasBill.setText(editDataModel.getGasBill());
+            txtWifiBill.setText(editDataModel.getWifiBill());
+            txtOthersBill.setText(editDataModel.getOthersBill());
+
+        }
+    }
+
+
+    public void getPostLocation() {
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -251,8 +274,46 @@ public class PostActivity extends AppCompatActivity {
             return;
         }
 
+        supportMapFragment.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(GoogleMap googleMap) {
 
-        Task<Location> task = client.getLastLocation();
+                mMap = googleMap;
+
+                double postLat = editDataModel.getHostelLat();
+                double postLon = editDataModel.getHostelLon();
+
+                LatLng postLatLon = new LatLng(postLat, postLon);
+
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(postLatLon, 14));
+
+                getAddress(postLat, postLon);
+
+                mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+                    @Override
+                    public void onMapClick(LatLng latLng) {
+
+                        checkConnection();
+
+                        if (networkInfo.isConnected() && networkInfo.isAvailable()) {
+
+                            selectedLat = latLng.latitude;
+                            selectedLon = latLng.longitude;
+
+                            getAddress(selectedLat, selectedLon);
+
+                        } else {
+                            Toast.makeText(EditPostActivity.this, "Please Check Your Internet Connection", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+
+            }
+        });
+
+
+        /* Task<Location> task = client.getLastLocation();
         task.addOnSuccessListener(new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
@@ -288,7 +349,7 @@ public class PostActivity extends AppCompatActivity {
                                         getAddress(selectedLat, selectedLon);
 
                                     } else {
-                                        Toast.makeText(PostActivity.this, "Please Check Your Internet Connection", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(EditPostActivity.this, "Please Check Your Internet Connection", Toast.LENGTH_SHORT).show();
                                     }
 
                                 }
@@ -300,7 +361,7 @@ public class PostActivity extends AppCompatActivity {
 
 
             }
-        });
+        });*/
 
 
     }
@@ -312,11 +373,11 @@ public class PostActivity extends AppCompatActivity {
 
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                getCurrentLocation();
+                getPostLocation();
 
             }
         } else {
-            Toast.makeText(PostActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -331,7 +392,7 @@ public class PostActivity extends AppCompatActivity {
         hostelLat = mLat;
         hostelLon = mLon;
 
-        geocoder = new Geocoder(PostActivity.this, Locale.getDefault());
+        geocoder = new Geocoder(this, Locale.getDefault());
 
         if (mLat != 0) {
             try {
@@ -374,7 +435,7 @@ public class PostActivity extends AppCompatActivity {
     }
 
 
-    public void btnSelectImage(View view) {
+    public void btnEditSelectImage(View view) {
 
         Intent photoPicker = new Intent(Intent.ACTION_PICK);
         photoPicker.setType("image/*");
@@ -424,7 +485,7 @@ public class PostActivity extends AppCompatActivity {
         });
     }
 
-    public void btnSubmitId(View view) {
+    public void btnEditSubmitId(View view) {
 
         if (txtRentedAmount.getText().toString().isEmpty()) {
             txtRentedAmount.setError("Required Field");
@@ -492,12 +553,12 @@ public class PostActivity extends AppCompatActivity {
 
         rootRef.child("Data")
                 .child(userId)
-                .child(myCurrentDateTime).setValue(homePageData).addOnCompleteListener(new OnCompleteListener<Void>() {
+                .child(editDataModel.getId()).setValue(homePageData).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
 
                 if (task.isSuccessful()) {
-                    Toast.makeText(PostActivity.this, "Data Uploaded", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditPostActivity.this, "Data Uploaded", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }
@@ -506,11 +567,10 @@ public class PostActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
 
-                Toast.makeText(PostActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditPostActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
 
     }
-
 }
