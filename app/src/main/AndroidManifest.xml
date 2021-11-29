@@ -17,6 +17,7 @@
         android:theme="@style/Theme.HouseRentProject">
         <activity
             android:name=".additionalActivity.EditPostActivity"
+            android:parentActivityName=".MyPosts"
             android:exported="false" />
         <activity
             android:name=".NstuContactActivity"

@@ -1,9 +1,11 @@
 package com.example.houserentproject.UserFragment;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
@@ -27,40 +29,25 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
     CardView favouriteCard, createPostCard, myPostCard, profileCard, nstuContactCard, emergencyContactCard;
 
     TextView hiTv;
 
+    String isProfileCompleted;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     public HomeFragment() {
-        // Required empty public constructor
+
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
@@ -82,7 +69,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
         View view =inflater.inflate(R.layout.fragment_home, container, false);
 
@@ -101,6 +87,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
 
                 hiTv.setText("Hi, " + value.getString("fName"));
+                isProfileCompleted = value.getString("isProfileCompleted");
 
             }
         });
@@ -127,21 +114,35 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             case R.id.createPostCardId:
 
-                DocumentReference documentReference = FirebaseFirestore.getInstance().collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
 
-                        if (value.getString("isProfileCompleted").isEmpty()){
+                        if (isProfileCompleted.isEmpty()){
 
-                            Toast.makeText(getActivity(), "Please Complete Your Profile. Then Try to Post Advertisement", Toast.LENGTH_SHORT).show();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                            builder.setTitle("Are You a New User?");
+                            builder.setMessage("Please Complete Your Profile by Uploading Profile Picture, Identity Photo and Verifying Email");
+
+                            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    startActivity(new Intent(getActivity(), Profile.class));
+                                }
+                            });
+
+                            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+
+                            AlertDialog alertDialog = builder.create();
+                            alertDialog.show();
+
 
                         }
                         else {
                             startActivity(new Intent(getActivity(), PostActivity.class));
                         }
-                    }
-                });
 
                 break;
 
@@ -164,4 +165,5 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         }
 
     }
+
 }

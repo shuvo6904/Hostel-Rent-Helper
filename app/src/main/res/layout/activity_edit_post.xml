@@ -143,7 +143,9 @@
                                 android:id="@+id/buildingNameId"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="text" />
+                                android:inputType="textMultiLine"
+                                android:textAlignment="textStart"
+                                android:gravity="start"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -161,7 +163,9 @@
                                 android:id="@+id/floorNumberId"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="text" />
+                                android:inputType="textMultiLine"
+                                android:textAlignment="textStart"
+                                android:gravity="start"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -182,7 +186,10 @@
                         <AutoCompleteTextView
                             android:id="@+id/dropDownTextId"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:inputType="textMultiLine"
+                            android:textAlignment="textStart"
+                            android:gravity="start"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -209,7 +216,10 @@
                             <AutoCompleteTextView
                                 android:id="@+id/selectMonthTextId"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:inputType="textMultiLine"
+                                android:textAlignment="textStart"
+                                android:gravity="start"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -228,7 +238,9 @@
                                 android:id="@+id/rentedAmountId"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="number" />
+                                android:inputType="textMultiLine"
+                                android:textAlignment="textStart"
+                                android:gravity="start"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -320,7 +332,10 @@
                     <AutoCompleteTextView
                         android:id="@+id/desireRentTextId"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine"
+                        android:textAlignment="textStart"
+                        android:gravity="start"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -432,7 +447,9 @@
                                 android:id="@+id/electricityBillId"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="text" />
+                                android:inputType="textMultiLine"
+                                android:textAlignment="textStart"
+                                android:gravity="start"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -453,7 +470,9 @@
                                 android:id="@+id/gasBillId"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="text" />
+                                android:inputType="textMultiLine"
+                                android:textAlignment="textStart"
+                                android:gravity="start"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -483,7 +502,9 @@
                                 android:id="@+id/wifiBillId"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="text" />
+                                android:inputType="textMultiLine"
+                                android:textAlignment="textStart"
+                                android:gravity="start"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -504,7 +525,9 @@
                                 android:id="@+id/othersBillId"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="text" />
+                                android:inputType="textMultiLine"
+                                android:textAlignment="textStart"
+                                android:gravity="start"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -827,18 +850,19 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:hint="Example: The hostel is located next to the main road."
+                android:hint="Write Here Details About Your Hostel"
                 app:boxBackgroundMode="outline"
                 app:counterEnabled="true"
                 app:counterMaxLength="100"
                 app:endIconMode="clear_text">
 
                 <EditText
-
                     android:id="@+id/detailsAddressId"
                     android:layout_width="match_parent"
                     android:layout_height="195dp"
-                    android:inputType="text" />
+                    android:inputType="textMultiLine"
+                    android:textAlignment="textStart"
+                    android:gravity="start"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 

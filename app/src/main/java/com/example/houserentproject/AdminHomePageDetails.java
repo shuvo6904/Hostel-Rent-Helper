@@ -97,7 +97,7 @@ public class AdminHomePageDetails extends AppCompatActivity {
 
         if (model != null){
 
-            postDescription.setText(model.getValueOfRentType() + " will be rented in the " + model.getLocation() + " from " + model.getDatePick() + ".");
+            postDescription.setText(model.getValueOfRentCount() + " " + model.getValueOfRentType() + " will be rented in the " + model.getLocation() + " from " + model.getDatePick() + ".");
             rentedAmount.setText(" " + model.getRentAmount() + " Taka");
             homeLocation.setText(" " + model.getLocation());
             buildingName.setText(" " + model.getBuildingName());

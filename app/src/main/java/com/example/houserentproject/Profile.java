@@ -84,11 +84,6 @@ public class Profile extends AppCompatActivity {
         proEditablePhnNum = (TextView) findViewById(R.id.editableProfilePhnNumId);
         proEditableEmail = (TextView) findViewById(R.id.editableProfileEmailId);
         checkIsEmailVerified = (TextView) findViewById(R.id.checkIsEmailVerifiedId);
-
-        //frontImageView = (ImageView) findViewById(R.id.imageViewPhotoIdentity);
-        //backImageView = (ImageView) findViewById(R.id.backImageId);
-
-
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
@@ -156,16 +151,6 @@ public class Profile extends AppCompatActivity {
             }
         });
 
-
-        /**profileStorageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-
-                Picasso.get().load(uri).into(profileImage);
-            }
-        }); **/
-
-
         profileEmailVerifyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -174,10 +159,7 @@ public class Profile extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
 
-                        Toast.makeText(Profile.this, "Email verification link has been sent.\nPlease check your email", Toast.LENGTH_LONG).show();
-
-                        // buttonEmailVerify.setVisibility(View.GONE);
-                        // textViewEmailVerify.setVisibility(View.GONE);
+                        Toast.makeText(Profile.this, "Email verification link has been sent.", Toast.LENGTH_LONG).show();
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -295,8 +277,9 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
 
+                String frontImagePathLink = value.getString("frontImageIdentity");
 
-                if (value.getString("frontImageIdentity").isEmpty()) {
+                if (frontImagePathLink.isEmpty()) {
                     photoIdentityIV.setImageResource(R.drawable.ic_baseline_image_24);
                 } else{
                     frontVeriStorageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -310,13 +293,6 @@ public class Profile extends AppCompatActivity {
 
             }
         });
-
-        /**frontVeriStorageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).into(photoIdentityIV);
-            }
-        }); **/
 
         photoIdentitySheetDialog.setContentView(photoIdentityView);
         photoIdentitySheetDialog.show();
@@ -404,6 +380,24 @@ public class Profile extends AppCompatActivity {
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
 
+                String profileImageUri = imageUri.toString();
+
+                Map<String, Object> edited = new HashMap<>();
+                edited.put("profileImg", profileImageUri);
+                documentReference.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                        Toast.makeText(Profile.this, e.getMessage(), Toast.LENGTH_LONG).show();
+
+                    }
+                });
+
 
                 fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
@@ -425,23 +419,7 @@ public class Profile extends AppCompatActivity {
         });
 
 
-        String profileImageUri = imageUri.toString();
 
-        Map<String, Object> edited = new HashMap<>();
-        edited.put("profileImg", profileImageUri);
-        documentReference.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-
-                Toast.makeText(Profile.this, e.getMessage(), Toast.LENGTH_LONG).show();
-
-            }
-        });
     }
 
     private void uploadFrontImageToFirebase(Uri imageUri) {
@@ -450,6 +428,24 @@ public class Profile extends AppCompatActivity {
         fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                String frontImageUri = imageUri.toString();
+
+                Map<String, Object> edited = new HashMap<>();
+                edited.put("frontImageIdentity", frontImageUri);
+                documentReference.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                        Toast.makeText(Profile.this, e.getMessage(), Toast.LENGTH_LONG).show();
+
+                    }
+                });
 
                 fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
@@ -470,7 +466,7 @@ public class Profile extends AppCompatActivity {
             }
         });
 
-        String frontImageUri = imageUri.toString();
+        /*String frontImageUri = imageUri.toString();
 
         Map<String, Object> edited = new HashMap<>();
         edited.put("frontImageIdentity", frontImageUri);
@@ -486,7 +482,7 @@ public class Profile extends AppCompatActivity {
                 Toast.makeText(Profile.this, e.getMessage(), Toast.LENGTH_LONG).show();
 
             }
-        });
+        });*/
     }
 
 
