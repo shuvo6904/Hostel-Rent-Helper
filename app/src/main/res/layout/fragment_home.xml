@@ -20,11 +20,12 @@
                 android:id="@+id/hiTextViewId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:gravity="center"
                 android:text=""
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/welcomeId"
@@ -37,20 +38,20 @@
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 android:textStyle="bold" />
-
+<!--
             <ImageView
                 android:id="@+id/rentIconId"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_below="@+id/welcomeId"
                 android:layout_centerInParent="true"
-                android:src="@drawable/ic_rent_icon" />
+                android:src="@drawable/ic_rent_icon" />-->
 
             <TextView
                 android:id="@+id/appNameTVId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/rentIconId"
+                android:layout_below="@+id/welcomeId"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/arbutus_slab"
                 android:gravity="center"
@@ -63,7 +64,7 @@
             <LinearLayout
                 android:layout_marginRight="30dp"
                 android:layout_marginLeft="30dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/appNameTVId"

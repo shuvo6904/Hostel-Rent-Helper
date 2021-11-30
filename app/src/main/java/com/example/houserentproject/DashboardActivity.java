@@ -5,6 +5,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -25,23 +27,26 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        if (savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.frameContainerId, new HomeFragment()).commit();
-        }
-
-        this.setTitle("");
-
         ActionBar bar = getSupportActionBar();
-        bar.hide();
-        //bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#5DAFF1")));
+        bar.setTitle("Hostel Rent Helper");
+        //bar.hide();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#5DAFF1")));
         //bar.setDisplayHomeAsUpEnabled(true);
-        //bar.setDisplayShowHomeEnabled(true);
+        bar.setHomeAsUpIndicator(R.drawable.ic_rent_icon);
+        bar.setDisplayHomeAsUpEnabled(true);
+        //bar.setLogo(R.drawable.ic_rent_icon);
+        //bar.setDisplayUseLogoEnabled(true);
+
 
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(this.getResources().getColor(R.color.statusBarColor));
+        }
+
+        if (savedInstanceState == null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameContainerId, new HomeFragment()).commit();
         }
 
         bottomNavView = (BottomNavigationView) findViewById(R.id.bottomNavId);
