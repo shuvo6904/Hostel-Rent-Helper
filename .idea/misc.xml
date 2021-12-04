@@ -30,6 +30,7 @@
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/drawable/ic_baseline_home_black.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/drawable/ic_baseline_home_white.xml" value="0.23472222222222222" />
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/drawable/ic_baseline_home_work_24.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/drawable/ic_baseline_image_24.xml" value="0.23914473684210527" />
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/drawable/ic_baseline_location_black.xml" value="0.3398148148148148" />
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.3398148148148148" />
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1" />
@@ -61,7 +62,7 @@
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/activity_dashboard.xml" value="0.12" />
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/activity_details.xml" value="0.1" />
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/activity_edit_post.xml" value="0.22894736842105262" />
-        <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/activity_emergency_contact.xml" value="0.22894736842105262" />
+        <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/activity_emergency_contact.xml" value="0.1" />
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/activity_help.xml" value="0.14" />
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/activity_login.xml" value="0.22894736842105262" />
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/activity_main.xml" value="0.1980263157894737" />
@@ -74,7 +75,7 @@
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/activity_splash.xml" value="0.18" />
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/activity_user_details.xml" value="0.1" />
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/dashboard_background.xml" value="0.646875" />
-        <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/emergency_contact_single_row.xml" value="0.22894736842105262" />
+        <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/emergency_contact_single_row.xml" value="0.1" />
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/fragment_account.xml" value="0.1" />
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/fragment_all_advertisement.xml" value="0.1" />
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/fragment_approved_post.xml" value="0.1" />
@@ -85,6 +86,7 @@
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/nstu_contact_single_row.xml" value="0.22894736842105262" />
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/recycler_admin_home_row.xml" value="0.22894736842105262" />
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/recycler_my_post_row_item.xml" value="0.14605263157894738" />
+        <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/recycler_row_item.xml" value="0.22894736842105262" />
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/single_row_user_list.xml" value="0.1" />
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/layout/upload_photo_identity.xml" value="0.1" />
         <entry key="..\:/Users/Shuvo Talukdar/AndroidStudioProjects/HostelRentHelper/app/src/main/res/menu/admin_bottom_menu.xml" value="0.1" />

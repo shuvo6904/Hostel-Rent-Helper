@@ -92,7 +92,7 @@ public class AllAdvertisementFragment extends Fragment {
 
         myRecyclerView = (RecyclerView) view.findViewById(R.id.allPostRecyclerViewId);
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),1);
         myRecyclerView.setLayoutManager(gridLayoutManager);
 
         progressDialog = new ProgressDialog(getActivity());

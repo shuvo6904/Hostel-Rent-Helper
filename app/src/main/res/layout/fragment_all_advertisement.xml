@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EBF1F6"
     tools:context=".UserFragment.AllAdvertisementFragment">
-
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,9 +23,6 @@
                 android:layout_marginRight="5dp"
                 android:textSize="22sp"
                 android:background="@drawable/edit_text_border"/>
-
-
-
 
 
         <androidx.recyclerview.widget.RecyclerView

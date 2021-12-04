@@ -42,8 +42,10 @@ public class MyAdapter extends RecyclerView.Adapter<HomePageViewHolder>{
         Glide.with(mContext)
                 .load(model.getImage())
                 .into(holder.imageView);
-        holder.mRentAmount.setText(model.getRentAmount());
-        holder.mLocation.setText(model.getLocation());
+        holder.mRentAmount.setText(" " + model.getRentAmount() + " Taka");
+        //holder.mLocation.setText(model.getLocation());
+        holder.rentType.setText(" "+ model.getValueOfRentType() + " " + "Rent");
+        holder.description.setText(model.getValueOfRentCount() + " " + model.getValueOfRentType() + " will be rented in the " + model.getLocation() + " from " + model.getDatePick() + ".");
 
         holder.mCardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +74,7 @@ public class MyAdapter extends RecyclerView.Adapter<HomePageViewHolder>{
 class HomePageViewHolder extends RecyclerView.ViewHolder{
 
     ImageView imageView;
-    TextView mRentAmount, mLocation;
+    TextView mRentAmount, description, rentType;
     CardView mCardView;
 
     public HomePageViewHolder(View itemView) {
@@ -80,7 +82,9 @@ class HomePageViewHolder extends RecyclerView.ViewHolder{
 
         imageView = itemView.findViewById(R.id.ivImageId);
         mRentAmount = itemView.findViewById(R.id.tvRentAmountId);
-        mLocation = itemView.findViewById(R.id.tvLocationId);
+        description = itemView.findViewById(R.id.homePageDescriptionId);
+        rentType = itemView.findViewById(R.id.homePageRentTypeValueId);
+        //mLocation = itemView.findViewById(R.id.tvLocationId);
         mCardView = itemView.findViewById(R.id.myCardViewId);
     }
 }

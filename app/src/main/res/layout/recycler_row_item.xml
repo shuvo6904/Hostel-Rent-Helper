@@ -3,10 +3,83 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/myCardViewId"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivImageId"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_baseline_image_24" />
+            <LinearLayout
+                android:background="#3A474A"
+                android:layout_alignBottom="@id/ivImageId"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_weight=".3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:textColor="#3499EC"
+                    android:textSize="18sp"
+                    android:drawableStart="@drawable/ic_taka"
+                    android:layout_weight=".85"
+                    android:id="@+id/tvRentAmountId"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="8000 BDT"/>
+
+                <TextView
+                    android:textColor="#3499EC"
+                    android:textSize="18sp"
+                    android:id="@+id/homePageRentTypeValueId"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".85"
+                    android:drawableStart="@drawable/ic_rent_type"
+                    android:text=" Rent Type: "/>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/homePageDescriptionId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ivImageId"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="Post Description"
+                android:textColor="#2E2B2B"
+                android:textSize="16sp"/>
+
+
+        </RelativeLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    <!--<androidx.cardview.widget.CardView
         android:id="@+id/myCardViewId"
         android:layout_width="match_parent"
         android:layout_height="365dp"
@@ -111,6 +184,6 @@
         </LinearLayout>
 
 
-    </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>-->
 
 </LinearLayout>
