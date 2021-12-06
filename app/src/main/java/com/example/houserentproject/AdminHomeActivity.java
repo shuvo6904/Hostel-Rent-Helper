@@ -110,6 +110,10 @@ public class AdminHomeActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), ResetPassActivity.class));
                 return true;
 
+            case R.id.menuProfileId:
+                startActivity(new Intent(getApplicationContext(), Profile.class));
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
 

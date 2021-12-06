@@ -12,4 +12,10 @@
         android:title="Reset Password"
         />
 
+    <item
+        android:id="@+id/menuProfileId"
+        android:title="Profile"
+        />
+
+
 </menu>
