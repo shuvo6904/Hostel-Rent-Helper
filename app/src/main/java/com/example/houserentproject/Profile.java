@@ -222,8 +222,9 @@ public class Profile extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(Void unused) {
                                         Toast.makeText(Profile.this, "Profile Updated Successfully", Toast.LENGTH_LONG).show();
-                                        startActivity(new Intent(Profile.this, EmergencyContactActivity.class));
-                                        finish();
+                                        sheetDialog.dismiss();
+                                        //startActivity(new Intent(Profile.this, EmergencyContactActivity.class));
+                                        //finish();
                                     }
                                 });
                                 //Toast.makeText(Profile.this, "Email is Changed", Toast.LENGTH_LONG).show();

@@ -75,6 +75,10 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListViewHolder> {
                     });
                 }
 
+                if (value.getString("isAdmin").contentEquals("Yes")){
+                    holder.adminUser.setVisibility(View.VISIBLE);
+                }
+
 
             }
         });

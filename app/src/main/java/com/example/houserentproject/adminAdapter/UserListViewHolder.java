@@ -1,6 +1,7 @@
 package com.example.houserentproject.adminAdapter;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +14,7 @@ public class UserListViewHolder extends RecyclerView.ViewHolder {
 
     ImageView imageView;
     TextView userName, userEmail, userPhone;
+    Button adminUser;
 
     public UserListViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -22,5 +24,6 @@ public class UserListViewHolder extends RecyclerView.ViewHolder {
         userName = itemView.findViewById(R.id.userListNameId);
         userEmail = itemView.findViewById(R.id.userListEmailId);
         userPhone = itemView.findViewById(R.id.userListPhoneId);
+        adminUser = itemView.findViewById(R.id.adminUserBtnId);
     }
 }
