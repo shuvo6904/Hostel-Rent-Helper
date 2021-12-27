@@ -89,8 +89,6 @@ public class Profile extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
         documentReference = firebaseFirestore.collection("users").document(user.getUid());
 
-        isProfileCompleted();
-
         if (user != null)
             user.reload();
 
@@ -102,13 +100,14 @@ public class Profile extends AppCompatActivity {
         }else{
 
             checkIsEmailVerified.setText("Email Verified");
-            Log.d("profile_", "onCreate: email is verified");
 
             Map<String, Object> edited = new HashMap<>();
             edited.put("emailVerification", "Verified");
             documentReference.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void unused) {
+
+                    isProfileCompleted();
 
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -154,6 +153,7 @@ public class Profile extends AppCompatActivity {
         profileEmailVerifyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 user.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -303,11 +303,33 @@ public class Profile extends AppCompatActivity {
 
     public void isProfileCompleted() {
 
+        if (user != null)
+            user.reload();
+
+        if (user.isEmailVerified()){
+
+            Map<String, Object> edited = new HashMap<>();
+            edited.put("emailVerification", "Verified");
+            documentReference.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+
+                    Toast.makeText(Profile.this, e.getMessage(), Toast.LENGTH_LONG).show();
+
+                }
+            });
+
+        }
+
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                if (value.getString("profileImg").isEmpty() || value.getString("frontImageIdentity").isEmpty() ||
-                        value.getString("emailVerification").contentEquals("Unverified")){
+                if (value.getString("profileImg").isEmpty() || value.getString("frontImageIdentity").isEmpty()){
                 }
 
                 else {
@@ -389,6 +411,8 @@ public class Profile extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
 
+                        isProfileCompleted();
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -438,6 +462,8 @@ public class Profile extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
 
+                        isProfileCompleted();
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -467,26 +493,6 @@ public class Profile extends AppCompatActivity {
             }
         });
 
-        /*String frontImageUri = imageUri.toString();
 
-        Map<String, Object> edited = new HashMap<>();
-        edited.put("frontImageIdentity", frontImageUri);
-        documentReference.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-
-                Toast.makeText(Profile.this, e.getMessage(), Toast.LENGTH_LONG).show();
-
-            }
-        });*/
     }
-
-
-
-
 }

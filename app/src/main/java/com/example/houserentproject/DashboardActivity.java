@@ -17,6 +17,7 @@ import com.example.houserentproject.UserFragment.AccountFragment;
 import com.example.houserentproject.UserFragment.HomeFragment;
 import com.example.houserentproject.UserFragment.AllAdvertisementFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class DashboardActivity extends AppCompatActivity {
 

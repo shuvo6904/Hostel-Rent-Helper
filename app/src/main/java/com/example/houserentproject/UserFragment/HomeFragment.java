@@ -22,7 +22,9 @@ import com.example.houserentproject.NstuContactActivity;
 import com.example.houserentproject.PostActivity;
 import com.example.houserentproject.Profile;
 import com.example.houserentproject.R;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -114,35 +116,40 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             case R.id.createPostCardId:
 
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                        if (isProfileCompleted.isEmpty()){
+                if (user != null)
+                    user.reload();
 
-                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                            builder.setTitle("Are You a New User?");
-                            builder.setMessage("Please Complete Your Profile by Uploading Profile Picture, Identity Photo and Verifying Email");
+                if (isProfileCompleted.isEmpty() || !user.isEmailVerified()){
 
-                            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    startActivity(new Intent(getActivity(), Profile.class));
-                                }
-                            });
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setTitle("Are You a New User?");
+                    builder.setMessage("To Create Advertisement Post, Please Complete Your Profile by Uploading Profile Picture, Identity Photo and Verifying Email");
 
-                            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            });
-
-                            AlertDialog alertDialog = builder.create();
-                            alertDialog.show();
-
-
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            startActivity(new Intent(getActivity(), Profile.class));
                         }
-                        else {
-                            startActivity(new Intent(getActivity(), PostActivity.class));
+                    });
+
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
                         }
+                    });
+
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+
+
+                }
+
+                else {
+                    startActivity(new Intent(getActivity(), PostActivity.class));
+                }
 
                 break;
 
