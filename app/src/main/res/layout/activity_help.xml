@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="#EFF0F1"
+    android:background="#FFFFFF"
+    android:layout_marginBottom="30dp"
     tools:context=".additionalActivity.HelpActivity">
 
     <LinearLayout
-        android:layout_marginBottom="30dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -21,8 +22,8 @@
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:text="For any kind of help\n Please feel free to contact us"
-            android:textColor="#5E5A5A"
+            android:text="For any kind of Query\n Please feel free to contact us"
+            android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -44,7 +45,7 @@
             android:layout_marginTop="30dp"
             android:drawableStart="@drawable/call_colored"
             android:text="  01966077883"
-            android:textColor="#5E5A5A"
+            android:textColor="#00B0FF"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -55,11 +56,47 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
             android:drawableStart="@drawable/ic_baseline_email_24"
             android:text="  stshuvotalukdar@gmail.com"
-            android:textColor="#5E5A5A"
+            android:textColor="#00B0FF"
             android:textSize="20sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="10dp"
+            android:text="Review Hostel Rent Helper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_margin="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:hint="Write Your Review Here"
+            app:boxBackgroundMode="outline">
+
+            <EditText
+                android:inputType="textMultiLine"
+                android:textAlignment="textStart"
+                android:gravity="start"
+                android:id="@+id/reviewId"
+                android:layout_width="match_parent"
+                android:layout_height="195dp"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/reviewButtonId"
+            android:layout_marginBottom="20dp"
+            android:text="Review"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
 
     </LinearLayout>

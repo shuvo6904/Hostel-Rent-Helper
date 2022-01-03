@@ -402,7 +402,7 @@ public class PostActivity extends AppCompatActivity {
                 .getReference().child("HomeImage").child(uri.getLastPathSegment());
 
         final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Data Uploading....");
+        progressDialog.setMessage("Creating Post, Please Wait....");
         progressDialog.show();
 
         storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -502,7 +502,7 @@ public class PostActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
 
                 if (task.isSuccessful()) {
-                    Toast.makeText(PostActivity.this, "Data Uploaded", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PostActivity.this, "Posted Advertisement Successfully. An Admin Will Approve Your Post Shortly.", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }
