@@ -93,7 +93,7 @@ public class PendingPost extends Fragment {
         GridLayoutManager adminGridLayoutManager = new GridLayoutManager(getActivity(),1);
         adminRecyclerView.setLayoutManager(adminGridLayoutManager);
         adminProgressDialog = new ProgressDialog(getActivity());
-        adminProgressDialog.setMessage("Loading Data...");
+        adminProgressDialog.setMessage("Loading Pending Post...");
         adminPageDataList = new ArrayList<>();
         adminAdapter = new AdminAdapter(getActivity(), adminPageDataList);
         adminRecyclerView.setAdapter(adminAdapter);

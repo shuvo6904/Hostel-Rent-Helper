@@ -91,7 +91,7 @@ public class ApprovedPostFragment extends Fragment {
         GridLayoutManager adminGridLayoutManager = new GridLayoutManager(getActivity(),1);
         adminRecyclerView.setLayoutManager(adminGridLayoutManager);
         adminProgressDialog = new ProgressDialog(getActivity());
-        adminProgressDialog.setMessage("Loading Data...");
+        adminProgressDialog.setMessage("Loading Approved Post...");
         adminPageDataList = new ArrayList<>();
         adminAdapter = new AdminAdapter(getActivity(), adminPageDataList);
         adminRecyclerView.setAdapter(adminAdapter);

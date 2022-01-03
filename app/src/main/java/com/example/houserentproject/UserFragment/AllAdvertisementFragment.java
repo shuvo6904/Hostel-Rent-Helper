@@ -96,7 +96,7 @@ public class AllAdvertisementFragment extends Fragment {
         myRecyclerView.setLayoutManager(gridLayoutManager);
 
         progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Loading Data...");
+        progressDialog.setMessage("Loading Post...");
 
         myHomePageDataList = new ArrayList<>();
 

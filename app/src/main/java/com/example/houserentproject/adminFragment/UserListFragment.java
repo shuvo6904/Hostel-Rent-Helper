@@ -93,7 +93,7 @@ public class UserListFragment extends Fragment {
         userRecyclerView.setLayoutManager(layoutManager);
 
         progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Loading Data...");
+        progressDialog.setMessage("Loading User List...");
 
         userListModelList = new ArrayList<>();
         userListAdapter = new UserListAdapter(getActivity(), userListModelList);
