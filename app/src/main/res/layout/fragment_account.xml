@@ -254,7 +254,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
-                                android:text="Help"
+                                android:text="Help &amp; Review"
                                 android:textAppearance="?android:textAppearanceLarge"
                                 android:textStyle="bold" />
 

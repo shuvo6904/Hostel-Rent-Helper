@@ -82,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
         String strConPass = regConPass.getText().toString().trim();
 
         if (strFullName.isEmpty()){
-            regFullName.setError("Full Name is Required");
+            //regFullName.setError("Full Name is Required");
             regFullName.requestFocus();
             return;
         }

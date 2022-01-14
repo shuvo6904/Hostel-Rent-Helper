@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:background="#FFFFFF"
-    android:layout_marginBottom="30dp"
     tools:context=".additionalActivity.HelpActivity">
 
     <LinearLayout
-        android:layout_marginBottom="20dp"
         android:layout_marginTop="10dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -66,7 +64,7 @@
         <TextView
             android:textStyle="bold"
             android:textSize="18sp"
-            android:textColor="@color/black"
+            android:textColor="#03A9F4"
             android:layout_marginLeft="10dp"
             android:text="Review Hostel Rent Helper"
             android:layout_width="wrap_content"
@@ -76,17 +74,17 @@
             android:layout_margin="10dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="130dp"
             android:hint="Write Your Review Here"
             app:boxBackgroundMode="outline">
 
             <EditText
-                android:inputType="textMultiLine"
-                android:textAlignment="textStart"
-                android:gravity="start"
                 android:id="@+id/reviewId"
                 android:layout_width="match_parent"
-                android:layout_height="195dp"/>
+                android:layout_height="125dp"
+                android:gravity="start"
+                android:inputType="textMultiLine"
+                android:textAlignment="textStart" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -98,8 +96,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
+        <TextView
+            android:gravity="center"
+            android:textColor="#03A9F4"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="All Review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerReviewId"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
 
     </LinearLayout>
 
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>
