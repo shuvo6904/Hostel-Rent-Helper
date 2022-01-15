@@ -184,7 +184,7 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Are you sure?");
-        builder.setMessage("Deleting this account wiil result in completely removing your account from the system and you won't be able to access the app.");
+        builder.setMessage("Deleting this account will result in completely removing your account from the system and you won't be able to access the app.");
 
         builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
             @Override

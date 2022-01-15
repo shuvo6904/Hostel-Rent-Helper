@@ -15,8 +15,8 @@
             android:id="@+id/toolbarLayoutId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:contentScrim="#5DAFF1"
             android:background="#5DAFF1"
+            app:contentScrim="#5DAFF1"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <fragment
@@ -55,8 +55,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="#FBFBFB"
-                app:cardElevation="8dp"
-                app:cardCornerRadius="8dp">
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -92,9 +92,9 @@
 
 
             <View
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginTop="10dp"
                 android:background="#B9CDDD" />
 
 
@@ -102,8 +102,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                app:cardElevation="8dp"
-                app:cardCornerRadius="8dp">
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -143,29 +143,31 @@
                                 android:id="@+id/buildingNameId"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:gravity="start"
                                 android:inputType="textMultiLine"
-                                android:textAlignment="textStart"
-                                android:gravity="start"/>
+                                android:textAlignment="textStart" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:id="@+id/floorNumberId"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
                             android:layout_weight="1"
                             android:hint="Floor Number"
                             app:boxBackgroundMode="outline"
-                            app:endIconMode="clear_text"
+                            app:endIconMode="dropdown_menu"
                             app:startIconDrawable="@drawable/ic_floor">
 
-                            <EditText
-                                android:id="@+id/floorNumberId"
+                            <AutoCompleteTextView
+                                android:id="@+id/selectFloorNumTextId"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:gravity="start"
                                 android:inputType="textMultiLine"
-                                android:textAlignment="textStart"
-                                android:gravity="start" />
+                                android:textAlignment="textStart" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -184,12 +186,12 @@
                         app:startIconDrawable="@drawable/ic_baseline_location">
 
                         <AutoCompleteTextView
-                            android:inputType="textMultiLine"
-                            android:textAlignment="textStart"
-                            android:gravity="start"
                             android:id="@+id/dropDownTextId"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:inputType="textMultiLine"
+                            android:textAlignment="textStart" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -214,12 +216,12 @@
                             app:startIconDrawable="@drawable/ic_baseline_date_range_24">
 
                             <AutoCompleteTextView
-                                android:inputType="textMultiLine"
-                                android:textAlignment="textStart"
-                                android:gravity="start"
                                 android:id="@+id/selectMonthTextId"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:inputType="textMultiLine"
+                                android:textAlignment="textStart" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -238,9 +240,9 @@
                                 android:id="@+id/rentedAmountId"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:gravity="start"
                                 android:inputType="textMultiLine"
-                                android:textAlignment="textStart"
-                                android:gravity="start"/>
+                                android:textAlignment="textStart" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -252,9 +254,152 @@
             </androidx.cardview.widget.CardView>
 
             <View
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="#B9CDDD" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/arbutus_slab"
+                    android:gravity="center"
+                    android:text="Flat Information"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/totalRoomId"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:hint="Total Room"
+                            app:boxBackgroundMode="outline"
+                            app:endIconMode="dropdown_menu"
+                            app:startIconDrawable="@drawable/ic_room_icon">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/selectTotalRoomTextId"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:inputType="textMultiLine"
+                                android:textAlignment="textStart" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="Flat Size (Squ. Feet)"
+                            app:boxBackgroundMode="outline"
+                            app:endIconMode="clear_text"
+                            app:startIconDrawable="@drawable/ic_flat_size_icon">
+
+                            <EditText
+                                android:id="@+id/flatSizeId"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:inputType="textMultiLine"
+                                android:textAlignment="textStart" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/NoOfWashRoomId"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:hint="Total Washroom"
+                            app:boxBackgroundMode="outline"
+                            app:endIconMode="dropdown_menu"
+                            app:startIconDrawable="@drawable/ic_washroom_icon">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/selectTotalWashRoomTextId"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:inputType="textMultiLine"
+                                android:textAlignment="textStart" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/NoOfBalconyId"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:hint="Total Balcony"
+                            app:boxBackgroundMode="outline"
+                            app:endIconMode="dropdown_menu"
+                            app:startIconDrawable="@drawable/ic_balcony_icon">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/selectTotalBalconyTextId"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:inputType="textMultiLine"
+                                android:textAlignment="textStart" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
                 android:background="#B9CDDD" />
 
             <TextView
@@ -330,12 +475,12 @@
                     app:endIconMode="dropdown_menu">
 
                     <AutoCompleteTextView
-                        android:inputType="textMultiLine"
-                        android:textAlignment="textStart"
-                        android:gravity="start"
                         android:id="@+id/desireRentTextId"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:inputType="textMultiLine"
+                        android:textAlignment="textStart" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -359,11 +504,11 @@
                         android:src="@drawable/plus_icon" /> -->
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_weight="1"
                         android:id="@+id/incrementId"
                         android:layout_width="0dp"
                         android:layout_height="24dp"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
                         android:src="@drawable/plus_icon" />
 
 
@@ -379,12 +524,12 @@
                         android:textStyle="bold" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:clickable="true"
-                        android:layout_weight="1"
-                        android:layout_gravity="center"
                         android:id="@+id/decrementId"
                         android:layout_width="0dp"
                         android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:clickable="true"
                         android:src="@drawable/minus_icon" />
 
                 </LinearLayout>
@@ -394,19 +539,18 @@
 
 
             <View
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginTop="10dp"
                 android:background="#B9CDDD" />
-
 
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                app:cardElevation="8dp"
-                app:cardCornerRadius="8dp">
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -447,9 +591,9 @@
                                 android:id="@+id/electricityBillId"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:gravity="start"
                                 android:inputType="textMultiLine"
-                                android:textAlignment="textStart"
-                                android:gravity="start"/>
+                                android:textAlignment="textStart" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -470,9 +614,9 @@
                                 android:id="@+id/gasBillId"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:gravity="start"
                                 android:inputType="textMultiLine"
-                                android:textAlignment="textStart"
-                                android:gravity="start"/>
+                                android:textAlignment="textStart" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -502,9 +646,9 @@
                                 android:id="@+id/wifiBillId"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:gravity="start"
                                 android:inputType="textMultiLine"
-                                android:textAlignment="textStart"
-                                android:gravity="start"/>
+                                android:textAlignment="textStart" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -525,9 +669,9 @@
                                 android:id="@+id/othersBillId"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:gravity="start"
                                 android:inputType="textMultiLine"
-                                android:textAlignment="textStart"
-                                android:gravity="start"/>
+                                android:textAlignment="textStart" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -541,9 +685,9 @@
             </androidx.cardview.widget.CardView>
 
             <View
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginTop="10dp"
                 android:background="#B9CDDD" />
 
 
@@ -551,8 +695,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                app:cardElevation="8dp"
-                app:cardCornerRadius="8dp">
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -579,12 +723,12 @@
                         android:weightSum="2">
 
                         <TextView
-                            android:drawableStart="@drawable/ic_security"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="15dp"
                             android:layout_weight="1"
+                            android:drawableStart="@drawable/ic_security"
                             android:fontFamily="@font/arbutus_slab"
                             android:text=" Security Type"
                             android:textColor="@color/black"
@@ -592,12 +736,12 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:drawableStart="@drawable/ic_parking"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="15dp"
                             android:layout_weight="1"
+                            android:drawableStart="@drawable/ic_parking"
                             android:fontFamily="@font/arbutus_slab"
                             android:text=" Parking"
                             android:textColor="@color/black"
@@ -622,31 +766,30 @@
                             android:checkedButton="@id/noneSecurityId">
 
 
-                                    <RadioButton
-                                        android:id="@+id/securityGuardId"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:text="Security Guard" />
+                            <RadioButton
+                                android:id="@+id/securityGuardId"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="Security Guard" />
 
-                                    <RadioButton
-                                        android:id="@+id/CCTVId"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:text="CCTV Camera" />
+                            <RadioButton
+                                android:id="@+id/CCTVId"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="CCTV Camera" />
 
 
-                                    <RadioButton
-                                        android:id="@+id/bothId"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:text="Both" />
+                            <RadioButton
+                                android:id="@+id/bothId"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="Both" />
 
-                                    <RadioButton
-                                        android:id="@+id/noneSecurityId"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:text="None" />
-
+                            <RadioButton
+                                android:id="@+id/noneSecurityId"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="None" />
 
 
                         </RadioGroup>
@@ -674,7 +817,6 @@
                         </RadioGroup>
 
 
-
                     </LinearLayout>
 
                     <LinearLayout
@@ -691,12 +833,12 @@
                             android:weightSum="2">
 
                             <TextView
-                                android:drawableStart="@drawable/ic_elevator"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginTop="15dp"
                                 android:layout_weight="1"
+                                android:drawableStart="@drawable/ic_elevator"
                                 android:fontFamily="@font/arbutus_slab"
                                 android:text=" Elevator"
                                 android:textColor="@color/black"
@@ -704,12 +846,12 @@
                                 android:textStyle="bold" />
 
                             <TextView
-                                android:drawableStart="@drawable/ic_generator"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginTop="15dp"
                                 android:layout_weight="1"
+                                android:drawableStart="@drawable/ic_generator"
                                 android:fontFamily="@font/arbutus_slab"
                                 android:text=" Generator"
                                 android:textColor="@color/black"
@@ -777,13 +919,12 @@
                 </LinearLayout>
 
 
-
             </androidx.cardview.widget.CardView>
 
             <View
-                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginTop="20dp"
                 android:background="#B9CDDD" />
 
 
@@ -795,32 +936,31 @@
                 app:cardCornerRadius="5dp">
 
                 <LinearLayout
-                    android:weightSum="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:weightSum="1">
 
                     <Button
                         android:id="@+id/imageChooseButton"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_weight=".8"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
                         android:onClick="btnSelectImage"
                         android:text="Choose Image File"
                         android:textColor="#ffffff"
                         android:textSize="15sp" />
 
                     <ImageView
-                        android:layout_weight="0.2"
                         android:id="@+id/postHomeImageId"
                         android:layout_width="0dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
+                        android:layout_weight="0.2"
                         android:scaleType="fitXY"
                         android:src="@drawable/ic_baseline_image_24" />
-
 
 
                 </LinearLayout>
@@ -829,16 +969,16 @@
             </androidx.cardview.widget.CardView>
 
             <View
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginTop="10dp"
                 android:background="#B9CDDD" />
 
             <TextView
-                android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:fontFamily="@font/arbutus_slab"
                 android:text="Additional Information About Hostel &amp; Advertisement Post"
                 android:textColor="@color/black"
@@ -857,21 +997,21 @@
                 app:endIconMode="clear_text">
 
                 <EditText
-                    android:inputType="textMultiLine"
-                    android:textAlignment="textStart"
-                    android:gravity="start"
                     android:id="@+id/detailsAddressId"
                     android:layout_width="match_parent"
-                    android:layout_height="195dp"/>
+                    android:layout_height="195dp"
+                    android:gravity="start"
+                    android:inputType="textMultiLine"
+                    android:textAlignment="textStart" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <Button
-                android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:onClick="btnSubmitId"
                 android:text="Submit"
                 android:textColor="#ffffff"
