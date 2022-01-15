@@ -86,13 +86,13 @@ public class PostActivity extends AppCompatActivity {
     TextView mapAddress, inDeTV;
     AppBarLayout mapAppBar;
 
-    String[] locationDropDownArray, selectedMonthDropDownArray, desireRentDropdownArray;
+    String[] locationDropDownArray, selectedMonthDropDownArray, desireRentDropdownArray, successiveNumDropdownArray;
     TextInputLayout locationTextInputLayout, monthTextInputLayout, desireRentTextInputLayout;
-    AutoCompleteTextView dropDownText, selectedMonthText, desireRentText;
+    AutoCompleteTextView dropDownText, selectedMonthText, desireRentText, selectedFloorNumText, selectedTotalRoomText, selectedTotalWashroomText, selectedTotalBalconyText;
 
     ImageView homeImage, incrementBtn, decrementBtn;
     Uri uri;
-    EditText txtRentedAmount, txtBuildingName, txtFloorNumber, txtDetailsAddress, txtElectricityBill, txtGasBill, txtWifiBill, txtOthersBill;
+    EditText txtRentedAmount, txtBuildingName, txtDetailsAddress, txtElectricityBill, txtGasBill, txtWifiBill, txtOthersBill, txtFlatSize;
 
     ChipGroup genderChipGroup;
     Chip genderChip;
@@ -167,6 +167,13 @@ public class PostActivity extends AppCompatActivity {
         desireRentTextInputLayout = (TextInputLayout) findViewById(R.id.desireRentTextInputLayoutId);
         desireRentText = (AutoCompleteTextView) findViewById(R.id.desireRentTextId);
 
+        successiveNumDropdownArray = getResources().getStringArray(R.array.successive_Num);
+
+        selectedFloorNumText = (AutoCompleteTextView) findViewById(R.id.selectFloorNumTextId);
+        selectedTotalRoomText = (AutoCompleteTextView) findViewById(R.id.selectTotalRoomTextId);
+        selectedTotalWashroomText = (AutoCompleteTextView) findViewById(R.id.selectTotalWashRoomTextId);
+        selectedTotalBalconyText = (AutoCompleteTextView) findViewById(R.id.selectTotalBalconyTextId);
+
         incrementBtn = (ImageView) findViewById(R.id.incrementId);
         decrementBtn = (ImageView) findViewById(R.id.decrementId);
         inDeTV = (TextView) findViewById(R.id.inDeTVId);
@@ -181,11 +188,18 @@ public class PostActivity extends AppCompatActivity {
         ArrayAdapter<String> desireRentArrayAdapter = new ArrayAdapter<>(PostActivity.this, R.layout.sample_spinner_view, desireRentDropdownArray);
         desireRentText.setAdapter(desireRentArrayAdapter);
 
+        ArrayAdapter<String> successiveArrayAdapter = new ArrayAdapter<>(PostActivity.this, R.layout.sample_spinner_view, successiveNumDropdownArray);
+
+        selectedFloorNumText.setAdapter(successiveArrayAdapter);
+        selectedTotalRoomText.setAdapter(successiveArrayAdapter);
+        selectedTotalWashroomText.setAdapter(successiveArrayAdapter);
+        selectedTotalBalconyText.setAdapter(successiveArrayAdapter);
+
         homeImage = (ImageView) findViewById(R.id.postHomeImageId);
 
         txtRentedAmount = (EditText) findViewById(R.id.rentedAmountId);
         txtBuildingName = (EditText) findViewById(R.id.buildingNameId);
-        txtFloorNumber = (EditText) findViewById(R.id.floorNumberId);
+        txtFlatSize = (EditText) findViewById(R.id.flatSizeId);
         txtDetailsAddress = (EditText) findViewById(R.id.detailsAddressId);
         genderChipGroup = (ChipGroup) findViewById(R.id.genderChipGroupId);
         securityRadioGroup = (RadioGroup) findViewById(R.id.securityRadioGroupId);
@@ -470,7 +484,7 @@ public class PostActivity extends AppCompatActivity {
                 txtRentedAmount.getText().toString(),
                 dropDownText.getText().toString(),
                 txtBuildingName.getText().toString(),
-                txtFloorNumber.getText().toString(),
+                selectedFloorNumText.getText().toString(),
                 txtDetailsAddress.getText().toString(),
                 genderChip.getText().toString(),
                 selectedRent,
@@ -488,9 +502,11 @@ public class PostActivity extends AppCompatActivity {
                 security.getText().toString(),
                 parking.getText().toString(),
                 generator.getText().toString(),
-                elevator.getText().toString()
-
-
+                elevator.getText().toString(),
+                selectedTotalRoomText.getText().toString(),
+                txtFlatSize.getText().toString(),
+                selectedTotalWashroomText.getText().toString(),
+                selectedTotalBalconyText.getText().toString()
 
         );
 

@@ -150,22 +150,24 @@
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:id="@+id/floorNumberId"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
                             android:layout_weight="1"
                             android:hint="Floor Number"
                             app:boxBackgroundMode="outline"
-                            app:endIconMode="clear_text"
+                            app:endIconMode="dropdown_menu"
                             app:startIconDrawable="@drawable/ic_floor">
 
-                            <EditText
-                                android:id="@+id/floorNumberId"
+                            <AutoCompleteTextView
+                                android:id="@+id/selectFloorNumTextId"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:gravity="start"
                                 android:inputType="textMultiLine"
-                                android:textAlignment="textStart"
-                                android:gravity="start"/>
+                                android:textAlignment="textStart" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -250,6 +252,150 @@
 
 
             </androidx.cardview.widget.CardView>
+
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#B9CDDD" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/arbutus_slab"
+                    android:gravity="center"
+                    android:text="Flat Information"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/totalRoomId"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:hint="Total Room"
+                            app:boxBackgroundMode="outline"
+                            app:endIconMode="dropdown_menu"
+                            app:startIconDrawable="@drawable/ic_room_icon">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/selectTotalRoomTextId"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:inputType="textMultiLine"
+                                android:textAlignment="textStart" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="Flat Size (Squ. Feet)"
+                            app:boxBackgroundMode="outline"
+                            app:endIconMode="clear_text"
+                            app:startIconDrawable="@drawable/ic_flat_size_icon">
+
+                            <EditText
+                                android:id="@+id/flatSizeId"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:inputType="textMultiLine"
+                                android:textAlignment="textStart" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/NoOfWashRoomId"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:hint="Total Washroom"
+                            app:boxBackgroundMode="outline"
+                            app:endIconMode="dropdown_menu"
+                            app:startIconDrawable="@drawable/ic_washroom_icon">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/selectTotalWashRoomTextId"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:inputType="textMultiLine"
+                                android:textAlignment="textStart" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/NoOfBalconyId"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:hint="Total Balcony"
+                            app:boxBackgroundMode="outline"
+                            app:endIconMode="dropdown_menu"
+                            app:startIconDrawable="@drawable/ic_balcony_icon">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/selectTotalBalconyTextId"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:inputType="textMultiLine"
+                                android:textAlignment="textStart" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
 
             <View
                 android:layout_marginTop="10dp"

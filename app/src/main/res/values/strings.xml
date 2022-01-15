@@ -37,6 +37,16 @@
 
     </string-array>
 
+    <string-array name="successive_Num">
+
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+
+    </string-array>
+
     <string-array name="phone">
 
         <item>02334496501</item>
