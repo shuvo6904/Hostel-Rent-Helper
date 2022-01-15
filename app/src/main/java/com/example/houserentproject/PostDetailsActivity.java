@@ -38,7 +38,7 @@ import java.util.Objects;
 
 public class PostDetailsActivity extends AppCompatActivity {
 
-    TextView rentedAmount, homeLocation, buildingName, floorNumber, detailsAboutHostel, genderValue, rentTypeValue, rentDate, advertiserUsrName, advertiserPhnNum, postDescription, electricityBill, gasBill, wifiBill, othersBill, security, parking, generator, elevator;
+    TextView rentedAmount, homeLocation, buildingName, floorNumber, detailsAboutHostel, genderValue, rentTypeValue, rentDate, advertiserUsrName, advertiserPhnNum, postDescription, electricityBill, gasBill, wifiBill, othersBill, security, parking, generator, elevator,totalRoom, flatSize, totalWashroom, totalBalcony;
     ImageView homeImage, userImage;
     ImageButton callButton;
     private StorageReference adStorageReference, adProfileStorageRef;
@@ -93,6 +93,10 @@ public class PostDetailsActivity extends AppCompatActivity {
         parking = (TextView) findViewById(R.id.myPostParkingTvId);
         generator = (TextView) findViewById(R.id.myPostGeneratorTvId);
         elevator = (TextView) findViewById(R.id.myPostElevatorTvId);
+        totalRoom = (TextView) findViewById(R.id.totalRoomId);
+        flatSize = (TextView) findViewById(R.id.flatSizeId);
+        totalWashroom = (TextView) findViewById(R.id.totalWashroomId);
+        totalBalcony = (TextView) findViewById(R.id.totalBalconyId);
 
 
         model = (HomePageData) getIntent().getSerializableExtra("postModel");
@@ -103,10 +107,10 @@ public class PostDetailsActivity extends AppCompatActivity {
             rentedAmount.setText(" " + model.getRentAmount() + " Taka");
             homeLocation.setText(" " + model.getLocation());
             buildingName.setText(" " + model.getBuildingName());
-            floorNumber.setText(" " + model.getFloorNumber() + " Floor");
+            floorNumber.setText(" Floor No. " + model.getFloorNumber());
             detailsAboutHostel.setText(model.getDetailsAboutHostel());
             genderValue.setText(" " + model.getValueOfGender());
-            rentTypeValue.setText(" " + model.getValueOfRentType());
+            rentTypeValue.setText(" " + model.getValueOfRentCount() + " " + model.getValueOfRentType());
             rentDate.setText(" " + model.getDatePick());
             advertiserUserId = model.getAdUserId().trim();
             latitude = model.getHostelLat();
@@ -119,6 +123,10 @@ public class PostDetailsActivity extends AppCompatActivity {
             parking.setText(model.getParking());
             generator.setText(model.getGenerator());
             elevator.setText(model.getElevator());
+            totalRoom.setText(" " + model.getTotalRoom() + " Room");
+            flatSize.setText(" " + model.getFlatSize() + " Square Feet");
+            totalWashroom.setText(" " + model.getTotalWashroom() + " Washroom");
+            totalBalcony.setText(" " + model.getTotalBalcony() + " Balcony");
             Glide.with(this)
                     .load(model.getImage())
                     .into(homeImage);

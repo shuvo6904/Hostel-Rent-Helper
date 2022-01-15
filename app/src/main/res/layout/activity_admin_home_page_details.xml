@@ -74,6 +74,14 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 app:cardCornerRadius="5dp">
+                <TextView
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Hostel Information"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -84,7 +92,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="50dp"
                         android:layout_marginBottom="20dp"
                         android:orientation="horizontal"
                         android:weightSum="2.5">
@@ -181,6 +189,98 @@
 
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="5dp">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Flat Information"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/myPost1stLinearId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2.5">
+
+                        <TextView
+                            android:id="@+id/flatSizeId"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.4"
+                            android:drawableStart="@drawable/ic_flat_size_icon"
+                            android:text=" Flat Size : "
+                            android:textColor="#675E5E"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/totalRoomId"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.1"
+                            android:drawableStart="@drawable/ic_room_icon"
+                            android:text="Total Room : "
+                            android:textColor="#675E5E"
+                            android:textSize="18sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/myPost1stLinearId"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2.5">
+
+                        <TextView
+                            android:id="@+id/totalWashroomId"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.4"
+                            android:drawableStart="@drawable/ic_washroom_icon"
+                            android:text="Total Washroom : "
+                            android:textColor="#675E5E"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/totalBalconyId"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.1"
+                            android:drawableStart="@drawable/ic_balcony_icon"
+                            android:text="Total Balcony : "
+                            android:textColor="#675E5E"
+                            android:textSize="18sp" />
+
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -188,6 +288,15 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 app:cardCornerRadius="5dp">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Utility Bill Information"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -198,7 +307,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="50dp"
                         android:orientation="horizontal"
                         android:weightSum="2.5">
 
@@ -493,6 +602,7 @@
             </LinearLayout>
 
             <TextView
+                android:layout_marginLeft="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Additional Information About Hostel &amp; Advertisement Post: "
