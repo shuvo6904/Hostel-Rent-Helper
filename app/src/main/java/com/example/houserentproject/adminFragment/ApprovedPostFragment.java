@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.houserentproject.AdminAdapter;
-import com.example.houserentproject.HomePageData;
+import com.example.houserentproject.HomePageDataModel;
 import com.example.houserentproject.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,7 +33,7 @@ public class ApprovedPostFragment extends Fragment {
 
     AdminAdapter adminAdapter;
     RecyclerView adminRecyclerView;
-    List<HomePageData> adminPageDataList;
+    List<HomePageDataModel> adminPageDataList;
     DatabaseReference adminDatabaseReference;
     ValueEventListener adminEventListener;
     ProgressDialog adminProgressDialog;
@@ -109,7 +109,7 @@ public class ApprovedPostFragment extends Fragment {
 
                     for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
 
-                        HomePageData adminPageData = dataSnapshot1.getValue(HomePageData.class);
+                        HomePageDataModel adminPageData = dataSnapshot1.getValue(HomePageDataModel.class);
                         if (adminPageData.getPostStatus().contains("Approve")){
                             adminPageDataList.add(adminPageData);
                         }

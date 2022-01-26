@@ -20,11 +20,11 @@ import java.util.List;
 public class MyPostAdapter extends RecyclerView.Adapter<MyPostsHomePageViewHolder> {
 
     private Context myPostContext;
-    private List<HomePageData> myPostHomePageDataList;
+    private List<HomePageDataModel> myPostHomePageDataModelList;
 
-    public MyPostAdapter(Context myPostContext, List<HomePageData> myPostHomePageDataList) {
+    public MyPostAdapter(Context myPostContext, List<HomePageDataModel> myPostHomePageDataModelList) {
         this.myPostContext = myPostContext;
-        this.myPostHomePageDataList = myPostHomePageDataList;
+        this.myPostHomePageDataModelList = myPostHomePageDataModelList;
     }
 
     @NonNull
@@ -38,7 +38,7 @@ public class MyPostAdapter extends RecyclerView.Adapter<MyPostsHomePageViewHolde
     @Override
     public void onBindViewHolder(@NonNull MyPostsHomePageViewHolder holder, int position) {
 
-        HomePageData myPostModel = myPostHomePageDataList.get(position);
+        HomePageDataModel myPostModel = myPostHomePageDataModelList.get(position);
 
         Glide.with(myPostContext)
                 .load(myPostModel.getImage())
@@ -102,6 +102,6 @@ public class MyPostAdapter extends RecyclerView.Adapter<MyPostsHomePageViewHolde
 
     @Override
     public int getItemCount() {
-        return myPostHomePageDataList.size();
+        return myPostHomePageDataModelList.size();
     }
 }

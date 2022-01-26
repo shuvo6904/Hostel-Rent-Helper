@@ -15,10 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
-import com.example.houserentproject.HomePageData;
+import com.example.houserentproject.HomePageDataModel;
 import com.example.houserentproject.MyAdapter;
 import com.example.houserentproject.R;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,7 +36,7 @@ public class AllAdvertisementFragment extends Fragment {
 
     MyAdapter myAdapter;
     RecyclerView myRecyclerView;
-    List<HomePageData> myHomePageDataList;
+    List<HomePageDataModel> myHomePageDataModelList;
     DatabaseReference databaseReference;
     ValueEventListener eventListener;
     ProgressDialog progressDialog;
@@ -98,9 +97,9 @@ public class AllAdvertisementFragment extends Fragment {
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Loading Post...");
 
-        myHomePageDataList = new ArrayList<>();
+        myHomePageDataModelList = new ArrayList<>();
 
-        myAdapter = new MyAdapter(getActivity(), myHomePageDataList);
+        myAdapter = new MyAdapter(getActivity(), myHomePageDataModelList);
         myRecyclerView.setAdapter(myAdapter);
 
         setHomePagePost();
@@ -139,16 +138,16 @@ public class AllAdvertisementFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                myHomePageDataList.clear();
+                myHomePageDataModelList.clear();
 
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
 
                     for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
 
-                        HomePageData homePageData = dataSnapshot1.getValue(HomePageData.class);
+                        HomePageDataModel homePageDataModel = dataSnapshot1.getValue(HomePageDataModel.class);
 
-                        if (homePageData.getPostStatus().contains("Approve")){
-                            myHomePageDataList.add(homePageData);
+                        if (homePageDataModel.getPostStatus().contains("Approve")){
+                            myHomePageDataModelList.add(homePageDataModel);
                         }
 
 
@@ -174,9 +173,9 @@ public class AllAdvertisementFragment extends Fragment {
 
     private void filter(String text) {
 
-        ArrayList<HomePageData> filterList = new ArrayList<>();
+        ArrayList<HomePageDataModel> filterList = new ArrayList<>();
 
-        for (HomePageData item : myHomePageDataList){
+        for (HomePageDataModel item : myHomePageDataModelList){
             if (item.getLocation().toLowerCase().contains(text.toLowerCase())){
                 filterList.add(item);
             }

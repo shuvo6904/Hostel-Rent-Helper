@@ -17,7 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -45,7 +44,7 @@ public class PostDetailsActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore fStore;
     private String currentUserId;
-    private HomePageData model;
+    private HomePageDataModel model;
 
     String advertiserUserId, userName, userPhnNumber;
 
@@ -99,7 +98,7 @@ public class PostDetailsActivity extends AppCompatActivity {
         totalBalcony = (TextView) findViewById(R.id.totalBalconyId);
 
 
-        model = (HomePageData) getIntent().getSerializableExtra("postModel");
+        model = (HomePageDataModel) getIntent().getSerializableExtra("postModel");
 
         if (model != null){
 

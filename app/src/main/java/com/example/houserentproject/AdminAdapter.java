@@ -25,11 +25,11 @@ import java.util.Map;
 public class AdminAdapter extends RecyclerView.Adapter<MyAdminHomePageViewHolder> {
 
     private Context adminContext;
-    private List<HomePageData> adminHomePageDataList;
+    private List<HomePageDataModel> adminHomePageDataModelList;
 
-    public AdminAdapter(Context adminContext, List<HomePageData> adminHomePageDataList) {
+    public AdminAdapter(Context adminContext, List<HomePageDataModel> adminHomePageDataModelList) {
         this.adminContext = adminContext;
-        this.adminHomePageDataList = adminHomePageDataList;
+        this.adminHomePageDataModelList = adminHomePageDataModelList;
     }
 
     @NonNull
@@ -43,7 +43,7 @@ public class AdminAdapter extends RecyclerView.Adapter<MyAdminHomePageViewHolder
     @Override
     public void onBindViewHolder(@NonNull MyAdminHomePageViewHolder holder, int position) {
 
-        HomePageData adminModel = adminHomePageDataList.get(position);
+        HomePageDataModel adminModel = adminHomePageDataModelList.get(position);
 
         Glide.with(adminContext)
                 .load(adminModel.getImage())
@@ -131,6 +131,6 @@ public class AdminAdapter extends RecyclerView.Adapter<MyAdminHomePageViewHolder
     @Override
     public int getItemCount() {
 
-        return adminHomePageDataList.size();
+        return adminHomePageDataModelList.size();
     }
 }

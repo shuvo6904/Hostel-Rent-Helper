@@ -4,11 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -28,15 +25,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -63,7 +51,7 @@ public class DetailsActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore fStore;
     private String currentUserId;
-    private HomePageData model;
+    private HomePageDataModel model;
     private CheckBox checkBoxFavourite;
     private Session session;
     String advertiserUserId, userName, userPhnNumber;
@@ -119,7 +107,7 @@ public class DetailsActivity extends AppCompatActivity {
         totalWashroom = (TextView) findViewById(R.id.totalWashroomId);
         totalBalcony = (TextView) findViewById(R.id.totalBalconyId);
 
-        model = (HomePageData) getIntent().getSerializableExtra("model");
+        model = (HomePageDataModel) getIntent().getSerializableExtra("model");
 
         if (model != null) {
             postDescription.setText(model.getValueOfRentCount() + " " + model.getValueOfRentType() + " will be rented in the " + model.getLocation() + " from " + model.getDatePick() + ".");
@@ -209,7 +197,7 @@ public class DetailsActivity extends AppCompatActivity {
         currentUserId = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
     }
 
-    private void favouritePost(HomePageData model,boolean isChecked) {
+    private void favouritePost(HomePageDataModel model, boolean isChecked) {
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
         if (isChecked){
             rootRef.child("favourite").child(currentUserId).child(model.getId()).setValue(model)

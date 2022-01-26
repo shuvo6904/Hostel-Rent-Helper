@@ -29,7 +29,7 @@ public class FavListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private FirebaseAuth mAuth;
     private String myUserId;
-    private List<HomePageData> favList;
+    private List<HomePageDataModel> favList;
     private MyAdapter myAdapter;
 
     private DatabaseReference rootRef;
@@ -96,8 +96,8 @@ public class FavListActivity extends AppCompatActivity {
             if (snapshot.exists()){
                 favList.clear();
                 for (DataSnapshot snp : snapshot.getChildren()){
-                    HomePageData homePageData = snp.getValue(HomePageData.class);
-                    favList.add(homePageData);
+                    HomePageDataModel homePageDataModel = snp.getValue(HomePageDataModel.class);
+                    favList.add(homePageDataModel);
                 }
                 myAdapter.notifyDataSetChanged();
             }

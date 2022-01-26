@@ -32,7 +32,7 @@ public class MyPosts extends AppCompatActivity {
     MyPostAdapter postAdapter;
 
     RecyclerView postRecyclerView;
-    List<HomePageData> myPostPageDataList;
+    List<HomePageDataModel> myPostPageDataList;
 
     private DatabaseReference postDatabaseReference;
     private ValueEventListener postEventListener;
@@ -85,8 +85,8 @@ public class MyPosts extends AppCompatActivity {
 
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
 
-                        HomePageData postHomePageData = dataSnapshot.getValue(HomePageData.class);
-                        myPostPageDataList.add(postHomePageData);
+                        HomePageDataModel postHomePageDataModel = dataSnapshot.getValue(HomePageDataModel.class);
+                        myPostPageDataList.add(postHomePageDataModel);
 
                 }
 

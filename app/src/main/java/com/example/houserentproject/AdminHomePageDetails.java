@@ -44,7 +44,7 @@ public class AdminHomePageDetails extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore fStore;
     private String currentUserId;
-    private HomePageData model;
+    private HomePageDataModel model;
 
     String advertiserUserId, userName, userPhnNumber;
 
@@ -97,7 +97,7 @@ public class AdminHomePageDetails extends AppCompatActivity {
         totalWashroom = (TextView) findViewById(R.id.totalWashroomId);
         totalBalcony = (TextView) findViewById(R.id.totalBalconyId);
 
-        model = (HomePageData) getIntent().getSerializableExtra("adminPostModel");
+        model = (HomePageDataModel) getIntent().getSerializableExtra("adminPostModel");
 
         if (model != null){
 

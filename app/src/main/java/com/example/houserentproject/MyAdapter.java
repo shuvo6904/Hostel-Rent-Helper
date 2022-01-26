@@ -28,12 +28,12 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<HomePageViewHolder>{
 
     private Context mContext;
-    private List<HomePageData> myHomePageDataList;
+    private List<HomePageDataModel> myHomePageDataModelList;
 
 
-    public MyAdapter(Context mContext, List<HomePageData> myHomePageDataList) {
+    public MyAdapter(Context mContext, List<HomePageDataModel> myHomePageDataModelList) {
         this.mContext = mContext;
-        this.myHomePageDataList = myHomePageDataList;
+        this.myHomePageDataModelList = myHomePageDataModelList;
     }
 
     @Override
@@ -45,7 +45,7 @@ public class MyAdapter extends RecyclerView.Adapter<HomePageViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull HomePageViewHolder holder, int position) {
         
-        HomePageData model = myHomePageDataList.get(position);
+        HomePageDataModel model = myHomePageDataModelList.get(position);
 
         Glide.with(mContext)
                 .load(model.getImage())
@@ -87,12 +87,12 @@ public class MyAdapter extends RecyclerView.Adapter<HomePageViewHolder>{
 
     @Override
     public int getItemCount() {
-        return myHomePageDataList.size();
+        return myHomePageDataModelList.size();
     }
 
-    public void filteredList(ArrayList<HomePageData> filterList) {
+    public void filteredList(ArrayList<HomePageDataModel> filterList) {
 
-        myHomePageDataList = filterList;
+        myHomePageDataModelList = filterList;
         notifyDataSetChanged();
     }
 }

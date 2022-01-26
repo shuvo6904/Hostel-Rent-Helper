@@ -15,7 +15,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.location.Address;
 import android.location.Geocoder;
-import android.location.Location;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -34,11 +33,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.houserentproject.HomePageData;
-import com.example.houserentproject.PostActivity;
+import com.example.houserentproject.HomePageDataModel;
 import com.example.houserentproject.R;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -64,8 +60,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -86,7 +80,7 @@ public class EditPostActivity extends AppCompatActivity {
     TextView mapAddress, inDeTV;
     AppBarLayout mapAppBar;
 
-    HomePageData editDataModel;
+    HomePageDataModel editDataModel;
     Button chooseImgBtn;
 
     String[] locationDropDownArray, selectedMonthDropDownArray, desireRentDropdownArray, successiveNumDropdownArray;
@@ -133,7 +127,7 @@ public class EditPostActivity extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.statusBarColor));
         }
 
-        editDataModel = (HomePageData) getIntent().getSerializableExtra("editPostModel");
+        editDataModel = (HomePageDataModel) getIntent().getSerializableExtra("editPostModel");
 
         count = Integer.parseInt(editDataModel.getValueOfRentCount());
 
@@ -492,7 +486,7 @@ public class EditPostActivity extends AppCompatActivity {
         String postStatus = "Pending";
 
 
-        HomePageData homePageData = new HomePageData(
+        HomePageDataModel homePageDataModel = new HomePageDataModel(
                 imageUrl,
                 txtRentedAmount.getText().toString(),
                 dropDownText.getText().toString(),
@@ -528,7 +522,7 @@ public class EditPostActivity extends AppCompatActivity {
 
         rootRef.child("Data")
                 .child(userId)
-                .child(editDataModel.getId()).setValue(homePageData).addOnCompleteListener(new OnCompleteListener<Void>() {
+                .child(editDataModel.getId()).setValue(homePageDataModel).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
 

@@ -2,7 +2,7 @@ package com.example.houserentproject;
 
 import java.io.Serializable;
 
-public class HomePageData implements Serializable {
+public class HomePageDataModel implements Serializable {
     private String image;
     private String rentAmount;
     private String location;
@@ -31,10 +31,10 @@ public class HomePageData implements Serializable {
     private String totalWashroom;
     private String totalBalcony;
 
-    public HomePageData() {
+    public HomePageDataModel() {
     }
 
-    public HomePageData(String image, String rentAmount, String location, String buildingName, String floorNumber, String detailsAboutHostel, String valueOfGender, String valueOfRentType, String valueOfRentCount, String datePick, String adUserId, String id, String postStatus, double hostelLat, double hostelLon, String electricityBill, String gasBill, String wifiBill, String othersBill, String security, String parking, String generator, String elevator, String totalRoom, String flatSize, String totalWashroom, String totalBalcony) {
+    public HomePageDataModel(String image, String rentAmount, String location, String buildingName, String floorNumber, String detailsAboutHostel, String valueOfGender, String valueOfRentType, String valueOfRentCount, String datePick, String adUserId, String id, String postStatus, double hostelLat, double hostelLon, String electricityBill, String gasBill, String wifiBill, String othersBill, String security, String parking, String generator, String elevator, String totalRoom, String flatSize, String totalWashroom, String totalBalcony) {
         this.image = image;
         this.rentAmount = rentAmount;
         this.location = location;

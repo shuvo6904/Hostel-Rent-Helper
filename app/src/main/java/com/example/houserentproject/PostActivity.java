@@ -4,12 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
-import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -30,7 +28,6 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -479,7 +476,7 @@ public class PostActivity extends AppCompatActivity {
         String postStatus = "Pending";
 
 
-        HomePageData homePageData = new HomePageData(
+        HomePageDataModel homePageDataModel = new HomePageDataModel(
                 imageUrl,
                 txtRentedAmount.getText().toString(),
                 dropDownText.getText().toString(),
@@ -513,7 +510,7 @@ public class PostActivity extends AppCompatActivity {
 
         rootRef.child("Data")
                 .child(userId)
-                .child(myCurrentDateTime).setValue(homePageData).addOnCompleteListener(new OnCompleteListener<Void>() {
+                .child(myCurrentDateTime).setValue(homePageDataModel).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
 
