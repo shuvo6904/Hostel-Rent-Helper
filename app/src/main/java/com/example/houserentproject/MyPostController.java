@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyPosts extends AppCompatActivity {
+public class MyPostController extends AppCompatActivity {
 
 
     FirebaseAuth fPostAuth;
@@ -62,7 +62,7 @@ public class MyPosts extends AppCompatActivity {
 
         postRecyclerView = (RecyclerView)findViewById(R.id.postsRecyclerViewId);
 
-        GridLayoutManager postsGridLayoutManager = new GridLayoutManager(MyPosts.this,1);
+        GridLayoutManager postsGridLayoutManager = new GridLayoutManager(MyPostController.this,1);
         postRecyclerView.setLayoutManager(postsGridLayoutManager);
 
         postProgressDialog = new ProgressDialog(this);
@@ -70,7 +70,7 @@ public class MyPosts extends AppCompatActivity {
 
         myPostPageDataList = new ArrayList<>();
 
-        postAdapter = new MyPostAdapter(MyPosts.this, myPostPageDataList);
+        postAdapter = new MyPostAdapter(MyPostController.this, myPostPageDataList);
         postRecyclerView.setAdapter(postAdapter);
 
         postDatabaseReference = FirebaseDatabase.getInstance().getReference("Data").child(userPostId);

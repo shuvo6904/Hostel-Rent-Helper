@@ -14,7 +14,7 @@ import android.view.WindowManager;
 
 import com.example.houserentproject.additionalAdapter.NstuContactAdapter;
 
-public class NstuContactActivity extends AppCompatActivity {
+public class NstuContactActivityController extends AppCompatActivity {
 
     String [] designation, name, mobile, phone, email, website;
 

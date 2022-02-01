@@ -29,10 +29,10 @@ import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AllAdvertisementFragment#newInstance} factory method to
+ * Use the {@link AllAdvertisementFragmentController#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AllAdvertisementFragment extends Fragment {
+public class AllAdvertisementFragmentController extends Fragment {
 
     MyAdapter myAdapter;
     RecyclerView myRecyclerView;
@@ -51,7 +51,7 @@ public class AllAdvertisementFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public AllAdvertisementFragment() {
+    public AllAdvertisementFragmentController() {
         // Required empty public constructor
     }
 
@@ -64,8 +64,8 @@ public class AllAdvertisementFragment extends Fragment {
      * @return A new instance of fragment SearchFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AllAdvertisementFragment newInstance(String param1, String param2) {
-        AllAdvertisementFragment fragment = new AllAdvertisementFragment();
+    public static AllAdvertisementFragmentController newInstance(String param1, String param2) {
+        AllAdvertisementFragmentController fragment = new AllAdvertisementFragmentController();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

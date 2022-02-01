@@ -3,11 +3,11 @@ package com.example.houserentproject;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-public class Session {
+public class SessionController {
     private final SharedPreferences prefs;
     public SharedPreferences.Editor editor;
 
-    public Session(Context context) {
+    public SessionController(Context context) {
         String SHARED_PREF_NAME = "POST_SESSION";
         prefs = context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
     }

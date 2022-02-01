@@ -67,7 +67,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
-public class PostActivity extends AppCompatActivity {
+public class CreatePostActivityController extends AppCompatActivity {
 
     SupportMapFragment supportMapFragment;
     FusedLocationProviderClient client;
@@ -129,16 +129,16 @@ public class PostActivity extends AppCompatActivity {
 
 
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.googleMapId);
-        client = LocationServices.getFusedLocationProviderClient(PostActivity.this);
+        client = LocationServices.getFusedLocationProviderClient(CreatePostActivityController.this);
 
-        if (ActivityCompat.checkSelfPermission(PostActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) ==
+        if (ActivityCompat.checkSelfPermission(CreatePostActivityController.this, Manifest.permission.ACCESS_FINE_LOCATION) ==
                 PackageManager.PERMISSION_GRANTED) {
 
             getCurrentLocation();
 
         } else {
 
-            ActivityCompat.requestPermissions(PostActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE);
+            ActivityCompat.requestPermissions(CreatePostActivityController.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE);
 
         }
 
@@ -176,16 +176,16 @@ public class PostActivity extends AppCompatActivity {
         inDeTV = (TextView) findViewById(R.id.inDeTVId);
 
 
-        ArrayAdapter<String> locationArrayAdapter = new ArrayAdapter<>(PostActivity.this, R.layout.sample_spinner_view, locationDropDownArray);
+        ArrayAdapter<String> locationArrayAdapter = new ArrayAdapter<>(CreatePostActivityController.this, R.layout.sample_spinner_view, locationDropDownArray);
         dropDownText.setAdapter(locationArrayAdapter);
 
-        ArrayAdapter<String> monthArrayAdapter = new ArrayAdapter<>(PostActivity.this, R.layout.sample_spinner_view, selectedMonthDropDownArray);
+        ArrayAdapter<String> monthArrayAdapter = new ArrayAdapter<>(CreatePostActivityController.this, R.layout.sample_spinner_view, selectedMonthDropDownArray);
         selectedMonthText.setAdapter(monthArrayAdapter);
 
-        ArrayAdapter<String> desireRentArrayAdapter = new ArrayAdapter<>(PostActivity.this, R.layout.sample_spinner_view, desireRentDropdownArray);
+        ArrayAdapter<String> desireRentArrayAdapter = new ArrayAdapter<>(CreatePostActivityController.this, R.layout.sample_spinner_view, desireRentDropdownArray);
         desireRentText.setAdapter(desireRentArrayAdapter);
 
-        ArrayAdapter<String> successiveArrayAdapter = new ArrayAdapter<>(PostActivity.this, R.layout.sample_spinner_view, successiveNumDropdownArray);
+        ArrayAdapter<String> successiveArrayAdapter = new ArrayAdapter<>(CreatePostActivityController.this, R.layout.sample_spinner_view, successiveNumDropdownArray);
 
         selectedFloorNumText.setAdapter(successiveArrayAdapter);
         selectedTotalRoomText.setAdapter(successiveArrayAdapter);
@@ -301,7 +301,7 @@ public class PostActivity extends AppCompatActivity {
                                         getAddress(selectedLat, selectedLon);
 
                                     } else {
-                                        Toast.makeText(PostActivity.this, "Please Check Your Internet Connection", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(CreatePostActivityController.this, "Please Check Your Internet Connection", Toast.LENGTH_SHORT).show();
                                     }
 
                                 }
@@ -329,7 +329,7 @@ public class PostActivity extends AppCompatActivity {
 
             }
         } else {
-            Toast.makeText(PostActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
+            Toast.makeText(CreatePostActivityController.this, "Permission Denied", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -344,7 +344,7 @@ public class PostActivity extends AppCompatActivity {
         hostelLat = mLat;
         hostelLon = mLon;
 
-        geocoder = new Geocoder(PostActivity.this, Locale.getDefault());
+        geocoder = new Geocoder(CreatePostActivityController.this, Locale.getDefault());
 
         if (mLat != 0) {
             try {
@@ -515,7 +515,7 @@ public class PostActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
 
                 if (task.isSuccessful()) {
-                    Toast.makeText(PostActivity.this, "Posted Advertisement Successfully. An Admin Will Approve Your Post Shortly.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreatePostActivityController.this, "Posted Advertisement Successfully. An Admin Will Approve Your Post Shortly.", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }
@@ -524,7 +524,7 @@ public class PostActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
 
-                Toast.makeText(PostActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(CreatePostActivityController.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 

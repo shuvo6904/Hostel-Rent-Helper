@@ -37,7 +37,7 @@ import java.util.Objects;
 
 public class PostDetailsActivity extends AppCompatActivity {
 
-    TextView rentedAmount, homeLocation, buildingName, floorNumber, detailsAboutHostel, genderValue, rentTypeValue, rentDate, advertiserUsrName, advertiserPhnNum, postDescription, electricityBill, gasBill, wifiBill, othersBill, security, parking, generator, elevator,totalRoom, flatSize, totalWashroom, totalBalcony;
+    TextView rentedAmount, homeLocation, buildingName, floorNumber, detailsAboutHostel, genderValue, rentTypeValue, rentDate, advertiserUsrName, advertiserPhnNum, postDescription, electricityBill, gasBill, wifiBill, othersBill, security, parking, generator, elevator, totalRoom, flatSize, totalWashroom, totalBalcony;
     ImageView homeImage, userImage;
     ImageButton callButton;
     private StorageReference adStorageReference, adProfileStorageRef;
@@ -100,7 +100,7 @@ public class PostDetailsActivity extends AppCompatActivity {
 
         model = (HomePageDataModel) getIntent().getSerializableExtra("postModel");
 
-        if (model != null){
+        if (model != null) {
 
             postDescription.setText(model.getValueOfRentCount() + " " + model.getValueOfRentType() + " will be rented in the " + model.getLocation() + " from " + model.getDatePick() + ".");
             rentedAmount.setText(" " + model.getRentAmount() + " Taka");
@@ -166,12 +166,12 @@ public class PostDetailsActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
 
             case R.id.mapLocaionMenuId:
 
-                Intent intent = new Intent(PostDetailsActivity.this, MapsActivity.class);
-                intent.putExtra("lat",latitude);
+                Intent intent = new Intent(PostDetailsActivity.this, MapActivityController.class);
+                intent.putExtra("lat", latitude);
                 intent.putExtra("lon", longitude);
                 startActivity(intent);
                 return true;
@@ -188,7 +188,7 @@ public class PostDetailsActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater locationInflater = getMenuInflater();
-        locationInflater.inflate(R.menu.map_menu,menu);
+        locationInflater.inflate(R.menu.map_menu, menu);
 
         return true;
     }

@@ -42,7 +42,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
 
-public class DetailsActivity extends AppCompatActivity {
+public class PostDetailsActivityController extends AppCompatActivity {
 
     TextView rentedAmount, homeLocation, buildingName, floorNumber, detailsAboutHostel, genderValue, rentTypeValue, rentDate, advertiserUsrName, advertiserPhnNum, postDescription, electricityBill, gasBill, wifiBill, othersBill, security, parking, generator, elevator, totalRoom, flatSize, totalWashroom, totalBalcony;
     ImageView homeImage, userImage;
@@ -53,7 +53,7 @@ public class DetailsActivity extends AppCompatActivity {
     private String currentUserId;
     private HomePageDataModel model;
     private CheckBox checkBoxFavourite;
-    private Session session;
+    private SessionController sessionController;
     String advertiserUserId, userName, userPhnNumber;
 
     double latitude, longitude;
@@ -78,7 +78,7 @@ public class DetailsActivity extends AppCompatActivity {
         }
 
         getUserId();
-        session = new Session(this);
+        sessionController = new SessionController(this);
         rentedAmount = (TextView) findViewById(R.id.rentedAmountId);
         homeLocation = (TextView) findViewById(R.id.homeLocationId);
         homeImage = (ImageView) findViewById(R.id.ivImage2Id);
@@ -185,7 +185,7 @@ public class DetailsActivity extends AppCompatActivity {
     };
 
     private void setFavourite() {
-        if (session.isFavourite(model.getId())) {
+        if (sessionController.isFavourite(model.getId())) {
             checkBoxFavourite.setOnCheckedChangeListener (null);
             checkBoxFavourite.setChecked(true);
             checkBoxFavourite.setOnCheckedChangeListener (favListener);
@@ -205,8 +205,8 @@ public class DetailsActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()){
-                                session.addToFavourite(model.getId());
-                                Toast.makeText(DetailsActivity.this, "Favourite", Toast.LENGTH_SHORT).show();
+                                sessionController.addToFavourite(model.getId());
+                                Toast.makeText(PostDetailsActivityController.this, "Favourite", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -217,8 +217,8 @@ public class DetailsActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()){
-                                session.removeFromFavourite(model.getId());
-                                Toast.makeText(DetailsActivity.this, "Removed from favourite", Toast.LENGTH_SHORT).show();
+                                sessionController.removeFromFavourite(model.getId());
+                                Toast.makeText(PostDetailsActivityController.this, "Removed from favourite", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -234,7 +234,7 @@ public class DetailsActivity extends AppCompatActivity {
 
             case R.id.mapLocaionMenuId:
 
-                Intent intent = new Intent(DetailsActivity.this, MapsActivity.class);
+                Intent intent = new Intent(PostDetailsActivityController.this, MapActivityController.class);
                 intent.putExtra("lat",latitude);
                 intent.putExtra("lon", longitude);
                 startActivity(intent);

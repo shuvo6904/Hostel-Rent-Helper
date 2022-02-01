@@ -64,7 +64,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
-public class EditPostActivity extends AppCompatActivity {
+public class EditPostActivityController extends AppCompatActivity {
 
     SupportMapFragment supportMapFragment;
     //FusedLocationProviderClient client;
@@ -189,7 +189,7 @@ public class EditPostActivity extends AppCompatActivity {
         ArrayAdapter<String> desireRentArrayAdapter = new ArrayAdapter<>(this, R.layout.sample_spinner_view, desireRentDropdownArray);
         desireRentText.setAdapter(desireRentArrayAdapter);
 
-        ArrayAdapter<String> successiveArrayAdapter = new ArrayAdapter<>(EditPostActivity.this, R.layout.sample_spinner_view, successiveNumDropdownArray);
+        ArrayAdapter<String> successiveArrayAdapter = new ArrayAdapter<>(EditPostActivityController.this, R.layout.sample_spinner_view, successiveNumDropdownArray);
 
         selectedFloorNumText.setAdapter(successiveArrayAdapter);
         selectedTotalRoomText.setAdapter(successiveArrayAdapter);
@@ -316,7 +316,7 @@ public class EditPostActivity extends AppCompatActivity {
                             getAddress(selectedLat, selectedLon);
 
                         } else {
-                            Toast.makeText(EditPostActivity.this, "Please Check Your Internet Connection", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EditPostActivityController.this, "Please Check Your Internet Connection", Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -527,7 +527,7 @@ public class EditPostActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
 
                 if (task.isSuccessful()) {
-                    Toast.makeText(EditPostActivity.this, "Updated Advertisement Successfully. An Admin Will Approve Your Post Shortly.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditPostActivityController.this, "Updated Advertisement Successfully. An Admin Will Approve Your Post Shortly.", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }
@@ -536,7 +536,7 @@ public class EditPostActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
 
-                Toast.makeText(EditPostActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditPostActivityController.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 

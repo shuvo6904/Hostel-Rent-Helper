@@ -20,7 +20,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -30,10 +29,10 @@ import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link UserListFragment#newInstance} factory method to
+ * Use the {@link UserListFragmentController#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class UserListFragment extends Fragment {
+public class UserListFragmentController extends Fragment {
 
     UserListAdapter userListAdapter;
     RecyclerView userRecyclerView;
@@ -51,7 +50,7 @@ public class UserListFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public UserListFragment() {
+    public UserListFragmentController() {
         // Required empty public constructor
     }
 
@@ -64,8 +63,8 @@ public class UserListFragment extends Fragment {
      * @return A new instance of fragment UserListFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static UserListFragment newInstance(String param1, String param2) {
-        UserListFragment fragment = new UserListFragment();
+    public static UserListFragmentController newInstance(String param1, String param2) {
+        UserListFragmentController fragment = new UserListFragmentController();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

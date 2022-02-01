@@ -58,7 +58,7 @@ public class MyAdapter extends RecyclerView.Adapter<HomePageViewHolder>{
         holder.mCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, DetailsActivity.class);
+                Intent intent = new Intent(mContext, PostDetailsActivityController.class);
 
                 intent.putExtra("model",model);
 

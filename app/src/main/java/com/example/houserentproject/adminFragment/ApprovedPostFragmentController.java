@@ -26,10 +26,10 @@ import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link PendingPost#newInstance} factory method to
+ * Use the {@link ApprovedPostFragmentController#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PendingPost extends Fragment {
+public class ApprovedPostFragmentController extends Fragment {
 
     AdminAdapter adminAdapter;
     RecyclerView adminRecyclerView;
@@ -37,7 +37,6 @@ public class PendingPost extends Fragment {
     DatabaseReference adminDatabaseReference;
     ValueEventListener adminEventListener;
     ProgressDialog adminProgressDialog;
-
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -48,7 +47,7 @@ public class PendingPost extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public PendingPost() {
+    public ApprovedPostFragmentController() {
         // Required empty public constructor
     }
 
@@ -58,11 +57,11 @@ public class PendingPost extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment PendingPost.
+     * @return A new instance of fragment ApprovedPostFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PendingPost newInstance(String param1, String param2) {
-        PendingPost fragment = new PendingPost();
+    public static ApprovedPostFragmentController newInstance(String param1, String param2) {
+        ApprovedPostFragmentController fragment = new ApprovedPostFragmentController();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -84,14 +83,15 @@ public class PendingPost extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_pending_post, container, false);
+        View view = inflater.inflate(R.layout.fragment_approved_post, container, false);
 
-        adminRecyclerView = (RecyclerView) view.findViewById(R.id.pendingPostRecyclerId);
+
+        adminRecyclerView = (RecyclerView) view.findViewById(R.id.approvedPostRecyclerId);
 
         GridLayoutManager adminGridLayoutManager = new GridLayoutManager(getActivity(),1);
         adminRecyclerView.setLayoutManager(adminGridLayoutManager);
         adminProgressDialog = new ProgressDialog(getActivity());
-        adminProgressDialog.setMessage("Loading Pending Post...");
+        adminProgressDialog.setMessage("Loading Approved Post...");
         adminPageDataList = new ArrayList<>();
         adminAdapter = new AdminAdapter(getActivity(), adminPageDataList);
         adminRecyclerView.setAdapter(adminAdapter);
@@ -110,7 +110,7 @@ public class PendingPost extends Fragment {
                     for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
 
                         HomePageDataModel adminPageData = dataSnapshot1.getValue(HomePageDataModel.class);
-                        if (adminPageData.getPostStatus().contains("Pending")){
+                        if (adminPageData.getPostStatus().contains("Approve")){
                             adminPageDataList.add(adminPageData);
                         }
 
@@ -129,6 +129,9 @@ public class PendingPost extends Fragment {
 
             }
         });
+
+
+
 
         return view;
     }

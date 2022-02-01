@@ -9,7 +9,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -17,19 +16,17 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivityController extends AppCompatActivity {
 
     EditText regFullName, regPhnNum, regEmail, regPass, regConPass;
     FirebaseAuth fAuth;
@@ -69,7 +66,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void tvAlreadyRegistered(View view) {
 
-        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+        startActivity(new Intent(getApplicationContext(), LoginActivityController.class));
         finish();
     }
 
@@ -150,17 +147,17 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 });
 
-                Toast.makeText(RegisterActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivityController.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.GONE);
 
-                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                startActivity(new Intent(RegisterActivityController.this, LoginActivityController.class));
                 finish();
 
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(RegisterActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivityController.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.GONE);
 
             }

@@ -48,7 +48,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmergencyContactActivity extends AppCompatActivity {
+public class EmergencyContactActivityController extends AppCompatActivity {
 
     String [] name, phone;
     RecyclerView recyclerView;

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EBF1F6"
-    tools:context=".UserFragment.AllAdvertisementFragment">
+    tools:context=".UserFragment.AllAdvertisementFragmentController">
 
     <RelativeLayout
         android:layout_width="match_parent"

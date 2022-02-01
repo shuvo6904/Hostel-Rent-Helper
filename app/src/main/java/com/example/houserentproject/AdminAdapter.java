@@ -60,7 +60,7 @@ public class AdminAdapter extends RecyclerView.Adapter<MyAdminHomePageViewHolder
             @Override
             public void onClick(View v) {
 
-                Intent adminIntent = new Intent(adminContext, AdminHomePageDetails.class);
+                Intent adminIntent = new Intent(adminContext, AdminHomePageDetailsController.class);
                 adminIntent.putExtra("adminPostModel",adminModel);
                 adminContext.startActivity(adminIntent);
             }

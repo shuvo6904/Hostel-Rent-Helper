@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.houserentproject.R;
 
-public class QuestionAndAnswerActivity extends AppCompatActivity {
+public class QuestionAnswerActivityController extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

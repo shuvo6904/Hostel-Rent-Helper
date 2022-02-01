@@ -35,7 +35,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
 
-public class AdminHomePageDetails extends AppCompatActivity {
+public class AdminHomePageDetailsController extends AppCompatActivity {
 
     TextView rentedAmount, homeLocation, buildingName, floorNumber, detailsAboutHostel, genderValue, rentTypeValue, rentDate, advertiserUsrName, advertiserPhnNum, postDescription, electricityBill, gasBill, wifiBill, othersBill, security, parking, generator, elevator, totalRoom, flatSize, totalWashroom, totalBalcony;
     ImageView homeImage, userImage;
@@ -163,7 +163,7 @@ public class AdminHomePageDetails extends AppCompatActivity {
         userImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent userDetailsIntent = new Intent(getApplicationContext(), UserDetails.class);
+                Intent userDetailsIntent = new Intent(getApplicationContext(), UserDetailsActivityController.class);
                 userDetailsIntent.putExtra("advertiserId",advertiserUserId);
                 startActivity(userDetailsIntent);
             }
@@ -185,7 +185,7 @@ public class AdminHomePageDetails extends AppCompatActivity {
 
             case R.id.mapLocaionMenuId:
 
-                Intent intent = new Intent(AdminHomePageDetails.this, MapsActivity.class);
+                Intent intent = new Intent(AdminHomePageDetailsController.this, MapActivityController.class);
                 intent.putExtra("lat",latitude);
                 intent.putExtra("lon", longitude);
                 startActivity(intent);

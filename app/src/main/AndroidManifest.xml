@@ -16,22 +16,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HouseRentProject">
         <activity
-            android:name=".additionalActivity.QuestionAndAnswerActivity"
+            android:name=".additionalActivity.QuestionAnswerActivityController"
             android:exported="false" />
         <activity
-            android:name=".additionalActivity.EditPostActivity"
+            android:name=".additionalActivity.EditPostActivityController"
             android:exported="false"
-            android:parentActivityName=".MyPosts" />
+            android:parentActivityName=".MyPostController" />
         <activity
-            android:name=".NstuContactActivity"
+            android:name=".NstuContactActivityController"
             android:exported="false"
-            android:parentActivityName=".DashboardActivity" />
+            android:parentActivityName=".DashboardActivityController" />
         <activity
-            android:name=".additionalActivity.HelpActivity"
+            android:name=".additionalActivity.HelpActivityController"
             android:exported="false"
-            android:parentActivityName=".MyPosts" />
+            android:parentActivityName=".MyPostController" />
         <activity
-            android:name=".DashboardActivity"
+            android:name=".DashboardActivityController"
             android:exported="false" />
         <activity android:name=".SplashActivity">
             <intent-filter>
@@ -41,12 +41,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MapsActivity"
+            android:name=".MapActivityController"
             android:exported="false" />
         <activity
-            android:name=".AdminHomePageDetails"
+            android:name=".AdminHomePageDetailsController"
             android:exported="false"
-            android:parentActivityName=".AdminHomeActivity" />
+            android:parentActivityName=".AdminHomePageActivityController" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -58,37 +58,37 @@
         <activity
             android:name=".PostDetailsActivity"
             android:exported="true"
-            android:parentActivityName=".MyPosts" />
+            android:parentActivityName=".MyPostController" />
         <activity
-            android:name=".AdminHomeActivity"
+            android:name=".AdminHomePageActivityController"
             android:exported="true" />
         <activity
-            android:name=".Profile"
+            android:name=".ProfileActivityController"
             android:exported="true"
-            android:parentActivityName=".additionalActivity.HelpActivity" />
+            android:parentActivityName=".additionalActivity.HelpActivityController" />
         <activity
-            android:name=".FavListActivity"
-            android:parentActivityName=".DashboardActivity" />
+            android:name=".FavListActivityController"
+            android:parentActivityName=".DashboardActivityController" />
         <activity
-            android:name=".UserDetails"
-            android:parentActivityName=".EmergencyContactActivity" />
+            android:name=".UserDetailsActivityController"
+            android:parentActivityName=".EmergencyContactActivityController" />
         <activity
-            android:name=".ResetPassActivity"
-            android:parentActivityName=".additionalActivity.HelpActivity" />
+            android:name=".ResetPassActivityController"
+            android:parentActivityName=".additionalActivity.HelpActivityController" />
         <activity
-            android:name=".MyPosts"
-            android:parentActivityName=".DashboardActivity" />
+            android:name=".MyPostController"
+            android:parentActivityName=".DashboardActivityController" />
         <activity
-            android:name=".PostActivity"
-            android:parentActivityName=".DashboardActivity" />
+            android:name=".CreatePostActivityController"
+            android:parentActivityName=".DashboardActivityController" />
         <activity
-            android:name=".DetailsActivity"
-            android:parentActivityName=".additionalActivity.HelpActivity" />
+            android:name=".PostDetailsActivityController"
+            android:parentActivityName=".additionalActivity.HelpActivityController" />
         <activity
-            android:name=".EmergencyContactActivity"
-            android:parentActivityName=".DashboardActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
+            android:name=".EmergencyContactActivityController"
+            android:parentActivityName=".DashboardActivityController" />
+        <activity android:name=".RegisterActivityController" />
+        <activity android:name=".LoginActivityController" />
     </application>
 
 </manifest>

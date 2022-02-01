@@ -45,7 +45,7 @@ import com.squareup.picasso.Picasso;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Profile extends AppCompatActivity {
+public class ProfileActivityController extends AppCompatActivity {
 
     private Button profileEmailVerifyButton;
     private BottomSheetDialog sheetDialog, photoIdentitySheetDialog;
@@ -114,7 +114,7 @@ public class Profile extends AppCompatActivity {
                 @Override
                 public void onFailure(@NonNull Exception e) {
 
-                    Toast.makeText(Profile.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(ProfileActivityController.this, e.getMessage(), Toast.LENGTH_LONG).show();
 
                 }
             });
@@ -159,7 +159,7 @@ public class Profile extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
 
-                        Toast.makeText(Profile.this, "Email verification link has been sent.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(ProfileActivityController.this, "Email verification link has been sent.", Toast.LENGTH_LONG).show();
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -178,9 +178,9 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                sheetDialog = new BottomSheetDialog(Profile.this,R.style.BottomSheetStyle);
+                sheetDialog = new BottomSheetDialog(ProfileActivityController.this,R.style.BottomSheetStyle);
 
-                View view = LayoutInflater.from(Profile.this).inflate(R.layout.bottomsheet_dialog,
+                View view = LayoutInflater.from(ProfileActivityController.this).inflate(R.layout.bottomsheet_dialog,
                         (LinearLayout)findViewById(R.id.sheetLayoutId));
 
                 EditText profileNameBottomSheet, profilePhnNumberBottomSheet, profileEmailBottomSheet;
@@ -205,7 +205,7 @@ public class Profile extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if (profileNameBottomSheet.getText().toString().isEmpty() || profilePhnNumberBottomSheet.getText().toString().isEmpty() || profileEmailBottomSheet.getText().toString().isEmpty()){
-                            Toast.makeText(Profile.this, "One or Many Fields are Empty", Toast.LENGTH_LONG).show();
+                            Toast.makeText(ProfileActivityController.this, "One or Many Fields are Empty", Toast.LENGTH_LONG).show();
                             return;
                         }
 
@@ -221,7 +221,7 @@ public class Profile extends AppCompatActivity {
                                 documentReference.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
-                                        Toast.makeText(Profile.this, "Profile Updated Successfully", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(ProfileActivityController.this, "Profile Updated Successfully", Toast.LENGTH_LONG).show();
                                         sheetDialog.dismiss();
                                         //startActivity(new Intent(Profile.this, EmergencyContactActivity.class));
                                         //finish();
@@ -233,7 +233,7 @@ public class Profile extends AppCompatActivity {
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(Profile.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                                Toast.makeText(ProfileActivityController.this, e.getMessage(), Toast.LENGTH_LONG).show();
 
                             }
                         });
@@ -251,9 +251,9 @@ public class Profile extends AppCompatActivity {
 
     public void uploadIdentityPhoto(View view) {
 
-        photoIdentitySheetDialog = new BottomSheetDialog(Profile.this,R.style.BottomSheetStyle);
+        photoIdentitySheetDialog = new BottomSheetDialog(ProfileActivityController.this,R.style.BottomSheetStyle);
 
-        View photoIdentityView = LayoutInflater.from(Profile.this).inflate(R.layout.upload_photo_identity,
+        View photoIdentityView = LayoutInflater.from(ProfileActivityController.this).inflate(R.layout.upload_photo_identity,
                 (RelativeLayout)findViewById(R.id.identityLayoutId));
 
         FloatingActionButton changePhotoIdentity;
@@ -265,7 +265,7 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                ImagePicker.with(Profile.this)
+                ImagePicker.with(ProfileActivityController.this)
                         .crop()	    			//Crop image(Optional), Check Customization for more option
                         .compress(1024)			//Final image size will be less than 1 MB(Optional)
                         .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
@@ -319,7 +319,7 @@ public class Profile extends AppCompatActivity {
                 @Override
                 public void onFailure(@NonNull Exception e) {
 
-                    Toast.makeText(Profile.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(ProfileActivityController.this, e.getMessage(), Toast.LENGTH_LONG).show();
 
                 }
             });
@@ -347,7 +347,7 @@ public class Profile extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
 
-                            Toast.makeText(Profile.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(ProfileActivityController.this, e.getMessage(), Toast.LENGTH_LONG).show();
 
                         }
                     });
@@ -360,7 +360,7 @@ public class Profile extends AppCompatActivity {
 
     public void fabChangeProPic(View view) {
 
-        ImagePicker.with(Profile.this)
+        ImagePicker.with(ProfileActivityController.this)
                 .cameraOnly()	//User can only capture image using Camera
                 .crop()	    			//Crop image(Optional), Check Customization for more option
                 .compress(1024)			//Final image size will be less than 1 MB(Optional)
@@ -418,7 +418,7 @@ public class Profile extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
 
-                        Toast.makeText(Profile.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(ProfileActivityController.this, e.getMessage(), Toast.LENGTH_LONG).show();
 
                     }
                 });
@@ -438,7 +438,7 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
 
-                Toast.makeText(Profile.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProfileActivityController.this, e.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -469,7 +469,7 @@ public class Profile extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
 
-                        Toast.makeText(Profile.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(ProfileActivityController.this, e.getMessage(), Toast.LENGTH_LONG).show();
 
                     }
                 });
@@ -488,7 +488,7 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
 
-                Toast.makeText(Profile.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProfileActivityController.this, e.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });

@@ -17,13 +17,13 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.example.houserentproject.adminFragment.ApprovedPostFragment;
-import com.example.houserentproject.adminFragment.PendingPost;
-import com.example.houserentproject.adminFragment.UserListFragment;
+import com.example.houserentproject.adminFragment.ApprovedPostFragmentController;
+import com.example.houserentproject.adminFragment.PendingPostFragmentController;
+import com.example.houserentproject.adminFragment.UserListFragmentController;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class AdminHomeActivity extends AppCompatActivity {
+public class AdminHomePageActivityController extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
 
@@ -34,7 +34,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_home);
 
         if (savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.adminFrameContainerId, new PendingPost()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.adminFrameContainerId, new PendingPostFragmentController()).commit();
         }
 
         this.setTitle("");
@@ -63,15 +63,15 @@ public class AdminHomeActivity extends AppCompatActivity {
                 switch (item.getItemId()){
 
                     case R.id.bottomMenuPendingPostId:
-                        tempFragment = new PendingPost();
+                        tempFragment = new PendingPostFragmentController();
                         break;
 
                     case R.id.bottomMenuApprovedPostId:
-                        tempFragment = new ApprovedPostFragment();
+                        tempFragment = new ApprovedPostFragmentController();
                         break;
 
                     case R.id.bottomMenuUserListId:
-                        tempFragment = new UserListFragment();
+                        tempFragment = new UserListFragmentController();
                         break;
 
                 }
@@ -102,16 +102,16 @@ public class AdminHomeActivity extends AppCompatActivity {
             case R.id.menuLogoutId:
                 FirebaseAuth.getInstance().signOut();
                 removeSharedPreference();
-                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                startActivity(new Intent(getApplicationContext(), LoginActivityController.class));
                 finish();
                 return true;
 
             case R.id.menuResetPassId:
-                startActivity(new Intent(getApplicationContext(), ResetPassActivity.class));
+                startActivity(new Intent(getApplicationContext(), ResetPassActivityController.class));
                 return true;
 
             case R.id.menuProfileId:
-                startActivity(new Intent(getApplicationContext(), Profile.class));
+                startActivity(new Intent(getApplicationContext(), ProfileActivityController.class));
                 return true;
 
             default:

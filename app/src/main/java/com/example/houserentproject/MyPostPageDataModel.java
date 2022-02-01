@@ -2,7 +2,7 @@ package com.example.houserentproject;
 
 import java.io.Serializable;
 
-public class MyPostPageData implements Serializable {
+public class MyPostPageDataModel implements Serializable {
 
     private String rentAmount;
     private String location;
@@ -20,10 +20,10 @@ public class MyPostPageData implements Serializable {
     private String adUserId;
 
 
-    public MyPostPageData() {
+    public MyPostPageDataModel() {
     }
 
-    public MyPostPageData(String rentAmount, String location, String image, String buildingName, String floorNumber, String detailsAddress, String valueOfGender, String valueOfRentType, String datePick, String nameOfUser, String phnNumOfUser, String id, String postStatus, String adUserId) {
+    public MyPostPageDataModel(String rentAmount, String location, String image, String buildingName, String floorNumber, String detailsAddress, String valueOfGender, String valueOfRentType, String datePick, String nameOfUser, String phnNumOfUser, String id, String postStatus, String adUserId) {
         this.rentAmount = rentAmount;
         this.location = location;
         this.image = image;

@@ -21,12 +21,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.houserentproject.DetailsActivity;
-import com.example.houserentproject.LoginActivity;
-import com.example.houserentproject.Profile;
+import com.example.houserentproject.LoginActivityController;
 import com.example.houserentproject.R;
-import com.example.houserentproject.ResetPassActivity;
-import com.example.houserentproject.additionalActivity.HelpActivity;
+import com.example.houserentproject.ResetPassActivityController;
+import com.example.houserentproject.additionalActivity.HelpActivityController;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -42,10 +40,10 @@ import com.squareup.picasso.Picasso;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AccountFragment#newInstance} factory method to
+ * Use the {@link AccountFragmentController#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AccountFragment extends Fragment implements View.OnClickListener {
+public class AccountFragmentController extends Fragment implements View.OnClickListener {
 
     private CardView editProfileCard, resetPassCard, logoutCard, helpCard;
     private ImageView proImageFrag;
@@ -63,7 +61,7 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
     private String mParam1;
     private String mParam2;
 
-    public AccountFragment() {
+    public AccountFragmentController() {
         // Required empty public constructor
     }
 
@@ -76,8 +74,8 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
      * @return A new instance of fragment AccountFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AccountFragment newInstance(String param1, String param2) {
-        AccountFragment fragment = new AccountFragment();
+    public static AccountFragmentController newInstance(String param1, String param2) {
+        AccountFragmentController fragment = new AccountFragmentController();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -162,18 +160,18 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.resetPassCardId:
-                startActivity(new Intent(getActivity(), ResetPassActivity.class));
+                startActivity(new Intent(getActivity(), ResetPassActivityController.class));
                 break;
 
             case R.id.logoutCardId:
                 FirebaseAuth.getInstance().signOut();
                 removeSharedPreferences();
-                startActivity(new Intent(getActivity(), LoginActivity.class));
+                startActivity(new Intent(getActivity(), LoginActivityController.class));
                 getActivity().finish();
                 break;
 
             case R.id.helpCardId:
-                startActivity(new Intent(getActivity(), HelpActivity.class));
+                startActivity(new Intent(getActivity(), HelpActivityController.class));
                 break;
 
         }
@@ -196,7 +194,7 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
 
                         if (task.isSuccessful()){
                             Toast.makeText(getActivity(), "Account Deleted", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getActivity(), LoginActivity.class));
+                            startActivity(new Intent(getActivity(), LoginActivityController.class));
                             getActivity().finish();
                         }
 

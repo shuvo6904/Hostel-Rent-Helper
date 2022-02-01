@@ -13,16 +13,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.houserentproject.EmergencyContactActivity;
-import com.example.houserentproject.FavListActivity;
-import com.example.houserentproject.MyPosts;
-import com.example.houserentproject.NstuContactActivity;
-import com.example.houserentproject.PostActivity;
-import com.example.houserentproject.Profile;
+import com.example.houserentproject.EmergencyContactActivityController;
+import com.example.houserentproject.FavListActivityController;
+import com.example.houserentproject.MyPostController;
+import com.example.houserentproject.NstuContactActivityController;
+import com.example.houserentproject.CreatePostActivityController;
+import com.example.houserentproject.ProfileActivityController;
 import com.example.houserentproject.R;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -32,7 +30,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
 
-public class HomeFragment extends Fragment implements View.OnClickListener {
+public class HomeFragmentController extends Fragment implements View.OnClickListener {
 
     CardView favouriteCard, createPostCard, myPostCard, profileCard, nstuContactCard, emergencyContactCard;
 
@@ -46,12 +44,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private String mParam1;
     private String mParam2;
 
-    public HomeFragment() {
+    public HomeFragmentController() {
 
     }
 
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
+    public static HomeFragmentController newInstance(String param1, String param2) {
+        HomeFragmentController fragment = new HomeFragmentController();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -111,7 +109,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()){
 
             case R.id.favouriteCardId:
-                startActivity(new Intent(getActivity(), FavListActivity.class));
+                startActivity(new Intent(getActivity(), FavListActivityController.class));
                 break;
 
             case R.id.createPostCardId:
@@ -130,7 +128,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            startActivity(new Intent(getActivity(), Profile.class));
+                            startActivity(new Intent(getActivity(), ProfileActivityController.class));
                         }
                     });
 
@@ -148,25 +146,25 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 }
 
                 else {
-                    startActivity(new Intent(getActivity(), PostActivity.class));
+                    startActivity(new Intent(getActivity(), CreatePostActivityController.class));
                 }
 
                 break;
 
             case R.id.myPostCardId:
-                startActivity(new Intent(getActivity(), MyPosts.class));
+                startActivity(new Intent(getActivity(), MyPostController.class));
                 break;
 
             case R.id.profileCardId:
-                startActivity(new Intent(getActivity(), Profile.class));
+                startActivity(new Intent(getActivity(), ProfileActivityController.class));
                 break;
 
             case R.id.nstuContactCardId:
-                startActivity(new Intent(getActivity(), NstuContactActivity.class));
+                startActivity(new Intent(getActivity(), NstuContactActivityController.class));
                 break;
 
             case R.id.emergencyContactCardId:
-                startActivity(new Intent(getActivity(), EmergencyContactActivity.class));
+                startActivity(new Intent(getActivity(), EmergencyContactActivityController.class));
                 break;
 
         }

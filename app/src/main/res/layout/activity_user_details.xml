@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fillViewport="true"
-    tools:context=".UserDetails">
+    tools:context=".UserDetailsActivityController">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -69,12 +69,13 @@
             android:textSize="20sp" />
 
         <ImageView
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/userDetailsEmailVeriId"
-            android:scaleType="fitXY"
+            android:layout_margin="7dp"
             android:id="@+id/userDetailsPhotoIdentityId"
             android:layout_width="match_parent"
             android:layout_height="250dp"
+            android:layout_below="@+id/userDetailsEmailVeriId"
+            android:layout_marginTop="20dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/ic_baseline_image_24" />
 
 

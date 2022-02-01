@@ -76,13 +76,13 @@
                 app:cardCornerRadius="5dp">
 
                 <TextView
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Hostel Information"/>
+                    android:text="Hostel Information"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -198,13 +198,13 @@
                 app:cardCornerRadius="5dp">
 
                 <TextView
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Flat Information"/>
+                    android:text="Flat Information"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -239,8 +239,6 @@
                             android:text="Total Room : "
                             android:textColor="#675E5E"
                             android:textSize="18sp" />
-
-
 
 
                     </LinearLayout>
@@ -291,13 +289,13 @@
                 app:cardCornerRadius="5dp">
 
                 <TextView
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Utility Bill Information"/>
+                    android:text="Utility Bill Information"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -603,9 +601,9 @@
             </LinearLayout>
 
             <TextView
-                android:layout_marginLeft="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
                 android:text="Additional Information About Hostel &amp; Advertisement Post: "
                 android:textColor="@color/black"
                 android:textSize="18sp"

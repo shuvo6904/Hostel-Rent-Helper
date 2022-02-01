@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class FavListActivity extends AppCompatActivity {
+public class FavListActivityController extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private FirebaseAuth mAuth;
@@ -86,7 +86,7 @@ public class FavListActivity extends AppCompatActivity {
 
     private void initRecyclerView() {
         recyclerView = findViewById(R.id.recyclerViewFav);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(FavListActivity.this,1);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(FavListActivityController.this,1);
         recyclerView.setLayoutManager(gridLayoutManager);
     }
 

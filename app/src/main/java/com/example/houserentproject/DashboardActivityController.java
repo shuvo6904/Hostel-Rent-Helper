@@ -13,13 +13,12 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.example.houserentproject.UserFragment.AccountFragment;
-import com.example.houserentproject.UserFragment.HomeFragment;
-import com.example.houserentproject.UserFragment.AllAdvertisementFragment;
+import com.example.houserentproject.UserFragment.AccountFragmentController;
+import com.example.houserentproject.UserFragment.HomeFragmentController;
+import com.example.houserentproject.UserFragment.AllAdvertisementFragmentController;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
 
-public class DashboardActivity extends AppCompatActivity {
+public class DashboardActivityController extends AppCompatActivity {
 
     BottomNavigationView bottomNavView;
 
@@ -47,7 +46,7 @@ public class DashboardActivity extends AppCompatActivity {
         }
 
         if (savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.frameContainerId, new HomeFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameContainerId, new HomeFragmentController()).commit();
         }
 
         bottomNavView = (BottomNavigationView) findViewById(R.id.bottomNavId);
@@ -60,15 +59,15 @@ public class DashboardActivity extends AppCompatActivity {
                 switch (item.getItemId()){
 
                     case R.id.bottomMenuHomeId:
-                        tempFrag = new HomeFragment();
+                        tempFrag = new HomeFragmentController();
                         break;
 
                     case R.id.bottomMenuAllAdsId:
-                        tempFrag = new AllAdvertisementFragment();
+                        tempFrag = new AllAdvertisementFragmentController();
                         break;
 
                     case R.id.bottomMenuAccountId:
-                        tempFrag = new AccountFragment();
+                        tempFrag = new AccountFragmentController();
                         break;
 
                 }

@@ -21,7 +21,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class ResetPassActivity extends AppCompatActivity {
+public class ResetPassActivityController extends AppCompatActivity {
 
     EditText resetPassword, resetConPassword;
     FirebaseUser user;
@@ -76,8 +76,8 @@ public class ResetPassActivity extends AppCompatActivity {
         user.updatePassword(resetPassword.getText().toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Toast.makeText(ResetPassActivity.this, "Password Updated", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(), EmergencyContactActivity.class));
+                Toast.makeText(ResetPassActivityController.this, "Password Updated", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), EmergencyContactActivityController.class));
                 finish();
 
             }
@@ -85,7 +85,7 @@ public class ResetPassActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
 
-                Toast.makeText(ResetPassActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ResetPassActivityController.this, e.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });

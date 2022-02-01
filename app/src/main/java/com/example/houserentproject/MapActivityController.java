@@ -13,7 +13,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class MapActivityController extends AppCompatActivity implements OnMapReadyCallback {
 
     SupportMapFragment mapFragment;
     GoogleMap myMap;
@@ -34,7 +34,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.googleMapDetailsId);
-        mapFragment.getMapAsync(MapsActivity.this);
+        mapFragment.getMapAsync(MapActivityController.this);
 
     }
 

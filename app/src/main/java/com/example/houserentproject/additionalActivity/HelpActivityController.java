@@ -21,13 +21,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.houserentproject.PostActivity;
 import com.example.houserentproject.R;
 import com.example.houserentproject.ReviewModel;
 import com.example.houserentproject.additionalAdapter.ReviewAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -36,21 +34,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class HelpActivity extends AppCompatActivity {
+public class HelpActivityController extends AppCompatActivity {
 
     TextView helpNum, helpEmail;
     String num, email, strReview, userName;
@@ -152,7 +145,7 @@ public class HelpActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
 
                         if (task.isSuccessful()){
-                            Toast.makeText(HelpActivity.this, "Review Added Successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(HelpActivityController.this, "Review Added Successfully", Toast.LENGTH_SHORT).show();
                             review.setText("");
                         }
 
@@ -161,7 +154,7 @@ public class HelpActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
 
-                        Toast.makeText(HelpActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(HelpActivityController.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -194,7 +187,7 @@ public class HelpActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
-                Toast.makeText(HelpActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(HelpActivityController.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
 
             }
         });

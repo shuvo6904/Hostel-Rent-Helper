@@ -1,7 +1,6 @@
 package com.example.houserentproject;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +12,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -22,26 +20,15 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.HashMap;
-
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivityController extends AppCompatActivity {
 
     EditText username, password;
     FirebaseAuth firebaseAuth;
@@ -86,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void buttonRegister(View view) {
 
-        startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+        startActivity(new Intent(getApplicationContext(), RegisterActivityController.class));
         finish();
     }
 
@@ -134,16 +121,16 @@ public class LoginActivity extends AppCompatActivity {
 
                             if (isAdminValue.isEmpty()){
                                 saveAdminSharedPreferences(false);
-                                Toast.makeText(LoginActivity.this, "Logged In Successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivityController.this, "Logged In Successfully", Toast.LENGTH_SHORT).show();
                                 loginProgressBar.setVisibility(View.GONE);
-                                startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+                                startActivity(new Intent(LoginActivityController.this, DashboardActivityController.class));
                                 finish();
 
                             } else {
                                 saveAdminSharedPreferences(true);
-                                Toast.makeText(LoginActivity.this, "Logged In Successfully As Admin ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivityController.this, "Logged In Successfully As Admin ", Toast.LENGTH_SHORT).show();
                                 loginProgressBar.setVisibility(View.GONE);
-                                startActivity(new Intent(LoginActivity.this, AdminHomeActivity.class));
+                                startActivity(new Intent(LoginActivityController.this, AdminHomePageActivityController.class));
                                 finish();
                             }
                         }
@@ -158,7 +145,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 loginProgressBar.setVisibility(View.GONE);
-                Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivityController.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -182,14 +169,14 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("adminSharedPreferences", MODE_PRIVATE);
         if (firebaseAuth.getCurrentUser() != null && sharedPreferences.getBoolean("isAdmin", false) == false){
 
-            startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+            startActivity(new Intent(LoginActivityController.this, DashboardActivityController.class));
             finish();
 
         }
 
         else if (firebaseAuth.getCurrentUser() != null && sharedPreferences.getBoolean("isAdmin", false) == true){
 
-            startActivity(new Intent(LoginActivity.this, AdminHomeActivity.class));
+            startActivity(new Intent(LoginActivityController.this, AdminHomePageActivityController.class));
             finish();
 
         }
@@ -214,12 +201,12 @@ public class LoginActivity extends AppCompatActivity {
                         firebaseAuth.sendPasswordResetEmail(email.getText().toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toast.makeText(LoginActivity.this, "Reset Email sent", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivityController.this, "Reset Email sent", Toast.LENGTH_SHORT).show();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(LoginActivity.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivityController.this,e.getMessage(), Toast.LENGTH_SHORT).show();
 
                             }
                         });

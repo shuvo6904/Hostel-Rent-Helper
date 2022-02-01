@@ -2,16 +2,22 @@ package com.example.houserentproject;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -35,7 +41,7 @@ import com.squareup.picasso.Picasso;
 import java.io.IOException;
 import java.util.UUID;
 
-public class UserDetails extends AppCompatActivity {
+public class UserDetailsActivityController extends AppCompatActivity {
 
     ImageView userImg, userIdentityImg;
     TextView userName, userEmail, userContact, userEmailVeriStatus;
@@ -50,6 +56,21 @@ public class UserDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_details);
+
+        this.setTitle("User Details");
+
+        ActionBar bar = getSupportActionBar();
+        //bar.hide();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFE500")));
+        //bar.setDisplayHomeAsUpEnabled(true);
+        //bar.setDisplayShowHomeEnabled(true);
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(this.getResources().getColor(R.color.adminStatusBarColor));
+        }
 
         userImg = (ImageView) findViewById(R.id.userDetailsProfileImageId);
         userIdentityImg = (ImageView) findViewById(R.id.userDetailsPhotoIdentityId);
