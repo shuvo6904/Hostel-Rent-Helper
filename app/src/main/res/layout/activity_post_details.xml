@@ -30,7 +30,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp">
+                    app:cardElevation="5dp">
 
                     <ImageView
                         android:id="@+id/postIv2Id"
