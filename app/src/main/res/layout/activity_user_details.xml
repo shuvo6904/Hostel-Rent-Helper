@@ -69,13 +69,15 @@
             android:textSize="20sp" />
 
         <ImageView
-            android:layout_margin="7dp"
             android:id="@+id/userDetailsPhotoIdentityId"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_below="@+id/userDetailsEmailVeriId"
-            android:layout_marginTop="20dp"
-            android:scaleType="centerCrop"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginBottom="7dp"
+            android:scaleType="fitXY"
             android:src="@drawable/ic_baseline_image_24" />
 
 

@@ -990,13 +990,13 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:hint="Write Here Details About Your Hostel"
                 app:boxBackgroundMode="outline"
                 app:counterEnabled="true"
                 app:counterMaxLength="100"
                 app:endIconMode="clear_text">
 
                 <EditText
+                    android:hint="Write Here Details About Your Hostel"
                     android:id="@+id/detailsAddressId"
                     android:layout_width="match_parent"
                     android:layout_height="195dp"

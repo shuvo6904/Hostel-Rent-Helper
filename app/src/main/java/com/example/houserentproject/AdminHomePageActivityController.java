@@ -37,7 +37,7 @@ public class AdminHomePageActivityController extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.adminFrameContainerId, new PendingPostFragmentController()).commit();
         }
 
-        this.setTitle("");
+        this.setTitle("Admin Panel Page");
 
         ActionBar bar = getSupportActionBar();
         //bar.hide();

@@ -11,8 +11,10 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +32,7 @@ public class MyPostController extends AppCompatActivity {
     FirebaseAuth fPostAuth;
     String userPostId;
     MyPostAdapter postAdapter;
+    TextView textView;
 
     RecyclerView postRecyclerView;
     List<HomePageDataModel> myPostPageDataList;
@@ -57,6 +60,7 @@ public class MyPostController extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.statusBarColor));
         }
 
+        textView = (TextView) findViewById(R.id.myPostTVId);
         fPostAuth = FirebaseAuth.getInstance();
         userPostId = fPostAuth.getCurrentUser().getUid();
 
@@ -81,17 +85,25 @@ public class MyPostController extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                myPostPageDataList.clear();
+                if (snapshot.exists()){
+                    myPostPageDataList.clear();
 
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()){
 
                         HomePageDataModel postHomePageDataModel = dataSnapshot.getValue(HomePageDataModel.class);
                         myPostPageDataList.add(postHomePageDataModel);
 
+                    }
+
+                    postAdapter.notifyDataSetChanged();
+                    postProgressDialog.dismiss();
+                }else {
+
+                    textView.setVisibility(View.VISIBLE);
+                    postProgressDialog.dismiss();
                 }
 
-                postAdapter.notifyDataSetChanged();
-                postProgressDialog.dismiss();
+
 
             }
 

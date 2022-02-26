@@ -54,18 +54,18 @@
                android:textStyle="bold" />
 
 
-            <TextView
-                android:id="@+id/checkIsEmailVerifiedId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/profileNameId"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="15dp"
-                android:fontFamily="@font/bentham"
-                android:text="Email Unverified"
-                android:textColor="@color/black"
-                android:textSize="17dp"
-                android:textStyle="bold" />
+           <TextView
+               android:id="@+id/checkIsEmailVerifiedId"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_below="@+id/profileNameId"
+               android:layout_centerInParent="true"
+               android:layout_marginTop="15dp"
+               android:fontFamily="@font/bentham"
+               android:text="Email Unverified"
+               android:textColor="@color/black"
+               android:textSize="17dp"
+               android:textStyle="bold" />
 
             <Button
                 android:id="@+id/verifiedEmailButtonId"

@@ -10,8 +10,10 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -31,6 +33,7 @@ public class FavListActivityController extends AppCompatActivity {
     private String myUserId;
     private List<HomePageDataModel> favList;
     private MyAdapter myAdapter;
+    private TextView textView;
 
     private DatabaseReference rootRef;
 
@@ -55,6 +58,7 @@ public class FavListActivityController extends AppCompatActivity {
         }
 
         initRecyclerView();
+        textView = (TextView) findViewById(R.id.favTVId);
         mAuth = FirebaseAuth.getInstance();
         myUserId = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
         rootRef = FirebaseDatabase.getInstance().getReference();
@@ -69,7 +73,7 @@ public class FavListActivityController extends AppCompatActivity {
 
     private void title() {
         if (getSupportActionBar() != null){
-            getSupportActionBar().setTitle("Favourites");
+            getSupportActionBar().setTitle("Favourite Post");
         }
     }
 
@@ -98,8 +102,13 @@ public class FavListActivityController extends AppCompatActivity {
                 for (DataSnapshot snp : snapshot.getChildren()){
                     HomePageDataModel homePageDataModel = snp.getValue(HomePageDataModel.class);
                     favList.add(homePageDataModel);
+
                 }
+
                 myAdapter.notifyDataSetChanged();
+
+            }else {
+                    textView.setVisibility(View.VISIBLE);
             }
         }
 

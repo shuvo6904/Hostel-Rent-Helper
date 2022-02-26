@@ -42,7 +42,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:drawableStart="@drawable/call_colored"
-            android:text="  01966077883"
+            android:text="  01630209460"
             android:textColor="#00B0FF"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -56,7 +56,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"
             android:drawableStart="@drawable/ic_baseline_email_24"
-            android:text="  stshuvotalukdar@gmail.com"
+            android:text="  admin.hostelrenthelper@gmail.com"
             android:textColor="#00B0FF"
             android:textSize="20sp"
             android:textStyle="bold" />

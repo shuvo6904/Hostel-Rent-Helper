@@ -77,7 +77,7 @@ public class ResetPassActivityController extends AppCompatActivity {
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(ResetPassActivityController.this, "Password Updated", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(), EmergencyContactActivityController.class));
+                startActivity(new Intent(getApplicationContext(), DashboardActivityController.class));
                 finish();
 
             }

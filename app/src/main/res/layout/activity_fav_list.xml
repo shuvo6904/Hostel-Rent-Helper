@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,9 +7,20 @@
     android:layout_height="match_parent"
     tools:context=".FavListActivityController">
 
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewFav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-</LinearLayout>
+    <TextView
+        android:textSize="@dimen/_20ssp"
+        android:id="@+id/favTVId"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:text="No Favourite Post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

@@ -13,6 +13,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -100,6 +101,22 @@ public class HelpActivityController extends AppCompatActivity {
         reviewAdapter = new ReviewAdapter(this, reviewModelList);
         recyclerView.setAdapter(reviewAdapter);
         getReview();
+
+        review.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if (review.hasFocus()){
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+                    switch (event.getAction() & MotionEvent.ACTION_MASK){
+                        case MotionEvent.ACTION_SCROLL:
+                            v.getParent().requestDisallowInterceptTouchEvent(false);
+                            return true;
+                    }
+                }
+                return false;
+            }
+        });
 
         helpNum.setOnClickListener(new View.OnClickListener() {
             @Override
