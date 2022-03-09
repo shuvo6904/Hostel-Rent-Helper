@@ -20,15 +20,15 @@
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:text="For any kind of Query\n Please feel free to contact us"
+            android:text="This application is developed for NSTU students to search and rent student hostel\n\nFor any kind of Query\n Please feel free to contact us"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <ImageView
             android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
             android:layout_below="@+id/welcomeId"
             android:layout_centerInParent="true"
             android:layout_gravity="center"
@@ -64,7 +64,7 @@
         <TextView
             android:textStyle="bold"
             android:textSize="18sp"
-            android:textColor="#03A9F4"
+            android:textColor="@color/black"
             android:layout_marginLeft="10dp"
             android:text="Review Hostel Rent Helper"
             android:layout_width="wrap_content"
@@ -98,7 +98,7 @@
 
         <TextView
             android:gravity="center"
-            android:textColor="#03A9F4"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="20sp"
             android:text="All Review"

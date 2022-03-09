@@ -52,7 +52,7 @@ public class ProfileActivityController extends AppCompatActivity {
     private FirebaseAuth fAuth;
     DocumentReference documentReference;
     FirebaseUser user;
-    private ImageView profileImage, photoIdentityIV;;
+    private ImageView profileImage, photoIdentityIV;
     private StorageReference storageReference, profileStorageRef, frontVeriStorageReference;
     private FirebaseFirestore firebaseFirestore;
     private TextView profileName, proEditableName, proEditablePhnNum, proEditableEmail, checkIsEmailVerified, editProfileTextView;

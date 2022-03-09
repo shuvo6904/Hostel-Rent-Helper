@@ -409,6 +409,12 @@ public class CreatePostActivityController extends AppCompatActivity {
     }
 
     public void uploadImage() {
+
+        if (uri == null){
+            Toast.makeText(CreatePostActivityController.this, "Please choose a hostel image", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         StorageReference storageReference = FirebaseStorage.getInstance()
                 .getReference().child("HomeImage").child(uri.getLastPathSegment());
 
@@ -439,11 +445,50 @@ public class CreatePostActivityController extends AppCompatActivity {
 
     public void btnSubmitId(View view) {
 
+
+        if (txtBuildingName.getText().toString().isEmpty()) {
+            txtBuildingName.setError("Required Field");
+            txtBuildingName.requestFocus();
+            return;
+        }
+
+        if (selectedFloorNumText.getText().toString().isEmpty()) {
+            //selectedFloorNumText.setError("Required Field");
+            Toast.makeText(CreatePostActivityController.this, "Floor number is required field", Toast.LENGTH_LONG).show();
+            selectedFloorNumText.requestFocus();
+            return;
+        }
+
+        if (dropDownText.getText().toString().isEmpty()) {
+            //dropDownText.setError("Required Field");
+            Toast.makeText(CreatePostActivityController.this, "Hostel Address is required field", Toast.LENGTH_LONG).show();
+            dropDownText.requestFocus();
+            return;
+        }
+
+        if (selectedMonthText.getText().toString().isEmpty()) {
+            //txtRentedAmount.setError("Required Field");
+            Toast.makeText(CreatePostActivityController.this, "Month is required field", Toast.LENGTH_LONG).show();
+            selectedMonthText.requestFocus();
+            return;
+        }
+
+
+
         if (txtRentedAmount.getText().toString().isEmpty()) {
             txtRentedAmount.setError("Required Field");
             txtRentedAmount.requestFocus();
             return;
         }
+
+        if (desireRentText.getText().toString().isEmpty()) {
+            //txtRentedAmount.setError("Required Field");
+            Toast.makeText(CreatePostActivityController.this, "Rent type is required field", Toast.LENGTH_LONG).show();
+            desireRentText.requestFocus();
+            return;
+        }
+
+
 
         int genderSelectedId = genderChipGroup.getCheckedChipId();
         genderChip = (Chip) findViewById(genderSelectedId);

@@ -150,7 +150,7 @@ public class RegisterActivityController extends AppCompatActivity {
                 Toast.makeText(RegisterActivityController.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.GONE);
 
-                startActivity(new Intent(RegisterActivityController.this, LoginActivityController.class));
+                startActivity(new Intent(RegisterActivityController.this, DashboardActivityController.class));
                 finish();
 
             }
