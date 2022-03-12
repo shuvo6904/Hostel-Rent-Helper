@@ -10,12 +10,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -37,6 +39,7 @@ public class LoginActivityController extends AppCompatActivity {
     AlertDialog.Builder reset_alert;
     LayoutInflater inflater;
     ProgressBar loginProgressBar;
+    //private Button loginBtn, registerBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,8 @@ public class LoginActivityController extends AppCompatActivity {
 
         ActionBar bar = getSupportActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#5DAFF1")));
+        bar.setHomeAsUpIndicator(R.drawable.ic_rent_icon);
+        bar.setDisplayHomeAsUpEnabled(true);
 
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
@@ -56,7 +61,13 @@ public class LoginActivityController extends AppCompatActivity {
         }
 
         username = findViewById(R.id.loginEmailId);
-        password = findViewById(R.id.loginPassswordId);
+        password = findViewById(R.id.loginPasswordId);
+        //loginBtn = findViewById(R.id.loginBtnId);
+        //registerBtn = findViewById(R.id.registerBtnId);
+
+        //loginBtn.setBackgroundColor(Color.rgb(93, 175, 241));
+        //registerBtn.setBackgroundColor(Color.rgb(93, 175, 241));
+        //loginBtn.setBackground();
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -128,7 +139,7 @@ public class LoginActivityController extends AppCompatActivity {
 
                             } else {
                                 saveAdminSharedPreferences(true);
-                                Toast.makeText(LoginActivityController.this, "Logged In Successfully As Admin ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivityController.this, "Logged In Successfully As Admin", Toast.LENGTH_SHORT).show();
                                 loginProgressBar.setVisibility(View.GONE);
                                 startActivity(new Intent(LoginActivityController.this, AdminHomePageActivityController.class));
                                 finish();

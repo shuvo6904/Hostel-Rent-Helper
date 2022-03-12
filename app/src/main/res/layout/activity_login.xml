@@ -25,7 +25,7 @@
             android:id="@+id/loginEmailId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="Enter Your Email Here"
             android:inputType="text"
             android:textSize="20sp"/>
 
@@ -40,10 +40,10 @@
         app:passwordToggleEnabled="true">
 
         <EditText
-            android:id="@+id/loginPassswordId"
+            android:id="@+id/loginPasswordId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="Enter Your Password Here"
             android:inputType="textPassword"
             android:textSize="20sp"/>
 
@@ -51,27 +51,27 @@
 
 
     <Button
+        android:id="@+id/loginBtnId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login"
         android:textSize="22sp"
         android:textColor="#ffffff"
         android:layout_marginTop="30dp"
-        android:background="@drawable/button_rounded"
         android:onClick="buttonLogin"/>
 
     <Button
+        android:id="@+id/registerBtnId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Register"
         android:textSize="22sp"
         android:textColor="#ffffff"
         android:layout_marginTop="10dp"
-        android:background="@drawable/button_rounded"
         android:onClick="buttonRegister"/>
 
     <TextView
-        android:textStyle="italic"
+        android:textStyle="bold"
         android:textSize="17sp"
         android:textColor="@color/black"
         android:layout_width="wrap_content"
