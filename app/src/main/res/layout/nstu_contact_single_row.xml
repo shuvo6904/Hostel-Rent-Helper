@@ -21,7 +21,7 @@
             android:textStyle="bold"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:textSize="25sp"
+            android:textSize="18sp"
             android:text="Designation"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
 
         <TextView
             android:id="@+id/nstuNameId"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:fontFamily="@font/arbutus_slab"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
@@ -47,12 +47,12 @@
 
             <TextView
                 android:id="@+id/mobileTxtId"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:text="Mobile: "
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="Mobile: "
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
 
             <TextView
@@ -65,7 +65,7 @@
                 android:drawableEnd="@drawable/call_colored"
                 android:text="01966077883"
                 android:textColor="#054867"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
 
         </RelativeLayout>
@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:text="Phone: "
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
 
@@ -95,7 +95,7 @@
                 android:drawableEnd="@drawable/call_colored"
                 android:text="54758"
                 android:textColor="#054867"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
 
         </RelativeLayout>
@@ -108,12 +108,12 @@
 
             <TextView
                 android:id="@+id/emailTxtId"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:text="Email: "
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="Email: "
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
 
             <TextView
@@ -125,7 +125,7 @@
                 android:drawableEnd="@drawable/ic_baseline_email_24"
                 android:text="name@gmail.com"
                 android:textColor="#054867"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
 
         </RelativeLayout>
@@ -138,12 +138,12 @@
 
             <TextView
                 android:id="@+id/webTxtId"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:text="Website: "
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="Website: "
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
 
             <TextView
@@ -154,7 +154,7 @@
                 android:layout_toRightOf="@+id/webTxtId"
                 android:text="nstu.edu.bd"
                 android:textColor="#054867"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
 
         </RelativeLayout>

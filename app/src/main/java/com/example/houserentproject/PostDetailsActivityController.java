@@ -206,7 +206,7 @@ public class PostDetailsActivityController extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()){
                                 sessionController.addToFavourite(model.getId());
-                                Toast.makeText(PostDetailsActivityController.this, "Favourite", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PostDetailsActivityController.this, "Added to Favourite", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -218,7 +218,7 @@ public class PostDetailsActivityController extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()){
                                 sessionController.removeFromFavourite(model.getId());
-                                Toast.makeText(PostDetailsActivityController.this, "Removed from favourite", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PostDetailsActivityController.this, "Removed from Favourite", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

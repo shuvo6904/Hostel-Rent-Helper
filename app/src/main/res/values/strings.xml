@@ -14,6 +14,10 @@
         <item>Treasurer</item>
         <item>Registrar</item>
         <item>Proctor</item>
+        <item>Professor &amp; Chairman (ICE)</item>
+        <item>Professor &amp; Chairman (CSTE)</item>
+        <item>Professor &amp; Chairman (EEE)</item>
+        <item>Professor &amp; Chairman (A. MATH)</item>
 
     </string-array>
 
@@ -24,6 +28,10 @@
         <item>Professor Dr. Mohammed Faruque Uddin</item>
         <item>Md. Jashim Uddin</item>
         <item>Dr. Newaz Mohammad Bahadur</item>
+        <item>Dr. Md. Ashikur Rahman Khan</item>
+        <item>Dr. Ashadun Nobi</item>
+        <item>Prof. Dr. Md Abdur Rashid</item>
+        <item>Dr. Mohammad Hanif</item>
 
     </string-array>
 
@@ -34,6 +42,10 @@
         <item>01713124030</item>
         <item>01819834393</item>
         <item>01790229674</item>
+        <item>01836350710</item>
+        <item>01717207155</item>
+        <item>01999827326</item>
+        <item>01712018181</item>
 
     </string-array>
 
@@ -54,6 +66,10 @@
         <item>02334496508</item>
         <item>02334496522</item>
         <item>02334496561</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>02334496527</item>
 
     </string-array>
 
@@ -63,7 +79,11 @@
         <item>pro-vc@nstu.edu.bd</item>
         <item>treasurer@nstu.edu.bd</item>
         <item>registrar@office.nstu.edu.bd</item>
-        <item></item>
+        <item>registrar@office.nstu.edu.bd</item>
+        <item>ashik@nstu.edu.bd</item>
+        <item>ashad@nstu.edu.bd</item>
+        <item>marashid@nstu.edu.bd</item>
+        <item>drhanifmurad@nstu.edu.bd</item>
 
     </string-array>
 
@@ -74,6 +94,10 @@
         <item>https://nstu.edu.bd/treasurer</item>
         <item>https://nstu.edu.bd/registrar</item>
         <item></item>
+        <item>https://nstu.edu.bd/department/ice</item>
+        <item>https://nstu.edu.bd/department/cste</item>
+        <item>https://nstu.edu.bd/department/eee</item>
+        <item>https://nstu.edu.bd/department/am</item>
 
     </string-array>
 
