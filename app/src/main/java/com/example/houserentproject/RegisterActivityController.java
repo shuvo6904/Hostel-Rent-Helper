@@ -42,7 +42,10 @@ public class RegisterActivityController extends AppCompatActivity {
         this.setTitle("Register Page");
 
         ActionBar bar = getSupportActionBar();
+
         bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#5DAFF1")));
+        bar.setHomeAsUpIndicator(R.drawable.ic_rent_icon);
+        bar.setDisplayHomeAsUpEnabled(true);
 
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
@@ -79,7 +82,7 @@ public class RegisterActivityController extends AppCompatActivity {
         String strConPass = regConPass.getText().toString().trim();
 
         if (strFullName.isEmpty()){
-            //regFullName.setError("Full Name is Required");
+            regFullName.setError("Full Name is Required");
             regFullName.requestFocus();
             return;
         }
