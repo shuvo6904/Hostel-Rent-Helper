@@ -117,11 +117,7 @@ public class PendingPostFragmentController extends Fragment {
 
                             if (adminPageData.getPostStatus().contains("Pending")){
                                 adminPageDataList.add(adminPageData);
-                            }else {
-                                pendingTextView.setVisibility(View.VISIBLE);
-                                adminProgressDialog.dismiss();
-
-                        }
+                            }
 
                     }
 
