@@ -46,9 +46,9 @@ public class LoginActivityController extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        this.setTitle("Login Page");
-
         ActionBar bar = getSupportActionBar();
+        bar.setTitle("Login Page");
+
         bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#5DAFF1")));
         bar.setHomeAsUpIndicator(R.drawable.ic_rent_icon);
         bar.setDisplayHomeAsUpEnabled(true);
@@ -91,22 +91,22 @@ public class LoginActivityController extends AppCompatActivity {
     public void buttonLogin(View view) {
 
         if (username.getText().toString().isEmpty()){
-            username.setError("Email is Missing");
+            username.setError("Required Field");
             username.requestFocus();
             return;
         }
 
         if (password.getText().toString().isEmpty()){
-            password.setError("Password is Missing");
+            password.setError("Required Field");
             password.requestFocus();
             return;
         }
 
-        if (password.length() < 6){
+        /*if (password.length() < 6){
             password.setError("Password Must be >= 6 Characters");
             password.requestFocus();
             return;
-        }
+        }*/
 
         loginProgressBar.setVisibility(View.VISIBLE);
 
