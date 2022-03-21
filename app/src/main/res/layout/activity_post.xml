@@ -783,7 +783,7 @@
                                 android:id="@+id/bothId"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:text="Both" />
+                                android:text="CCTV &amp; Security" />
 
                             <RadioButton
                                 android:id="@+id/noneSecurityId"
