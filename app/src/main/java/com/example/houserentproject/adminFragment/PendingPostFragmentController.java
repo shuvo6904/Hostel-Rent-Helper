@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.houserentproject.AdminAdapter;
 import com.example.houserentproject.HomePageDataModel;
@@ -37,6 +38,7 @@ public class PendingPostFragmentController extends Fragment {
     DatabaseReference adminDatabaseReference;
     ValueEventListener adminEventListener;
     ProgressDialog adminProgressDialog;
+    private TextView pendingTextView;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -87,6 +89,7 @@ public class PendingPostFragmentController extends Fragment {
         View view = inflater.inflate(R.layout.fragment_pending_post, container, false);
 
         adminRecyclerView = (RecyclerView) view.findViewById(R.id.pendingPostRecyclerId);
+        pendingTextView = view.findViewById(R.id.pendingTVId);
 
         GridLayoutManager adminGridLayoutManager = new GridLayoutManager(getActivity(),1);
         adminRecyclerView.setLayoutManager(adminGridLayoutManager);
@@ -103,23 +106,31 @@ public class PendingPostFragmentController extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                adminPageDataList.clear();
 
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    adminPageDataList.clear();
 
-                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()){
 
-                        HomePageDataModel adminPageData = dataSnapshot1.getValue(HomePageDataModel.class);
-                        if (adminPageData.getPostStatus().contains("Pending")){
-                            adminPageDataList.add(adminPageData);
+                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
+
+                            HomePageDataModel adminPageData = dataSnapshot1.getValue(HomePageDataModel.class);
+
+                            if (adminPageData.getPostStatus().contains("Pending")){
+                                adminPageDataList.add(adminPageData);
+                            }else {
+                                pendingTextView.setVisibility(View.VISIBLE);
+                                adminProgressDialog.dismiss();
+
                         }
 
                     }
+
 
                 }
 
                 adminAdapter.notifyDataSetChanged();
                 adminProgressDialog.dismiss();
+
 
             }
 

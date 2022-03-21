@@ -42,8 +42,9 @@ public class AdminHomePageActivityController extends AppCompatActivity {
         ActionBar bar = getSupportActionBar();
         //bar.hide();
         bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFE500")));
-        //bar.setDisplayHomeAsUpEnabled(true);
-        //bar.setDisplayShowHomeEnabled(true);
+
+        bar.setHomeAsUpIndicator(R.drawable.ic_rent_icon);
+        bar.setDisplayHomeAsUpEnabled(true);
 
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();

@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".adminFragment.PendingPostFragmentController">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -18,7 +17,16 @@
 
         </androidx.recyclerview.widget.RecyclerView>
 
+        <TextView
+            android:textSize="@dimen/_20ssp"
+            android:id="@+id/pendingTVId"
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            android:text="No Pending Post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    </LinearLayout>
+
+    </RelativeLayout>
 
 </FrameLayout>
