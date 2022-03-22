@@ -84,6 +84,9 @@ public class ProfileActivityController extends AppCompatActivity {
         proEditablePhnNum = (TextView) findViewById(R.id.editableProfilePhnNumId);
         proEditableEmail = (TextView) findViewById(R.id.editableProfileEmailId);
         checkIsEmailVerified = (TextView) findViewById(R.id.checkIsEmailVerifiedId);
+
+        profileEmailVerifyButton.setBackgroundColor(Color.rgb(30, 79, 193));
+
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
